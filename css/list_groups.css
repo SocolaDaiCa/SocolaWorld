@@ -1,0 +1,78 @@
+.list_groups{
+	margin-left: 60px;
+	padding-right: 7px;
+	width: 190px;
+	position: fixed;
+	top: 50px;
+	bottom: 0px;
+	overflow-y: scroll;
+	/*height: 100%;*/
+}
+.crop {
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+ul{list-style-type: none;}
+ul li{font-size: 90%;}
+ul li img{
+	height: 18px;
+	position: relative;
+	top: -2px;
+}
+li a{
+	display: block;
+	color: black;
+	padding: 5px;
+	text-decoration: none;
+}
+.list_groups .active{
+ 	background: #fafafa;
+}
+
+ul li a:hover{
+	background: white;
+	text-decoration: none;
+	color: black;
+}
+
+.scrollbar
+{
+	--boder-radius-chung: 50px;
+	/*margin-left: 30px;*/
+	/*float: left;*/
+	/*height: 300px;*/
+	/*width: 65px;*/
+	/*background: #F5F5F5;*/
+	/*overflow-y: scroll;*/
+	/*margin-bottom: 25px;*/
+}
+.scrollbar::-webkit-scrollbar,
+.scrollbar::-webkit-scrollbar-track,
+.scrollbar::-webkit-scrollbar-thumb{
+	visibility: hidden;
+}
+.scrollbar::-webkit-scrollbar:hover,
+.scrollbar::-webkit-scrollbar-track:hover,
+.scrollbar::-webkit-scrollbar-thumb:hover{
+	visibility: visible;
+	/*cursor: */
+}
+/* khung ngoài */
+.scrollbar::-webkit-scrollbar-track{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+ 	border-radius: var(--boder-radius-chung);
+ 	background: #f7f7f7;
+}
+/* trùm */
+.scrollbar::-webkit-scrollbar
+{
+	width: 10px;
+}
+/* thanh trong */
+.scrollbar::-webkit-scrollbar-thumb
+{
+	border-radius: var(--boder-radius-chung);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #777;
+}

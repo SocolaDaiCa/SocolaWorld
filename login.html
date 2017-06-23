@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vn">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Login</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="//code.jquery.com/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="./css/giao_dien.css">
+		<link rel="stylesheet" href="./css/socola.css">
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+		<script src="js.js"></script>
+	</head>
+	<body>
+		<br><br><br><br><br>
+		<div class="container flogin">
+			<form action="return.php" method="GET" role="form">
+				<div class="row form-group">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+						<!-- login with Facebook -->
+						<a href="actionToken.php?action=loginWithFacebook" class="" id="loginWithFacebook">
+							<img src="images/img-lg-with-facebook.png" alt="" style="height: 45px">
+						</a>
+					</div>
+				</div>
+				<div class="row form-group">
+					<!-- username -->
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<span class="label label-primary">Tài khoản</span>
+						<input id="email" type="text" class="form-control" name="email" placeholder="Email" value="TokenTien@gmail.com">
+					</div>
+					<!-- password -->
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<span class="label label-primary">Mật khẩu</span>
+						<input id="password" type="password" class="form-control" name="password" placeholder="Password" value="Toanquenmatkhau1997">
+					</div>
+				</div>
+				
+				<div class="row form-group">
+					<!-- token -->
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<span class="label label-primary">Hoặc đăng nhập bằng token</span>
+						<input type="text" class="form-control" id="token" placeholder="EAACEdEose0cBAITP2FZAvl9sq9MC9WSFShsw35JOUuz2aIgjbcl1suZCqDCH5COwynCF8hnlZCtwImHeXdHnMQNTesJp0x1jsdgG91Reug0ATnsAA1elYsmTVGaYSVAYv9PtRYmKEwJKAW1AwlSAtMFRQ14kjaQQYZAZBzMJAKSsbdvLdz26ByAlKXe8g70gZD" name="token">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<!-- button login -->
+						<button type="submit" id="submit" class="btn btn-primary">Đăng nhập</button>
+						<!-- button lấy token graph -->
+						<a href="https://developers.facebook.com/tools/explorer" class="btn btn-default" data-toggle="tooltip" title="Lấy token của ứng dụng" target="_blank">Lấy Token Graph FB</a>
+						<a href="#" class="btn btn-info" target="_blank">Hướng dẫn</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,125 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	word-wrap: break-word;
+}
+body{
+	--border_chuan: solid #DDDEE2 1px;
+	background-color: #DFE0E4;
+}
+.bo_cuc{padding-top: 65px;}
+.time_line{
+	margin-left:250px;
+	counter-reset: section;
+}
+.cover{
+	width: 820px;
+	height: 250px;
+	max-height: auto;
+	max-width: 100%;
+	border: var(--border_chuan);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% auto;
+}
+.next_cover{
+	background: white;
+	border: var(--border_chuan);
+	border-top: 0px;
+	width: 820px;
+	max-width: 100%;
+	padding: 12px;
+	margin-bottom: 10px;
+}
+.next_cover button{padding: 3px 10px;}
+.post{
+	border: var(--border_chuan);
+	margin-bottom: 10px; 
+	max-width: 500px;
+	background: #fff;
+	border-radius: 1px;
+}
+.header_post{
+	padding: 10px;
+	display: flex;
+}
+.header_post .avatar{
+	margin-right: 8px;
+	width: 42px;
+	height: 42px;
+	border: var(--border_chuan);
+}
+.header_post .avatar img{
+	width: 100%;
+	height: 100%;
+}
+.header_post .story{flex: 1;}
+.story:before{
+	counter-increment: section;
+	content: counter(section);
+	font-weight: bold;
+}
+.body_post{
+	padding: 10px;
+	padding-top: 0px;
+}
+.body_post img{
+	width: 100%;
+	border: var(--border_chuan);
+}
+.body_post video{
+	width: 100%;
+	max-height: 85vh;
+	border: var(--border_chuan);
+}
+.action{
+	border-top: var(--border_chuan);
+	margin: 0 10px 5px 10px;
+	padding-top: 10px;
+}
+.action a{color: #777; margin-right: 10px;}
+.rearction{
+	border-top: var(--border_chuan);
+	border-left: solid 2px #2181F0;
+	padding: 10px;
+	background: #F6F7F9;
+}
+.di_link{
+	display: flex;
+	border: var(--border_chuan);
+	word-wrap: break-word;
+}
+.di_link a{
+	color: black;
+	text-decoration: none;
+}
+.di_link .icon img{
+	width: 150px;
+	height: 150px;
+	border: none;
+}
+.di_link .chu_thich{
+	padding: 10px;
+	word-wrap: break-word;
+	border-left: var(--border_chuan);
+}
+.chu_thich span{
+}
+.like:before{
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-image: url(../images/emoji/like.png);
+    background-size: 100% 100%;
+    content: "";
+    margin-right: 5px;
+}
+.comment{
+	float:right;
+}
+.comment:after{
+	content: ' bình luận';
+}

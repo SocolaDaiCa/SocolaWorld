@@ -1,0 +1,55 @@
+.backgroundImageCVR{
+	/*size: 470px 470px;*/
+	position:relative;
+	/*padding-top: :10px;*/
+	margin-top: 10px; 
+}
+.background-image{
+	position:absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background-size: 100% 100%;
+	/*size: 470px 470px;*/
+	z-index:1;
+	/*-webkit-filter: blur(100px);*/
+	/*-moz-filter: blur(100px);*/
+	/*-o-filter: blur(100px);*/
+	/*-ms-filter: blur(100px);*/
+	filter: blur(4px);	
+}
+.content{
+	position:relative;
+	/*size: 470px 470px;*/
+	z-index:2;
+}
+body{
+	background-color: #E9EBEE;
+	background-repeat: no-repeat;
+	background-position: center; /*vị trí tương đối của ảnh*/
+	background-attachment: fixed; /*ảnh luôn xuất hiện dù có cuộn trang*/
+	background-size: 100% auto;
+	padding: 0px;
+}
+.post{
+	padding: 10px;
+}
+.footer_post{
+	padding-top: 10px;
+}
+.parent {
+	display: flex;
+}
+.narrow {
+	float: left;
+}
+.wide {
+	flex: 1;
+	float: right;
+}
+.cmt{
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}

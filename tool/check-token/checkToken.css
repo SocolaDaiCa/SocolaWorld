@@ -1,0 +1,15 @@
+#token-input {
+	resize: none;
+}
+.live {
+    background-color: #ddffdd;
+    border-left: 5px solid #4CAF50;
+}
+.id{
+	width: 130px;
+	display: inline-block;
+}
+.name{
+	display: inline-block;
+	width: 160px;
+}

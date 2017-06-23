@@ -1,0 +1,32 @@
+ul.menubar{
+	position: fixed;
+	background: white;
+	width: 100%;
+	list-style-type: none;
+	font-size: 17px;
+	font-weight: bold;
+	text-transform: uppercase;
+	z-index: 30;
+}
+ul.menubar:after{
+	clear: both;
+}
+ul.menubar li{
+	float: left;
+}
+ul.menubar li a{
+	color: black;
+	font-family: Roboto;
+	display: block;
+	padding: 10px;
+	border-bottom: 4px solid transparent;
+}
+ul.menubar li a:hover{
+	/*background: #777;*/
+	/*color: #fff;*/
+	border-color: red;
+}
+.right{
+	float: right;
+	background: blue;
+}

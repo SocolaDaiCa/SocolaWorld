@@ -1,0 +1,15 @@
+@media only all and (max-width: 750px){
+	.list_groups{
+		position: static;
+		width: auto;
+		display: block;
+		margin-left: 0px;
+	}
+	.time_line{
+		margin-left: 0px;
+	}
+	.post{
+		margin: auto;
+		margin-bottom: 5px;
+	}
+}
