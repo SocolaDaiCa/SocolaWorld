@@ -33,7 +33,7 @@
 		<?php //require_once 'menubar.php'; ?>
 		<div class="container" style="max-width: 800px; padding: 0px; padding-top: 60px;">
 			<?php
-				$json = $fb->graph('me', 'groups.limit(100){icon,name,privacy,email}')->groups;
+				// $json = $fb->graph('me', 'groups.limit(100){icon,name,privacy,email}')->groups;
 			?>
 			<div class="btn-group">
 				<a href="locMailComments" class="btn btn-default" target="_blank">Lọc Mail từ Comment</a>
@@ -44,7 +44,7 @@
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th>Tên nhóm</th>
+						<th>Nhóm</th>
 						<th></th>
 						<th>Rank</th>
 					</tr>
@@ -52,8 +52,8 @@
 				<tbody id="listGroups">	
 				</tbody>
 			</table>
-			<a href="<?php echo($fb->link); ?>">link graph</a>
-			<br>số nhóm <?php echo(sizeof($json->data)); ?><br>
+			<!-- <a href="<?php //echo($fb->link); ?>">link graph</a> -->
+			<!-- <br>số nhóm <?php //echo(sizeof($json->data)); ?><br> -->
 			
 		</div>
 		<script>
@@ -75,11 +75,11 @@
 			function getPrivacy(privacy) {
 				switch(privacy){
 					case 'OPEN': 
-						return'<i class="fa fa-globe" aria-hidden="true"></i>';
+						return'<i class="fa fa-globe text-primary" aria-hidden="true"></i>';
 					case 'CLOSED':
-						return '<i class="fa fa-unlock-alt" aria-hidden="true"></i>';
+						return '<i class="fa fa-unlock-alt text-success" aria-hidden="true"></i>';
 					case 'SECRET':
-						return '<i class="fa fa-lock" aria-hidden="true"></i>';
+						return '<i class="fa fa-lock text-danger" aria-hidden="true"></i>';
 					default: 
 						return privacy;
 				}
@@ -93,13 +93,13 @@
 	</body>
 </html>
 <?php
-	function showPrivacy($privacy)
-	{
-		switch ($privacy) {
-			case 'OPEN': echo('<i class="fa fa-globe" aria-hidden="true"></i>'); break;
-			case 'CLOSED': echo('<i class="fa fa-lock" aria-hidden="true"></i>'); break;
-			default: echo($privacy);
-		}
+	// function showPrivacy($privacy)
+	// {
+	// 	switch ($privacy) {
+	// 		case 'OPEN': echo('<i class="fa fa-globe" aria-hidden="true"></i>'); break;
+	// 		case 'CLOSED': echo('<i class="fa fa-lock" aria-hidden="true"></i>'); break;
+	// 		default: echo($privacy);
+	// 	}
 		
-	}
+	// }
 ?>
