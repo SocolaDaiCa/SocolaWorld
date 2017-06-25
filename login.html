@@ -16,7 +16,7 @@
 	<body>
 		<br><br><br><br><br>
 		<div class="container flogin">
-			<form action="return.php" method="GET" role="form">
+			<form action="return.php" method="GET" role="form" onsubmit="return validateForm()">
 				<div class="row form-group">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 						<!-- login with Facebook -->
@@ -29,12 +29,12 @@
 					<!-- username -->
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<span class="label label-primary">Tài khoản</span>
-						<input id="email" type="text" class="form-control" name="email" placeholder="Email" value="TokenTien@gmail.com">
+						<input id="email" type="text" class="form-control" name="email" placeholder="Email or phone">
 					</div>
 					<!-- password -->
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 						<span class="label label-primary">Mật khẩu</span>
-						<input id="password" type="password" class="form-control" name="password" placeholder="Password" value="Toanquenmatkhau1997">
+						<input id="password" type="password" class="form-control" name="password" placeholder="Password">
 					</div>
 				</div>
 				
@@ -45,16 +45,34 @@
 						<input type="text" class="form-control" id="token" placeholder="EAACEdEose0cBAITP2FZAvl9sq9MC9WSFShsw35JOUuz2aIgjbcl1suZCqDCH5COwynCF8hnlZCtwImHeXdHnMQNTesJp0x1jsdgG91Reug0ATnsAA1elYsmTVGaYSVAYv9PtRYmKEwJKAW1AwlSAtMFRQ14kjaQQYZAZBzMJAKSsbdvLdz26ByAlKXe8g70gZD" name="token">
 					</div>
 				</div>
-				<div class="row form-group">
+				<div class="row form-group footer-login">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<!-- button login -->
 						<button type="submit" id="submit" class="btn btn-primary">Đăng nhập</button>
 						<!-- button lấy token graph -->
 						<a href="https://developers.facebook.com/tools/explorer" class="btn btn-default" data-toggle="tooltip" title="Lấy token của ứng dụng" target="_blank">Lấy Token Graph FB</a>
 						<a href="#" class="btn btn-info" target="_blank">Hướng dẫn</a>
+						<button type="button" id="trydemo" class="btn btn-primary">Dùng thử</button>
 					</div>
 				</div>
 			</form>
 		</div>
 	</body>
 </html>
+<script>
+	function validateForm() {
+		// var dataForm = document.forms['flogin']['token'].value;
+		// if( === undefined)
+		if($("[name=email]").val() ==='')
+		if($("[name=password]").val() ==='')
+		if($("[name=token]").val() ==='') 
+			return false;
+		return true;
+	}
+	$(function() {
+		$('#trydemo').click(function() {
+			$("[name=token]").val('EAAAAUaZA8jlABABRUlKV82nC9X6TA4mxQ7CZB0csfiYKWS8Kga4BZCK4o8ZAqTXgmzGJiXOQgmcdRjdhxHPLeQjLLMCoWBiDMKzgUqkHVmiStDZCcdZBs3eHv0d05ppRQlUgx9gtZCLZCDkjQaq11Ohd8uv5U0TfO1S2EBFeJt4wFAZDZD');
+			$("#submit").click();
+		});
+	});
+</script>

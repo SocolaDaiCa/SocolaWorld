@@ -8,11 +8,6 @@
 	overflow-y: scroll;
 	/*height: 100%;*/
 }
-.crop {
-	overflow:hidden;
-	white-space:nowrap;
-	text-overflow:ellipsis;
-}
 ul{list-style-type: none;}
 ul li{font-size: 90%;}
 ul li img{

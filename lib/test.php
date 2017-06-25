@@ -1,0 +1,5 @@
+<?php 
+	require 'function.php';
+	echo(getLongLivedToken('EAAI4BG12pyIBAOnWizBqWjUW2N8uOIemHyZBHoQ0vwAzYpwsZAURjOBZCsZByarnIGRWZCJk1CUCinAvubXSyr1GdAIdE8fwdeJ88JdzAgf9JpVkmeXw2ZBPhVRh7vLdXOmyZCHElatZAmRUUBdkPP8wVwK86ScNFr5W3d4JggmjZBxOrqJJqkqdwZB2XZCyVib5suWQITV6zRvd4pX585NVzl1'));
+	echo('xong');
+ ?>

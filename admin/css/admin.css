@@ -1,0 +1,42 @@
+/*.token .min{
+	width: 500px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.id{
+	width: 10px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+.id, .name, .action{
+	width: 1px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+*/
+table.admin{
+	width: auto;
+	margin: auto;
+}
+table.admin tr td{
+	padding-right: 20px;
+	line-height: 39px;
+}
+table.admin tr td:last-child{
+	padding-right: 5px;
+}
+.id .text{
+	width: 130px;
+}
+.name .text{
+	max-width: 200px;
+}
+.token .text{
+	width: 300px;
+}
+.action span{
+	cursor: pointer;
+}
