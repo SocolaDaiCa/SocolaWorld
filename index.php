@@ -45,7 +45,7 @@
 				<thead>
 					<tr>
 						<th>Nhóm</th>
-						<th></th>
+						<th style="width: 1px;"></th>
 						<th>Rank</th>
 					</tr>
 				</thead>
@@ -66,7 +66,7 @@
 								('<img src="'+item.icon+'" alt="">  '+
 								item.name).link('groups/'+item.email+'/'+item.id)+
 							'</td>'+
-							'<td>'+getPrivacy(item.privacy)+'</td>'+
+							'<td style="width: 1px;">'+getPrivacy(item.privacy)+'</td>'+
 							'<td>s</td>'+
 						'</tr>'
 					);

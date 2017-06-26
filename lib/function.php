@@ -111,9 +111,12 @@
 		if (isset($data->access_token)) {
 			return $data->access_token;
 		}
-		echo('<pre>');
-		print_r(json_decode($data->error_data));
-		echo('</pre>');
+		$error_title = json_decode($data->error_data)->error_title;
+		header('Location: login.html#'.$error_title);
+		// echo('<pre>');
+		// echo(json_decode($data->error_data)->error_title);
+		// print_r(json_decode($data->error_data));
+		// echo('</pre>');
 		exit();
 	}
 

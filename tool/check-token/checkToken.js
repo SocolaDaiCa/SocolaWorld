@@ -12,7 +12,10 @@ $(document).ready(function() {
 		var str_token = $('#token-input').val();
 		if(str_token==='')
 		{
-			$('#result').html('Không nhập gì thì sao mà chạy đc.');
+			$('#result').html(
+			'<div class="alert alert-danger">'+
+			'	<strong>Warning!</strong> Không nhập gì thì sao mà chạy đc.'+
+			'</div>');
 			return ;
 		}
 		else

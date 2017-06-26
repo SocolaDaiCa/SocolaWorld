@@ -25,8 +25,8 @@ class FB{
 			'fields' => 'id,name',
 			'access_token' => $this->access_token
 		);
-		$json = getJSON($this->graph.'me', $param);
-		return !isset($json->error);
+		$this->json = getJSON($this->graph.'me', $param);
+		return !isset($this->json->error);
 	}
 
 	function getPathShowError(){
@@ -209,8 +209,6 @@ class FB{
 	}
 	public function showError()
 	{
-		echo("<pre>");
-		print_r($this->json);
-		echo("</pre>");
+		print_r($this->json_string);
 	}
 }

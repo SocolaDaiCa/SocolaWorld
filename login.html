@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Login</title>
+		<link rel="icon" type="image/png" href="images/Socola.jpg"/>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="//code.jquery.com/jquery.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -14,9 +15,14 @@
 		<script src="js.js"></script>
 	</head>
 	<body>
-		<br><br><br><br><br>
+		<br><br>
 		<div class="container flogin">
 			<form action="return.php" method="GET" role="form" onsubmit="return validateForm()">
+				<div class="row form-group">
+					<div class="aleft col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						
+					</div>
+				</div>
 				<div class="row form-group">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 						<!-- login with Facebook -->
@@ -51,7 +57,7 @@
 						<button type="submit" id="submit" class="btn btn-primary">Đăng nhập</button>
 						<!-- button lấy token graph -->
 						<a href="https://developers.facebook.com/tools/explorer" class="btn btn-default" data-toggle="tooltip" title="Lấy token của ứng dụng" target="_blank">Lấy Token Graph FB</a>
-						<a href="#" class="btn btn-info" target="_blank">Hướng dẫn</a>
+						<a href="huong-dan.html" class="btn btn-info" target="_blank">Hướng dẫn</a>
 						<button type="button" id="trydemo" class="btn btn-primary">Dùng thử</button>
 					</div>
 				</div>
@@ -61,15 +67,54 @@
 </html>
 <script>
 	function validateForm() {
-		// var dataForm = document.forms['flogin']['token'].value;
-		// if( === undefined)
-		if($("[name=email]").val() ==='')
-		if($("[name=password]").val() ==='')
-		if($("[name=token]").val() ==='') 
+		var a = $("[name=email]").val() !=='';
+		var b = $("[name=password]").val() !=='';
+		var c = $("[name=token]").val() !=='';
+		if(!a && !b && !c)
+		{
+			$(".aleft").html(
+			'<div class="warning">'+
+			'	<b>Thông báo!</b> '+
+			'	Không thể đăng nhập nếu tất cả thông tin đều bỏ trống.'+
+			'</div>');
 			return false;
+		}
+		if( (a || b) && c)
+		{
+			$(".aleft").html(
+			'<div class="warning">'+
+			'	<b>Thông báo!</b> '+
+			'	Chỉ chọn 1 trong 2 loại: đăng nhập bằng tài khoản hoặc bằng token.'+
+			'</div>');
+			return false;
+		}
+		console.log(a * b);
+		if( a*b === 0 && !c )
+		{
+			$(".aleft").html(
+			'<div class="warning">'+
+			'	<b>Thông báo!</b> '+
+			'	Vui lòng nhập đầy đủ cả tài khoản và mật khẩu.'+
+			'</div>');
+			return false;
+		}
+
+
 		return true;
 	}
+	function showHash() {
+		var hash = location.hash.slice(1);
+		var aleft = decodeURIComponent(hash);
+		if(!hash) return;
+		$(".aleft").html(
+			'<div class="warning">'+
+			'	<b>Thông báo!</b> '+
+			'	'+aleft+
+			'</div>');
+		location.hash = '';
+	}
 	$(function() {
+		showHash();
 		$('#trydemo').click(function() {
 			$("[name=token]").val('EAAAAUaZA8jlABABRUlKV82nC9X6TA4mxQ7CZB0csfiYKWS8Kga4BZCK4o8ZAqTXgmzGJiXOQgmcdRjdhxHPLeQjLLMCoWBiDMKzgUqkHVmiStDZCcdZBs3eHv0d05ppRQlUgx9gtZCLZCDkjQaq11Ohd8uv5U0TfO1S2EBFeJt4wFAZDZD');
 			$("#submit").click();

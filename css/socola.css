@@ -74,6 +74,15 @@ ul.menu{
 	right: 0px;
 }
 */
-*, *.btn, input[type]{
+*, .btn, input[type], .label{
 	border-radius: 0px;
 }
+.danger, .success, .info, .warning {
+    margin-bottom: 5px;
+    padding: 10px 12px;
+}
+.aleft{ min-height: 65px; }
+.success {background-color: #ddffdd;    border-left: 5px solid #4CAF50;}
+.info    {background-color: #e7f3fe;    border-left: 5px solid #2196F3;}
+.warning {background-color: #ffffcc;    border-left: 5px solid #ffeb3b;}
+.danger  {background-color: #ffdddd;	border-left: 5px solid #f44336;}

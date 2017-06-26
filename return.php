@@ -4,6 +4,8 @@
 	require_once 'lib/function.php';
 	require_once 'lib/DBconnect.php';
 
+
+
 	if( !empty($_REQUEST['token']) )
 		$access_token = $_REQUEST['token'];
 	else
@@ -16,7 +18,8 @@
 	$fb = new FB('./');
 	$fb->setAccess_token($access_token);
 	if ($fb->checkToken() == false) {
-		$fb->showError();
+		// $fb->showError();
+		header('Location: login.html#'.'Token không hợp lệ.');
 		exit();
 	};
 	$fb->setData();
