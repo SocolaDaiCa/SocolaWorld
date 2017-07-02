@@ -13,6 +13,7 @@
 	<link rel="icon" href="../../image/Socola.jpg">
 	<title><?php echo($fb->name); ?></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/socola.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../../css/blur.css">
 	<link rel="stylesheet" href="../../css/giao_dien.css">
@@ -20,7 +21,6 @@
 	<link rel="stylesheet" href="../../css/style.css">
 	<link rel="stylesheet" href="../../css/list_groups.css">
 	<link rel="stylesheet" href="../../css/respon.css">
-
 </head>
 <body>
 	<?php //require_once '../menubar.php'; ?>
@@ -48,24 +48,23 @@
 			</div>
 		</div>
 	</div>
-	<script src="//code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script language="javascript" src="../../js.js"></script>
-	<script language="javascript" src="../../js/FB.js"></script>
-	<script language="javascript" src="../../js/socola.js"></script>
-	<script language="javascript" src="../../js/function.js"></script>
-	<script src="../../dangTest.js"></script>
-	<script>
-		$(document).ready(function(){
-			// var link = $(location).attr('href').replace($(location).attr('hash'), "");
-			// var id = (link.split('/')).pop();
-			var fb = new FB('../../');
-			fb.getIdFromUrl();
-			fb.setToken();
-			fb.setCover();
-			fb.listGroups();
-			fb.newsFeed();
-		});
-	</script>
 </body>
 </html>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="../../js/lib/jquery.cookie.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="../../js.js"></script>
+<script src="../../js/FB.js"></script>
+<script src="../../js/socola.js"></script>
+<script src="../../js/function.js"></script>
+<script src="../../dangTest.js"></script>
+<script>
+	$(document).ready(function(){
+		var fb = new FB('../../');
+		fb.getIdFromUrl();
+		fb.setToken();
+		fb.setCover();
+		fb.listGroups();
+		fb.newsFeed();
+	});
+</script>

@@ -37,7 +37,7 @@
 		$param = array(
 			'client_id' => client_id,
 			'redirect_uri' => redirect_uri,
-			'scope' => 'public_profile',
+			'scope' => 'public_profile,user_friends',
 		);
 		header('Location: '.getUrl($url, $param));
 	}

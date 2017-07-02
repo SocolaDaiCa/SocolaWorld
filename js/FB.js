@@ -37,12 +37,7 @@ function FB(path) {
 	};
 	this.setToken = function(){
 		$.ajaxSetup( { "async": false } );
-		var token;
-		$.get(this.path_show_error+'actionToken.php?action=getToken', 
-		function(res) {
-				token = res;
-		});
-		this.token = token || this.token;
+		this.token = $.cookie('token') || this.token;
 		var json;
 		$.getJSON(this.link_graph+'v2.9/me', {access_token : this.token}, 
 			function(res) { json = res;});
@@ -52,7 +47,8 @@ function FB(path) {
 			access_token : this.token
 		}, function(res) { json = res; });
 		this.groups = json;
-		document.title = this.groups.name;
+		// if('name' in this.groups)
+		// 	document.title = this.groups.name;
 		$.ajaxSetup( { "async": true } ); 
 	};
 	this.setCover = function(){
@@ -67,7 +63,7 @@ function FB(path) {
 		});
 	};
 	this.listGroups = function(){
-		var fields = 'groups.limit(250){icon,name,privacy,email}';
+		var fields = 'groups.limit(250){picture,name,email,icon}';/*{,,privacy,,picture}*/
 		this.graph('me', fields, show_list_groups, Null, '');
 	};
 	this.newsFeed = function(){
@@ -78,25 +74,39 @@ function FB(path) {
 		var fields = 'members.limit(500){name,link}';
 		this.graph(fields, showListMembers, Null, 'listMenbers');
 	};
-	this.graph=function(idTarget, fields, action, actionElse, id) {
-		var all = this;
+	this.graphA = function(idTarget, fields){
+		$.ajaxSetup( { "async": false } );
+		var json;
 		$.getJSON('https://graph.facebook.com/v2.3/'+idTarget, 
 		{
 			fields       : fields,
 			access_token : this.token
 		},
 		function(res) {
-			var field = Object.keys(res)[0];
-			var json = res[field].data;
-			$('#'+id).html('');
-			action(json, all);
-			if(res[field].paging && res[field].paging.next)
-				return graphNext(res[field].paging.next, action, actionElse, all);
-			return actionElse();
+			json = res;
 		});
+		$.ajaxSetup( { "async": true } );
+		return json;
 	};
 	return this;
 }
+FB.prototype.graph=function(idTarget, fields, action, actionElse, id) {
+	var all = this;
+	$.getJSON('https://graph.facebook.com/v2.3/'+idTarget, 
+	{
+		fields       : fields,
+		access_token : this.token
+	},
+	function(res) {
+		var field = Object.keys(res)[0];
+		var json = res[field].data;
+		$('#'+id).html('');
+		action(json, all);
+		if(res[field].paging && res[field].paging.next)
+			return graphNext(res[field].paging.next, action, actionElse, all);
+		return actionElse();
+	});
+};
 function graphNext(next, action, actionElse, all){
 	$.getJSON(next, function(res) {
 		action(res.data, all);
@@ -106,3 +116,56 @@ function graphNext(next, action, actionElse, all){
 	});
 }
 function Null() {}
+
+function showNewsFeed(json, all) {
+	var html ='';
+	countPost+=json.length;
+	json.forEach(function(status, index) {
+		if(Date.parse(status.created_time)/1000 < since) return;
+		html+='	<div class="post" id="_'+status.id+'">';
+		html+='		<div class="header_post">';
+		html+='			<div class="avatar">'+showAvatar(status)+'</div>';
+		html+='			<div class="story">';
+		html+='				<span>'+showStory(status, all.groups)+'</span>';
+		html+='<br><a class="text-muted small" target="_blank" href="'+status.permalink_url+'">'+showCreatTime(status.created_time)+'</a>';
+		// html+=				dropdown(status.id);
+		html+='			</div>';
+		html+='		</div>';
+
+		html+='		<div class="body_post">';
+		html+=			showMessage(status);
+		html+=			showFullPicture(status);
+		html+=			showSource(status);
+		html+='		</div>';
+
+		html+='		<div class="footer_post">';
+		html+='			<div class="action">';
+		html+='				<a href="#/">';
+		html+='					<span id="'+index+'_like" onclick="like("'+index+'_like")"">';
+		html+='						<i class="fa fa-thumbs-up"></i>';
+		html+='						<b class="small">Thích</b>';
+		html+='					</span>';
+		html+='				</a>';
+		html+=				'<a href="'+status.permalink_url+'" target="_blank">';
+		html+='					<span class="glyphicon glyphicon-comment"></span>';
+		html+='					<b class="small">Bình luận</b>';
+		html+='				</a>';
+		html+=				'<a href="'+status.permalink_url+'" target="_blank">';
+		html+='					<span class="glyphicon glyphicon-share-alt"></span>';
+		html+='					<b class="small" style="color:;">Chia sẻ</b>';
+		html+='				</a>';
+		html+='			</div>';
+		html+='			<div class="rearction">';
+		html+='				<a href="#/" title="" class="text-muted like">'+status.likes.summary.total_count+'</a>';
+		html+='				<a href="'+status.permalink_url+'" target="_blank" class="text-muted comment">'+getCountComments(status)+'</a>';
+		html+='			</div>';
+		html+='		</div>';
+		html+='</div>';
+	});
+	$('#newsfeed').append(html);
+}
+function getCountComments(status) {
+	if (status.comments && status.comments.summary)
+		return status.comments.summary.total_count;
+	return 'cant count';
+}

@@ -6,9 +6,10 @@
 		<title>sds</title>
 		<!-- Latest compiled and minified CSS & JS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../check-rank.css">
 		<script src="//code.jquery.com/jquery.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="../check-rank.css">
+		
 		<link rel="stylesheet" href="../../../css/socola.css">
 		<script src="../../js/FB.js"></script>
 		<script src="../check-rank.js"></script>

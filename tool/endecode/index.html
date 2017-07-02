@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>endede</title>
+		<!-- Latest compiled and minified CSS & JS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../css/socola.css">
+		<script src="//code.jquery.com/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<label for="">Input</label>
+					<textarea name="" id="input" class="form-control" rows="15" required="required"></textarea>
+				</div>
+				<div class="col-lg-6">
+					<textarea name="" id="output" class="form-control" rows="15" required="required"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="form-group">
+						<button type="button" name="urldecode" class="btn btn-primary">url decode</button>
+						<button type="button" name="urlencode" class="btn btn-primary">url encode</button>
+					</div>
+					<div class="form-group">
+						<button type="button" name="base64_decode" class="btn btn-primary">base64 decode</button>
+						<button type="button" name="base64_encode" class="btn btn-primary">base64 encode</button>
+					</div>
+					<button type="button" name="" class="btn btn-primary">Html decode</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="../../js/socola.js"></script>
+<script>
+	$(function() {
+		$('button').click(function() {
+			var input = $('#input').val();
+			var action = $(this).attr('name');
+			$.get('action.php', {
+				action:  $(this).attr('name'),
+				value : $('#input').val()
+			}, function(res) {
+				$('#output').val(res);
+			});
+		});
+	});
+</script>

@@ -1,3 +1,5 @@
+<pre>
+</pre>
 <!-- getFBId.php?url={url usercần lấy id} -->
 <?php
 	function viewsource($url)
@@ -19,7 +21,14 @@
 	if(!empty($_GET['url'])) $url = $_GET['url'];
 	if(!empty($_GET['id']))  $url = "http://facebook.com/{$_GET['id']}";
 	$html = viewsource($url);
-	$id = explode('fb://profile/', $html)[1];
+	$html = explode('content="fb://', $html)[1];
+	$id = explode('/', $html)[1];
+	// echo(htmlentities($html));
+	// $arr_html = explode('fb://profile/', $html);
+	// foreach ($arr_html as $key => $value) {
+	// 	echo(htmlentities($value).'<br>');
+	// }
+	// $id = isset($arr_html[1]) ? $arr_html[1] : 'fb méo công khai, k check đc';
 	$id = explode('"', $id)[0];
 	echo($id);
 ?>

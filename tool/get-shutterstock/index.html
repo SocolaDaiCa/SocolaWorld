@@ -13,9 +13,9 @@
 			img{
 				max-width: 100%;
 			}
-			#result{
+			/*#result{
 				display: none;
-			}
+			}*/
 		</style>
 	</head>
 	<body>
@@ -35,11 +35,6 @@
 				</div>
 			</div>
 			<div id="result" class="col-md-9 col-lg-9">
-				Click on image to download
-				<a href="#" class="btn btn-default" title="" target="_blank">View full image</a>
-				<a href="" title="" download>
-					<img src="" alt="">
-				</a>
 			</div>
 		</div>
 	</body>
@@ -51,9 +46,10 @@
 			var data = {url: $("#url").val()};
 			console.log(data.url);
 			$.get(url, data, function(res) {
-				$("#result").children("a").attr("href", res);
-				$("#result").children("a").children("img").attr("src",res);
-				$("#result").show();
+				$("#result").html(res);
+			// 	// $("#result").children("a").attr("href", res);
+			// 	// $("#result").children("a").children("img").attr("src",res);
+			// 	// $("#result").show();
 			});
 		});
 	});

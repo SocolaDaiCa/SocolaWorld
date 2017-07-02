@@ -1,5 +1,28 @@
 <?php
-class FB{
+interface FB_interface{
+	function __construct();
+	function setAccess_token($access_token);
+	function checkToken();
+	function set_cover($id);
+	function show_avatar($post);
+	function show_story($value);
+	function getPathShowError();
+	function setData();
+	function graph($id, $fields='', $version='');
+	function graph_all($id, $fields, $data_name, $limit, $version='');
+	function show_creat_time(&$value);
+	function show_message($value, $Keo);
+	function show_source($value);
+	function show_full_picture(&$value);
+	function body_post(&$value);
+	function show_link_graph();
+	function find_id($link);
+	function post_comment($id_post, $text);
+	function menu();
+	function show_post($value);
+	function showError();
+}
+class FB implements FB_interface{
 	public $Keo= array("\n", ' ', "[", "]", ',', '"');
 	public $link;
 	public $access_token='';
@@ -14,12 +37,9 @@ class FB{
 	function __construct($path='./'){
 		$this->path_show_error= $path.'login.html';
 	}
-
-	function setAccess_token($access_token)
-	{
-		$this->access_token = empty($access_token) ? $this->access_token : $access_token;
+	function setAccess_token($access_token){
+		$this->access_token = $access_token;
 	}
-
 	function checkToken(){
 		$param = array(
 			'fields' => 'id,name',
@@ -28,11 +48,35 @@ class FB{
 		$this->json = getJSON($this->graph.'me', $param);
 		return !isset($this->json->error);
 	}
-
+	function set_cover($id){
+		$json_cover = $this->graph($id, 'cover');
+		if(!isset($json_cover->cover->source))	return;
+		$url_cover = $json_cover->cover->source;
+		echo ('<style type="text/css">.cover{background-image: url("'.$url_cover.'");}</style>');
+	}
+	function show_avatar($post){
+		$id = $post->from->id;
+		$link_profile = "https://fb.com/{$id}";
+		$link_avatar = "https://graph.facebook.com/{$id}/picture?type=large&redirect=true&width=40&height=40";
+		echo('<a href="'.$link_profile.'" title="" target="_blank"><img src="'.$link_avatar.'" alt="image"/></a>');
+	}
+	function show_story($post){
+		$link_user = '<a href="https://fb.com/'.$post->from->id.'" title="" target="_blank"><b>'.$value->from->name.'</b></a>';
+		$username = $value->from->name;
+		$link_group = '<a href="https://fb.com/'.$this->id.'">'.$this->name.'</a>'; 
+		if(!isset($value->story))
+		{
+			echo($link_user.' <span class="glyphicon glyphicon-triangle-right text-muted" style="font-size:10px;"></span> <b>'.$link_group.'</b>');
+			return;
+		}
+		$story = $value->story;
+		$story = str_replace($value->from->name, $link_user.'<span class="text-muted">', $story);
+		$story = str_replace($this->name, $link_group.'</span>', $story);
+		echo("\n".$story);
+	}
 	function getPathShowError(){
 		return $this->path_show_error;
 	}
-
 	function setData()
 	{
 		$this->access_token = empty($this->access_token) ? $_COOKIE['token'] : $this->access_token;
@@ -48,13 +92,6 @@ class FB{
 			exit();
 		}
 		$this->name = $this->json->name;
-	}
-
-	function set_cover($id){
-		$json_cover = $this->graph($id, 'cover');
-		if(!isset($json_cover->cover->source))	return;
-		$url_cover = $json_cover->cover->source;
-		echo ('<style type="text/css">.cover{background-image: url("'.$url_cover.'");}</style>');
 	}
 
 	function graph($id, $fields='', $version=''){
@@ -89,26 +126,6 @@ class FB{
 		}
 		return $data;
 	}
-
-	function show_avatar($value){
-		echo('<a href="https://fb.com/'.$value->from->id.'" title="" target="_blank">
-			<img alt="image" src="https://graph.facebook.com/'.$value->from->id.'/picture?type=large&redirect=true&width=40&height=40"/> </a>');
-	}
-
-	function show_story($value){
-		$link_user = '<a href="https://fb.com/'.$value->from->id.'" title="" target="_blank"><b>'.$value->from->name.'</b></a>';
-		$link_group = '<a href="https://fb.com/'.$this->id.'">'.$this->name.'</a>'; 
-		if(!isset($value->story))
-		{
-			echo($link_user.' <span class="glyphicon glyphicon-triangle-right text-muted" style="font-size:10px;"></span> <b>'.$link_group.'</b>');
-			return;
-		}
-		$story = $value->story;
-		$story = str_replace($value->from->name, $link_user.'<span class="text-muted">', $story);
-		$story = str_replace($this->name, $link_group.'</span>', $story);
-		echo("\n".$story);
-	}
-
 	function show_creat_time(&$value)
 	{
 		$cach_day=strtotime('now')-strtotime($value->created_time);
@@ -211,4 +228,14 @@ class FB{
 	{
 		print_r($this->json_string);
 	}
+
+
+
+
+
+
+
+
+
 }
+?>
