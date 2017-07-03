@@ -63,7 +63,7 @@ function FB(path) {
 		});
 	};
 	this.listGroups = function(){
-		var fields = 'groups.limit(250){picture,name,email,icon}';/*{,,privacy,,picture}*/
+		var fields = 'groups.limit(50){picture,name,email,icon}';/*{,,privacy,,picture}*/
 		this.graph('me', fields, show_list_groups, Null, '');
 	};
 	this.newsFeed = function(){

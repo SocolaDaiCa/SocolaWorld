@@ -1,4 +1,5 @@
 // var
+	var fb, idTargt;
 	var end = false;
 	var interval;
 	var listFriends = null;
@@ -8,13 +9,18 @@
 	var percent_last = 0;
 	var percent_now =0;
 	var htmlFriend = 
-		'<tr>'+
+		'<tr id="{id-friend}">'+
 			'<td class="index"></td>'+
 			'<td>{name}</td>'+
 			'<td>{reaction}</td>'+
 			'<td>{comments}</td>'+
 			'<td>{score}</td>'+
 		'</tr>';
+	var htmlPost =
+	'<tr>'+
+		'<td class="index"></td>'+
+		'<td>{id}</td>'+
+	'</tr>';
 // fun
 	function Friend(id, name) {
 		this.id       = id;
@@ -57,13 +63,14 @@
 	// 	.replace('{comments}', 0)
 	// 	.replace('{score}', 0);
 	// $('#result').append(html);
-
+// action list friend
 	function actionListFriends(json, all) {
 		leng_now += json.length;
 		json.forEach(function(item, index) {
 			listFriends['_'+item.id] = new Friend(item.id, item.name);
 			var name =item.name;
 			var html = htmlFriend
+				.replace('{id-friend}', '_'+item.id)
 				.replace('{name}', name)
 				.replace('{reaction}', 'loading...')
 				.replace('{comments}', 'loading...')
@@ -74,18 +81,36 @@
 	function endActionListFriends() {
 		end = true;
 	}
+// action list post
+	function actionListPosts(json, all) {
+		json.forEach(function(item, id) {
+			var html = htmlPost.replace('{id}', item.id);
+			$('#result-id-post').append(html);
+			fb.graph(item.id, '')
+		});
+	}
+
+$(function createVar() {
+	fb = new FB('../');
+	fb.setToken();
+	idTargt = '100003751886295';/*'100006472931102'*/
+});
+
+
 
 $(function() {
-	listFriends = {};
-	var fb = new FB('../');
-	fb.setToken();
-
-	$("#check").click(function() {
+	$("#list-friends").click(function() {
+		listFriends = {};
 		interval = setInterval(showPercent, 50);
-		var idTargt = '100003751886295';/*'100006472931102'*/
 		leng_max = fb.graphA(idTargt, 'friends.limit(0)').friends.summary.total_count;
 		leng_max/=100;
 		console.log(leng_max);
 		fb.graph(idTargt, 'friends.limit(500)', actionListFriends, endActionListFriends,'result');
 	});
+
+	$('#list-posts').click(function() {
+		fb.graph(idTargt, 'posts.since(-30 day).limit(500){id}', actionListPosts, Null, 'result-id-post');
+	});
+
 });
+

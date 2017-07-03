@@ -15,11 +15,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Socola Timeline</title>
 		<!-- Latest compiled and minified CSS & JS -->
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/socola.css">
 		<link rel="stylesheet" href="css/index.css">
 		<script src="//code.jquery.com/jquery.js"></script>
-		<script src="/bootstrap/js/bootstrap.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/giao_dien.css">
 		<script src="js/socola.js"></script>

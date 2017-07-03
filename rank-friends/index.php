@@ -17,37 +17,61 @@
 			<div id="percent">0%</div>
 		</div>
 		<div class="container">
-			<div class="panel panel-default">
-				<!-- Default panel contents -->
-				<div class="panel-heading">Panel heading</div>
-				<div class="panel-body">
-					<button type="button" id="check" class="btn btn-primary">Thống kê</button>
-					<div id="thong-ke">
-						<p id="count-friends"></p>
+			<div class="col-lg-8">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Panel heading</div>
+					<div class="panel-body">
+						<button type="button" id="list-friends" class="btn btn-primary">Lấy danh sách bạn bề</button>
+						<div id="thong-ke">
+							<p id="count-friends"></p>
+						</div>
 					</div>
+					
+					<!-- Table -->
+					<table class="table">
+						<thead>
+							<tr>
+								<td>index</td>
+								<th>Friends or followers</th>
+								<th>Reaction</th>
+								<th>Comments</th>
+								<th>Score</th>
+							</tr>
+						</thead>
+						<tbody id="result">
+						</tbody>
+					</table>
 				</div>
-			
-				<!-- Table -->
-				<table class="table">
-					<thead>
-						<tr>
-							<td>index</td>
-							<th>Friends or followers</th>
-							<th>Reaction</th>
-							<th>Comments</th>
-							<th>Score</th>
-						</tr>
-					</thead>
-					<tbody id="result">
-					</tbody>
-				</table>
+			</div>
+			<div class="col-lg-4">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Panel heading</div>
+					<div class="panel-body">
+						<button type="button" id="list-posts" class="btn btn-primary">Lấy danh sách bài viết</button>
+						<p>Text goes here...</p>
+					</div>
+				
+					<!-- Table -->
+					<table class="table">
+						<thead>
+							<tr>
+								<th>index</th>
+								<th>Id post</th>
+							</tr>
+						</thead>
+						<tbody id="result-id-post">
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<!-- <label for="">Select list:</label>
 			<select class="form-control" id="">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
 			</select> -->
 		</div>
 	</body>
