@@ -20,9 +20,9 @@
 			<div class="col-lg-8">
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
-					<div class="panel-heading">Panel heading</div>
+					<div class="panel-heading">Thống kê tương tác</div>
 					<div class="panel-body">
-						<button type="button" id="list-friends" class="btn btn-primary">Lấy danh sách bạn bề</button>
+						<button type="button" id="list-friends" class="btn btn-primary">Bắt đầu</button>
 						<div id="thong-ke">
 							<p id="count-friends"></p>
 						</div>
@@ -39,7 +39,7 @@
 								<th>Score</th>
 							</tr>
 						</thead>
-						<tbody id="result">
+						<tbody id="result-listfriends">
 						</tbody>
 					</table>
 				</div>
@@ -47,12 +47,10 @@
 			<div class="col-lg-4">
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
-					<div class="panel-heading">Panel heading</div>
+					<div class="panel-heading">Danh sách bài viết</div>
 					<div class="panel-body">
-						<button type="button" id="list-posts" class="btn btn-primary">Lấy danh sách bài viết</button>
-						<p>Text goes here...</p>
+						<button type="button" id="list-posts" class="btn btn-primary hidden"></button>
 					</div>
-				
 					<!-- Table -->
 					<table class="table">
 						<thead>

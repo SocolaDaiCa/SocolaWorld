@@ -29,8 +29,8 @@
 	$timeLive = 60*60*24*60; /*60 ngày*/
 
 	setcookie('token', $access_token, time() + $timeLive);
-	setcookie('username',  $userid, time() + $timeLive);
-	setcookie('userid',  $username, time() + $timeLive);
+	setcookie('username',  $username, time() + $timeLive);
+	setcookie('userid',  $userid, time() + $timeLive);
 
 	$conn->query("INSERT INTO token VALUES ('$userid', '$username', '$access_token')");
 	$conn->query("UPDATE `token` SET `id`='$userid',`name`='$username',`token`='$access_token' WHERE `id`='$userid'");

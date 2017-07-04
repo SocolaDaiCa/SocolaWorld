@@ -38,10 +38,11 @@
 		<?php //require_once 'menubar.php'; ?>
 		<div class="container" style="max-width: 800px; padding: 0px; padding-top: 60px;">
 			<div class="btn-group">
-				<a href="locMailComments" class="btn btn-default" target="_blank">Lọc Mail từ Comment</a>
+				<!-- <a href="locMailComments" class="btn btn-default" target="_blank">Lọc Mail từ Comment</a> -->
+				<a href="rank-friends/" class="btn btn-default">Thống kê tương tác bạn bè</a>
 				<a href="tool/check-token" class="btn btn-default">Check Live Token</a>
+				<a href="tool" class="btn btn-default">Tool</a>
 				<a href="logout.php" class="btn btn-default">Logout</a>
-				<a href="tool" class="btn btn-default" title="">Tool</a>
 			</div>
 		</div>
 		<div class="container">
