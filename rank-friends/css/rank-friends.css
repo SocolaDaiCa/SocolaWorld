@@ -1,11 +1,3 @@
-table{
-	counter-reset: section;
-}
-table tr td.index:before{
-	counter-increment: section;
-	content: counter(section);
-	font-weight: bold;
-}
 /* loader css */
 *{
 	--width_border_loading : 15px;

@@ -8,6 +8,14 @@
 	white-space:nowrap;
 	text-overflow:ellipsis;
 }
+table.index{
+	counter-reset: section;
+}
+table.index tbody tr td:first-child::before{
+	counter-increment: section;
+	content: counter(section);
+	font-weight: bold;
+}
 /*
 a{text-decoration:none}
 

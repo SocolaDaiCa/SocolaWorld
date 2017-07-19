@@ -53,11 +53,10 @@
 <script src="//code.jquery.com/jquery.js"></script>
 <script src="../../js/lib/jquery.cookie.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="../../js.js"></script>
 <script src="../../js/FB.js"></script>
 <script src="../../js/socola.js"></script>
 <script src="../../js/function.js"></script>
-<script src="../../dangTest.js"></script>
+<script src="../../GraphFB/js/GraphFB.js"></script>
 <script>
 	$(document).ready(function(){
 		var fb = new FB('../../');

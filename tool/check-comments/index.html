@@ -5,12 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Check comments</title>
 	<!-- Latest compiled and minified CSS & JS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<script src="//code.jquery.com/jquery.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/socola.css">
-	<script src="../../js/socola.js"></script>
-	<script src="../../js/FB.js"></script>
 </head>
 <body>
 	<div class="page-header">
@@ -19,7 +15,7 @@
 	<div class="container">
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 			<div class="input-group">
-				<input type="text" name="" id="id-post" class="form-control" value="100004399725901_795905643899419" required="required" pattern="" title="">
+				<input type="text" name="" id="id-post" class="form-control" value="1855436764695307_1895997393972577" required="required" pattern="" title="">
 				<span class="input-group-btn">
 					<button type="button" id="check-comments" class="btn btn-default">Go!</button>
 				</span>
@@ -38,36 +34,9 @@
 	</div>
 </body>
 </html>
-<script>
-	var fb;
-	function showComments(json, all){
-		json.forEach(function(item, index) {
-			var id = item.from.id;
-			var name = item.from.name;
-			var linkProfile = 'http://fb.com/'+id;
-			var avatar = '<img src="https://graph.facebook.com/'+id+'/picture?type=large&redirect=true&width=40&height=40'+'" class="img-circle" alt="">';
-			$('#result').append(
-			'<tr>'+
-			'	<td>'+
-					(/*avatar+' '+*/item.from.name).link(linkProfile)+
-			'	</td>'+
-			'	<td>'+
-					item.message+
-			'	</td>'+
-			''+
-			''+
-			'</tr>'
-			);
-		});
-	}
-	$(function() {
-		fb = new FB('../../');
-		fb.setToken();
-		$("#check-comments").click(function() {
-			var idTarget = $("#id-post").val();
-			var fields = 'comments.order(reverse_chronological)';
-			var id = 'result';
-			fb.graph(idTarget, fields, showComments, Null, id);
-		});
-	});
-</script>
+<script src="../../js/lib/jquery-3.2.1.min.js"></script>
+<script src="../../lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../js/lib/jquery.cookie.js"></script>
+<script src="../../js/socola.js"></script>
+<script src="../../js/FB.js"></script>
+<script src="js/check-comments.js"></script>

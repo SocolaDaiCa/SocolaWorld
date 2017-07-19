@@ -6,14 +6,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Login</title>
 		<link rel="icon" type="image/png" href="images/Socola.jpg"/>
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-		<script src="//code.jquery.com/jquery.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./css/socola.css">
 		<link rel="stylesheet" type="text/css" href="css/login.css">
-		<script src="js.js"></script>
 	</head>
-	<body>
+	<body id="body">
 		<br><br>
 		<div class="container flogin">
 			<form action="return.php" method="GET" role="form" onsubmit="return validateForm()">
@@ -64,6 +61,8 @@
 		</div>
 	</body>
 </html>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script>
 	function validateForm() {
 		var a = $("[name=email]").val() !=='';

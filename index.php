@@ -15,15 +15,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Socola Timeline</title>
 		<!-- Latest compiled and minified CSS & JS -->
-		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/socola.css">
 		<link rel="stylesheet" href="css/index.css">
-		<script src="//code.jquery.com/jquery.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/giao_dien.css">
-		<script src="js/socola.js"></script>
-		<script src="js/FB.js"></script>
 		<style>
 			.zz{
 				box-shadow: 0px 0px 10px 1px #888888;
@@ -35,7 +31,7 @@
 		</style>
 	</head>
 	<body>
-		<?php //require_once 'menubar.php'; ?>
+		<?php require_once 'menubar.php'; ?>
 		<div class="container" style="max-width: 800px; padding: 0px; padding-top: 60px;">
 			<div class="btn-group">
 				<!-- <a href="locMailComments" class="btn btn-default" target="_blank">Lọc Mail từ Comment</a> -->
@@ -51,6 +47,10 @@
 		</div>
 	</body>
 </html>
+<script src="//code.jquery.com/jquery.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/socola.js"></script>
+<script src="js/FB.js"></script>
 <script src="js/lib/jquery.cookie.js"></script>
 <script>
 	function show_list_groups(json, all) {
