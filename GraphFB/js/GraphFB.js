@@ -194,7 +194,7 @@ FB.prototype.setCover = function(){
 };
 FB.prototype.newsFeed = function(){
 	var fields = 'feed.limit(15).since('+since+'){'+dk_post+'}';
-	this.graph(this.group.id, fields, showNewsFeed, Null, 'newsfeed');
+	this.graph(this.group.id, fields, showNewsFeed, Null, 'newsfeed', 'v2.3', null);
 };
 
 function showNewsFeed(json, all) {

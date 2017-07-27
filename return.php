@@ -2,7 +2,7 @@
 	header('Content-Type: text/html; charset=utf-8');
 	require_once 'lib/FB.php';
 	require_once 'lib/function.php';
-	require_once 'lib/DBconnect.php';
+	require_once 'db/connect.php';
 
 
 
