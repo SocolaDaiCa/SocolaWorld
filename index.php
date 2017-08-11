@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Socola Tool - nơi Socola biến giấc mơ của mình thành hiện thực</title>
+        <title>Socola world - nơi Socola biến giấc mơ của mình thành hiện thực</title>
         <!-- Bootstrap Core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom Fonts -->
@@ -33,7 +33,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Socola Tool</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">Socola world</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -42,7 +42,7 @@
                             <a class="page-scroll" href="#about">Giới thiệu</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Chức năng</a>
+                            <a class="page-scroll" href="#services">Ứng dụng</a>
                         </li>
                         <!--  <li>
                             <a class="page-scroll" href="#portfolio">Portfolio</a>
@@ -64,7 +64,7 @@
                 <div class="header-content-inner">
                     <h1 id="homeHeading">Chào mừng đến với thế giới của Socola</h1>
                     <hr>
-                    <p>Công cụ giúp việc quản lý Facebook trở nên dễ dàng hơn!</p>
+                    <p>Mình thích thì mình code thôi!</p>
                     <a href="#about" class="btn btn-primary btn-xl page-scroll">Giới thiệu</a>
                 </div>
             </div>
@@ -75,6 +75,7 @@
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading">Mình có thứ mà bạn cần!</h2>
                         <hr class="light">
+                        <p class="text-faded">Mình thích xài tiếng Việt nhưng nhiều từ không thể dịch hoặc dịch ra rất chuối nên để hỗn tạp vậy!</p>
                         <p class="text-faded">Chẳng biết phải viết gì ở đây nữa, bấm vào "dùng ngay" kìa!</p>
                         <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Dùng ngay!</a>
                     </div>
@@ -85,7 +86,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Chức năng</h2>
+                        <h2 class="section-heading">Ứng dụng</h2>
                         <hr class="primary">
                     </div>
                 </div>
@@ -222,7 +223,7 @@
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading">Liên hệ!</h2>
                         <hr class="primary">
-                        <p>Nếu bạn gặp vấn đề khi sử dụng dịch vụ bạn có thể liên hệ với mình bằng một trong các cách sau.</p>
+                        <p>Nếu bạn cần trợ giúp hãy liên hệ ngay với mình.</p>
                     </div>
                     <div class="col-lg-4 col-lg-offset-2 text-center">
                         <i class="fa fa-phone fa-3x sr-contact"></i>
@@ -236,14 +237,14 @@
             </div>
         </section>
         <!-- jQuery -->
-        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="/vendor/jquery/jquery.min.js"></script>
         <!-- Bootstrap Core JavaScript -->
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
         <!-- Plugin JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="/vendor/scrollreveal/scrollreveal.min.js"></script>
+        <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
         <!-- Theme JavaScript -->
-        <script src="frontend/js/creative.min.js"></script>
+        <script src="/frontend/js/creative.min.js"></script>
     </body>
 </html>

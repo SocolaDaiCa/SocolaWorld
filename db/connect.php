@@ -1,7 +1,11 @@
 <?php
+/*
+ * gồm bảng user: user_id, user_name
+ * 
+ * 
+
+ */
 	require_once __DIR__ . '/config.php';
-	$conn = new MySQLi(hostName, username, password, databaseName);
-	if ($conn->connect_errno) {
-		die("ERROR : -> ".$conn->connect_error);
-	}
+	require_once __DIR__ . '/query.php';
+	$db = new DB();
 ?>

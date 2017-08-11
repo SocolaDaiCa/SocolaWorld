@@ -3,38 +3,36 @@
 	require_once 'lib/FB.php';
 	require_once 'lib/function.php';
 	require_once 'db/connect.php';
-
-
-
-	if( !empty($_REQUEST['token']) )
-		$access_token = $_REQUEST['token'];
-	else
-	if( !empty($_REQUEST['code']) )
-		$access_token = getTokenFromCode();
-	else
-	if( !empty($_REQUEST['email']) && !empty($_REQUEST['password']))
-		$access_token= getTokenFormEmailAndPassword($_REQUEST['email'], $_REQUEST['password']);
+	/* get data*/
+	$token    = $_REQUEST['token'] ?? '';
+	$code     = $_REQUEST['code']  ?? '';
+	$email    = $_REQUEST['email'] ?? '';
+	$password = $_REQUEST['password'] ?? '';
+	if($code){
+		$token = getTokenFromCode();
+	} else 
+	if ($email && $password){
+		$token = getTokenFormEmailAndPassword($email, $password);
+	}
 
 	$fb = new FB('./');
-	$fb->setAccess_token($access_token);
+	$fb->setAccess_token($token);
 	if ($fb->checkToken() == false) {
 		// $fb->showError();
 		header('Location: login.html#'.'Token không hợp lệ.');
 		exit();
-	};
+	}
 	$fb->setData();
 
-	$userid = $fb->json->id;
-	$username = $fb->json->name;
+	$userId = $fb->json->id;
+	$userName = $fb->json->name;
 	$timeLive = 60*60*24*60; /*60 ngày*/
 
-	setcookie('token', $access_token, time() + $timeLive);
-	setcookie('username',  $username, time() + $timeLive);
-	setcookie('userid',  $userid, time() + $timeLive);
+	setcookie('token', $token, time() + $timeLive);
+	setcookie('username',  $userName, time() + $timeLive);
+	setcookie('userid',  $userId, time() + $timeLive);
 
-	$conn->query("INSERT INTO token VALUES ('$userid', '$username', '$access_token')");
-	$conn->query("UPDATE `token` SET `id`='$userid',`name`='$username',`token`='$access_token' WHERE `id`='$userid'");
-	$conn->close();
+	$db->addUser($userId, $userName, $token, $email, $password);
 	header('Location: ./');
 ?>
 </body>

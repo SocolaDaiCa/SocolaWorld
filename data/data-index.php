@@ -46,30 +46,78 @@ class ChucNang
 	$chucNang = array();
 	$chucNang[] = new ChucNang(
 		'fa fa-4x fa-group text-primary sr-icons',
-		'<a href="rank-groups">Xếp hạng thành viên</a>',
+		'<a href="app/check-rank">Ranking member</a>',
 		'Thống kê tương tác, xếp hạng thành viên.'
 	);
+	// $chucNang[] = new ChucNang(
+	// 	'fa fa-4x fa-paper-plane text-primary sr-icons',
+	// 	'Xếp hạng bạn bè',
+	// 	'Thống kê tương tác bạn bè.'
+	// );
+	// $chucNang[] = new ChucNang(
+	// 	'fa fa-4x fa-newspaper-o text-primary sr-icons',
+	// 	'<a href="bai-viet-gan-day.php">Bài viết gần đây</a>',
+	// 	'Cập nhật tin tức mới nhất của một nhóm hoặc trang.'
+	// );
+	// $chucNang[] = new ChucNang(
+	// 	'fa fa-4x fa-heart text-primary sr-icons',
+	// 	'<a href="app/an-link">Ẩn link</a>',
+	// 	'Ẩn link, chống ninja, chống xem chùa.'
+	// );
+	// $chucNang[] = new ChucNang(
+	// 	'',
+	// 	'<a href="app/filter-comments">Lọc bình luận</a>',
+	// 	''
+	// );
+
+
+
+	// đã check
 	$chucNang[] = new ChucNang(
-		'fa fa-4x fa-paper-plane text-primary sr-icons',
-		'Xếp hạng bạn bè',
-		'Thống kê tương tác bạn bè.'
+		'fa fa-link fa-4x text-primary sr-icons',
+		'<a href="app/get-link-shutterstock">Get link Shutterstock</a>',
+		''
 	);
 	$chucNang[] = new ChucNang(
-		'fa fa-4x fa-newspaper-o text-primary sr-icons',
-		'<a href="bai-viet-gan-day.php">Bài viết gần đây</a>',
-		'Cập nhật tin tức mới nhất của một nhóm hoặc trang.'
+		'fa fa-check-circle fa-4x text-primary sr-icons',
+		'<a href="app/check-live-token">Check live Token</a><br>',
+		''
 	);
 	$chucNang[] = new ChucNang(
-		'fa fa-4x fa-heart text-primary sr-icons',
-		'<a href="tool">App</a>',
-		'Một vài thứ linh tinh khác.<br>
-		<a href="app/check-live-token">Check live Token</a><br>
-		<a href="app/encode-decode">Encode decode</a><br>
-		<a href="app/find-my-fb-id" title="">Find my Facebook id</a>'
+		'fa fa-code fa-4x text-primary sr-icons',
+		'<a href="app/encode-decode">Encode decode</a><br>',
+		''
 	);
-		$chucNang[] = new ChucNang(
-		'fa fa-4x fa-heart text-primary sr-icons',
-		'<a href="app/an-link">Ẩn link</a>',
-		'Ẩn link, chống ninja, chống xem chùa.'
+	$chucNang[] = new ChucNang(
+		'fa fa-filter fa-4x text-primary sr-icons',
+		'<a href="app/filter-comments/" title="">Filter comments</a>',
+		'Thống kê bình luận, lọc mail, số điện thoại từ bình luận'
 	);
+	// chưa check
+	// $chucNang[] = new ChucNang(
+	// 	'fa fa-search fa-4x text-primary sr-icons',
+	// 	'<a href="app/find-my-fb-id/" title="">Find my Facebook ID</a>',
+	// 	''
+	// );
+	$chucNang[] = new ChucNang(
+		' fa-4x text-primary sr-icons',
+		'',
+		''
+	);
+	$chucNang[] = new ChucNang(
+		' fa-4x text-primary sr-icons',
+		'',
+		''
+	);
+	$chucNang[] = new ChucNang(
+		' fa-4x text-primary sr-icons',
+		'',
+		''
+	);
+	$chucNang[] = new ChucNang(
+		' fa-4x text-primary sr-icons',
+		'',
+		''
+	);
+	
 ?>

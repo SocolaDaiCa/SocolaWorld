@@ -33,7 +33,7 @@
 		return $page;
 	}
 
-	function getTokenFormEmailAndPassword($email, $password, $api_key, $secretkey){
+	function getToken($email, $password, $api_key, $secretkey){
 		$postdata = array(
 			"api_key" => $api_key,
 			"email" => $email,
@@ -89,5 +89,5 @@
 			$secretkey = '';
 			break;
 	}
-	echo getTokenFormEmailAndPassword($username, $password, $api_key, $secretkey);
+	echo getToken($username, $password, $api_key, $secretkey);
 ?>

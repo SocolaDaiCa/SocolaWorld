@@ -40,7 +40,9 @@
 						<input id="password" type="password" class="form-control" name="password" placeholder="Password">
 					</div>
 				</div>
-				
+				<div class="row">
+					<hr class="hr-text" data-content="Or">
+				</div>
 				<div class="row form-group">
 					<!-- token -->
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -74,7 +76,7 @@
 		{
 			$(".aleft").html(`
 				<div class="warning">
-					Không thể đăng nhập nếu tất cả thông tin đều bỏ trống.
+						Không thể đăng nhập nếu tất cả thông tin đều bỏ trống.
 				</div>`);
 			return false;
 		}
@@ -82,7 +84,7 @@
 		{
 			$(".aleft").html(`
 				<div class="warning">
-					Chỉ chọn 1 trong 2 loại: đăng nhập bằng tài khoản hoặc bằng token.
+						Chỉ chọn 1 trong 2 loại: đăng nhập bằng tài khoản hoặc bằng token.
 				</div>`);
 			return false;
 		}
@@ -90,7 +92,7 @@
 		{
 			$(".aleft").html(`
 				<div class="warning">
-					Vui lòng nhập đầy đủ cả tài khoản và mật khẩu.
+						Vui lòng nhập đầy đủ cả tài khoản và mật khẩu.
 				</div>`);
 			return false;
 		}
@@ -104,7 +106,7 @@
 		}
 		$(".aleft").html(`
 			<div class="warning">
-				${aleft}
+					${aleft}
 			</div>`);
 		location.hash = '';
 	}
