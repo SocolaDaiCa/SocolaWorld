@@ -11,10 +11,16 @@
 		<!-- <link rel="stylesheet" href="../rank-friends/css/rank-friends.css"> -->
 		<link rel="stylesheet" href="/vendor/loading/loading-bar.css">
 		<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
+		<style>
+			table img{
+				height: 36px;
+				width: 36px;
+			}
+		</style>
 	</head>
 	<body id="statistics">
 		<div class="container">
-			<div class="col-lg-8">
+			<div class="col-md-8 col-lg-8">
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
 					<div class="panel-heading">Bảng xếp hạng thành viên</div>
@@ -28,44 +34,40 @@
 								<button type="button" id="start" class="btn btn-primary">Bắt đầu</button>
 							</span>
 						</div>
-						<div class="row text-center">
-							<?php require_once 'page.php'; ?>
-						</div>
 					</div>
 					<!-- Table -->
 					<table class="table">
 						<thead>
 							<tr>
-								<th>socola</th>
+								<th>Rank</th>
 								<th>Thành viên</th>
-								<th colspan="2">Bình luận</th>
-								<th colspan="2">Reaction</th>
-								<th>Post</th>
+								<th>Bài đăng</th>
+								<th>Đã cmt</th>
+								<th>Được rep</th>
+								<th>Đã reac</th>
+								<th>Được reac</th>
 								<th>Điểm số</th>
-							</tr>
-							<tr>
-								<th></th><th></th>
-								<th>in</th><th>out</th>
-								<th>in</th><th>out</th>
-								<th></th><th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="record in members.list">
-								<td>{{}}</td>
-								<td>{{record.name}}</td>
-								<td>{{record.comments.in}}</td>
-								<td>{{record.comments.out}}</td>
-								<td>{{record.reactions.in}}</td>
-								<td>{{record.reactions.out}}</td>
+							<tr v-for="record in members.list | orderBy 'score' -1">
+								<td><img src="{{record.rank}}" alt=""></td>
+								<td>
+									<img src="https://graph.facebook.com/{{record.id}}/picture?type=large&redirect=true&width=40&height=40" class="img-circle"alt="">
+									<a href="https://fb.com/{{record.id}}" target="_blank" title="">{{record.name}}</a>
+								</td>
 								<td>{{record.post}}</td>
+								<td>{{record.comments.out}}</td>
+								<td>{{record.comments.in}}</td>
+								<td>{{record.reactions.out}}</td>
+								<td>{{record.reactions.in}}</td>
 								<td>{{record.score}}</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
-			<div class="col-lg-4">
+			<div class="col-md-4 col-lg-4">
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
 					<div class="panel-heading">Danh sách bài viết</div>
