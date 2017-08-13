@@ -1,5 +1,7 @@
 <?php
 	set_time_limit(0);
+	date_default_timezone_set("Asia/Ho_Chi_Minh");
+	require_once '../../db/connect.php';
 	/* chỉ admin hoặc những id đc cho phép mới có quyền lưu data*/
 	/* các biến cần dùng*/
 	$admin = array(
@@ -9,7 +11,9 @@
 	$token      = $_COOKIE['token'];
 	$groupId    = $_POST['g'];
 	$fileName   = "json/{$groupId}.json";
-	$data = $_POST['d'];
+	$data = json_encode($_POST['d']);
+	$updateTime = strtotime('now');
+	// print_r($data);
 	// $data->last = '1997';
 	/* lấy id người dùng*/
 	$userId = json_decode(file_get_contents("https://graph.facebook.com/v2.10/me?fields=id&access_token={$token}"))->id;
@@ -29,8 +33,9 @@
 	}
 	
 	if ($permission) {
+		$db->saveInsightGroup($groupId, $updateTime, $data);
+		// file_put_contents($fileName, json_encode($data)); /* lưu nén*/
 		// file_put_contents($fileName, json_encode($data, JSON_PRETTY_PRINT)); /* lưu đẹp*/
-		file_put_contents($fileName, json_encode($data, JSON_PRETTY_PRINT)); /* lưu nén*/
 		echo('đã lưu');
 	} else {
 		echo('bạn không phải admin nên k thể lưu dữ liệu');

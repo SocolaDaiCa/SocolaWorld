@@ -12,14 +12,21 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping structure for table socola_world.black_list
-DROP TABLE IF EXISTS `black_list`;
 CREATE TABLE IF NOT EXISTS `black_list` (
   `user_id` char(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Data exporting was unselected.
+-- Dumping structure for table socola_world.group_insight
+CREATE TABLE IF NOT EXISTS `group_insight` (
+  `group_id` char(50) COLLATE utf8_unicode_ci NOT NULL,
+  `update_time` char(50) COLLATE utf8_unicode_ci NOT NULL,
+  `json` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`group_id`,`update_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Data exporting was unselected.
 -- Dumping structure for table socola_world.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` char(20) COLLATE utf8_unicode_ci NOT NULL,
   `user_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,

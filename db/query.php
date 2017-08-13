@@ -36,5 +36,15 @@
 			}
 			$this->conn->query($sql);
 		}
+		public function getInsightGroup($idGroup)
+		{
+			$sql = $sql = "SELECT count(user_id) AS `count` FROM `user` WHERE `user_id`='{$userId}'";
+			return $this->conn->query($sql)->fetch_assoc()['count'] == 1;
+		}
+		public function saveInsightGroup($groupId, $updateTime, $jsonString)
+		{
+			$sql = "INSERT INTO group_insight (group_id, update_time, json) VALUES ('{$groupId}', '{$updateTime}', '{$jsonString}')";
+			$this->conn->query($sql);
+		}
 	}
 ?>
