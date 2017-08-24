@@ -1,5 +1,5 @@
 RewriteEngine On
 #RewriteRule ^groups/([a-zA-Z0-9_.-]+)$ GraphFB/GraphFB.php?name=$1
 
-RewriteRule ^groups/([a-zA-Z0-9_.-]+)/([0-9]+)$ GraphFB/GraphFB.php?name=$1&id=$2
-RewriteRule ^check-rank/([a-zA-Z0-9_.-]+)/([0-9]+)$ check-rank/index.php?name=$1&id=$2
+#RewriteRule ^groups/([a-zA-Z0-9_.-]+)/([0-9]+)$ GraphFB/GraphFB.php?name=$1&id=$2
+#RewriteRule ^check-rank/([a-zA-Z0-9_.-]+)/([0-9]+)$ check-rank/#index.php?name=$1&id=$2

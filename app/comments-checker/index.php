@@ -1,14 +1,15 @@
-<?php require_once 'functions.php'; ?>
+<?php require_once '../../check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Lọc bình luận</title>
-		<link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.css">
+		<?php require_once '../../layout/header.php'; ?>
+		<?php require_once '../../layout/css.php'; ?>
 	</head>
 	<body>
-		<br><br>
+		<?php require_once '../../layout/nav.php'; ?>
 		<div class="container">
 			<!-- input form -->
 			<form action="" method="POST" role="form" style="max-width: 600px; margin: auto">
@@ -34,12 +35,14 @@
 					<table class="table table-bordered table-hover">
 						<thead>
 							<tr>
+								<td></td>
 								<th>Usename</th>
 								<th>Bình luận</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="comment in allComments">
+							<tr v-for="(index,comment) in allComments">
+								<td>{{index+1}}</td>
 								<td><a href="/" title="">{{comment.from.name}}</a></td>
 								<td>{{comment.message}}</td>
 							</tr>
@@ -52,13 +55,15 @@
 					<table class="table table-bordered table-hover">
 						<thead>
 							<tr>
+								<td></td>
 								<th>Usename</th>
 								<th>Bình luận chứa email</th>
 								<th>Email tìm thấy</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="comment in commentsHasMail">
+							<tr v-for="(index, comment) in commentsHasMail">
+								<td>{{index+1}}</td>
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td>{{comment.mail}}</td>
@@ -72,13 +77,15 @@
 					<table class="table table-bordered table-hover">
 						<thead>
 							<tr>
+								<td></td>
 								<th>Usename</th>
 								<th>Bình luận chứa số điện thoại</th>
 								<th>Số điện thoại tìm thấy</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="comment in commentsHasPhone">
+							<tr v-for="(index, comment) in commentsHasPhone">
+								<td>{{index+1}}</td>
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td>{{comment.phone}}</td>
@@ -90,9 +97,7 @@
 		</div>
 	</body>
 </html>
-<script src="../../vendor/jquery/jquery.min.js"></script>
-<script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="../../vendor/jquery.cookie/jquery.cookie.js"></script>
+<?php require_once '../../layout/js.php'; ?>
 <script src="../../vendor/vue/vue.min.js"></script>
 <script src="../../vendor/socola-dai-ca/js/fb.js"></script>
 <script src="js/filter-comments.js"></script>

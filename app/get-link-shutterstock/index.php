@@ -1,25 +1,18 @@
+<?php require_once '../../check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Get link</title>
-		<?php require_once '../../layout/blocks/header-for-all-page.php'; ?>
-		<link rel="stylesheet" type="text/css" href="../../css/socola.css">
-		<style>
-			img{
-				max-width: 100%;
-			}
-			/*#result{
-				display: none;
-			}*/
-		</style>
+		<title>Get link Shutterstock</title>
+		<?php require_once '../../layout/header.php'; ?>
+		<?php require_once '../../layout/css.php'; ?>
 	</head>
 	<body>
+		<?php require_once '../../layout/nav.php'; ?>
 		<div class="container">
-			<div class="page-header">
+			<div class="page-header text-center">
 				<h1>Get link Shutterstock</h1>
-				<!-- title<small>subtext</small> -->
 			</div>
 			<div class="col-md-6 col-lg-6">
 				<div class="form-group">
@@ -34,9 +27,9 @@
 			<div id="result" class="col-md-9 col-lg-9">
 			</div>
 		</div>
-		<?php require '../../layout/blocks/footer-for-all-page.php'; ?>
 	</body>
 </html>
+<?php require_once '../../layout/js.php'; ?>
 <script>
 	'use strict';
 	$(function() {

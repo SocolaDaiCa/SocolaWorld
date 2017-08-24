@@ -1,15 +1,17 @@
+<?php $login = true; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Encode - Decode</title>
+		<?php require_once '../../layout/header.php'; ?>
 		<!-- Latest compiled and minified CSS & JS -->
-		<link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../../frontend/css/socola.css">
+		<?php require_once '../../layout/css.php'; ?>
 		<link rel="stylesheet" href="css/encode-decode.css">
 	</head>
 	<body>
+		<?php require_once '../../layout/nav.php'; ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
@@ -38,9 +40,7 @@
 		</div>
 	</body>
 </html>
-<script src="../../vendor/jquery/jquery.min.js"></script>
-<script src="../../vendor/jquery/jquery.js"></script>
-<script src="../../frontend/js/socola.js"></script>
+<?php require_once '../../layout/js.php'; ?>
 <script>
 	'use strict';
 	$(function() {

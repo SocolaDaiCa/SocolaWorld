@@ -11,7 +11,7 @@
 	$token      = $_COOKIE['token'];
 	$groupId    = $_POST['g'];
 	$fileName   = "json/{$groupId}.json";
-	$data = json_encode($_POST['d']);
+	$data = $_POST['d'];
 	$updateTime = strtotime('now');
 	// print_r($data);
 	// $data->last = '1997';

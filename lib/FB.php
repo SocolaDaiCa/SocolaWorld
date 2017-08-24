@@ -37,17 +37,22 @@ class FB implements FB_interface{
 	function __construct($path='./'){
 		$this->path_show_error= $path.'login.html';
 	}
-	function setAccess_token($access_token){
-		$this->access_token = $access_token;
+	public function setToken($token){
+		$this->access_token = $token;
 	}
-	function checkToken(){
+	public function checkToken(){
 		$param = array(
 			'fields' => 'id,name',
 			'access_token' => $this->access_token
 		);
 		$this->json = getJSON($this->graph.'me', $param);
-		return !isset($this->json->error);
+		return empty($this->json->error);
 	}
+	/* đã kiểm duyệt */
+	function setAccess_token($access_token){
+		$this->access_token = $access_token;
+	}
+	
 	function set_cover($id){
 		$json_cover = $this->graph($id, 'cover');
 		if(!isset($json_cover->cover->source))	return;

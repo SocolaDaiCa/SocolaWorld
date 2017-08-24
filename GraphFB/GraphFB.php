@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="../../css/list_groups.css">
 	<link rel="stylesheet" href="../../css/respon.css">
 </head>
-<body>
+<body id="app">
 	<?php //require_once '../menubar.php'; ?>
 	<div class="bo_cuc">
 		<div class="list_groups scrollbar"></div>
@@ -44,26 +44,28 @@
 				<span class="so_bai_viet_tim_thay"></span>
 			</div>
 			<div id="newsfeed">
-				<?php require_once '../loading.php'; ?>
+
+				<?php //require_once '../loading.php'; ?>
 			</div>
 		</div>
 	</div>
 </body>
 </html>
 <script src="//code.jquery.com/jquery.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="../../js/lib/jquery.cookie.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="../../js/FB.js"></script>
+<script src="/vendor/socola-dai-ca/js/fb.js"></script>
 <script src="../../js/socola.js"></script>
 <script src="../../js/function.js"></script>
 <script src="../../GraphFB/js/GraphFB.js"></script>
 <script>
-	$(document).ready(function(){
-		var fb = new FB('../../');
-		fb.getIdFromUrl();
-		fb.setToken();
-		fb.setCover();
-		fb.listGroups();
-		fb.newsFeed();
-	});
+	// $(document).ready(function(){
+	// 	var fb = new FB('../../');
+	// 	fb.getIdFromUrl();
+	// 	fb.setToken();
+	// 	fb.setCover();
+	// 	fb.listGroups();
+	// 	fb.newsFeed();
+	// });
 </script>

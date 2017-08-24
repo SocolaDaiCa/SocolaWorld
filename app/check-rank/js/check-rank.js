@@ -251,7 +251,7 @@ var statistics = new Vue({
 			})
 			let data = {
 				g: statistics.idGroup,
-				d: {members}
+				d: JSON.stringify({member: members})
 			};
 			$.post('save-json.php', data, function(res) {
 				console.log(res);

@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require 'lib/function.php';
 	$action = empty($_GET['action']) ? '' : $_GET['action'];
 	switch ($action) {

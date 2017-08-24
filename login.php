@@ -5,29 +5,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Login</title>
-		<link rel="icon" type="image/png" href="images/Socola.jpg"/>
-		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="frontend/css/socola.css">
-		<link rel="stylesheet" href="frontend/css/login.css">
+		<?php require_once 'layout/header.php'; ?>
+		<?php require_once 'layout/css.php'; ?>
+		<link rel="stylesheet" href="/frontend/css/login.css">
 	</head>
 	<body id="body">
 		<br><br>
-		<div class="container flogin">
-			<!-- form login -->
-			<form action="return.php" method="GET" role="form" onsubmit="return validateForm()">
+		<div class="container flogin" onsubmit="return validateForm()"> 
+			<form action="return.php" method="GET" role="form">
+				<!-- alert -->
 				<div class="row form-group">
 					<div class="aleft col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						
 					</div>
 				</div>
+				<!-- login with Facebook -->
 				<div class="row form-group">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-						<!-- login with Facebook -->
 						<a href="actionToken.php?action=loginWithFacebook" class="" id="loginWithFacebook">
-							<img src="frontend/images/img-lg-with-facebook.png" alt="" style="height: 45px">
+							<img src="/frontend/images/img-lg-with-facebook.png" alt="" style="height: 45px">
 						</a>
 					</div>
 				</div>
+				<h4 class=" text-white text-center">Hoặc</h4>
+				<!-- login with email and password -->
 				<div class="row form-group">
 					<!-- username -->
 					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -40,23 +41,32 @@
 						<input id="password" type="password" class="form-control" name="password" placeholder="Password">
 					</div>
 				</div>
-				<div class="row">
-					<hr class="hr-text" data-content="Or">
-				</div>
+				<h4 class=" text-white text-center">Hoặc</h4>
+				<!-- login with token -->
 				<div class="row form-group">
-					<!-- token -->
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<span class="label label-primary">Hoặc đăng nhập bằng token</span>
 						<input type="text" class="form-control" id="token" placeholder="EAACEdEose0cBAITP2FZAvl9sq9MC9WSFShsw35JOUuz2aIgjbcl1suZCqDCH5COwynCF8hnlZCtwImHeXdHnMQNTesJp0x1jsdgG91Reug0ATnsAA1elYsmTVGaYSVAYv9PtRYmKEwJKAW1AwlSAtMFRQ14kjaQQYZAZBzMJAKSsbdvLdz26ByAlKXe8g70gZD" name="token">
 					</div>
 				</div>
+				<!-- remember me -->
+				<div class="row form-group">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="checkbox text-white">
+							<label><input type="checkbox" name="autologin"> Duy trì đăng nhập</label>
+						</div>
+					</div>
+				</div>
+				<!-- list button -->
 				<div class="row form-group footer-login text-justify">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<!-- button login -->
 						<button type="submit" id="submit" class="btn btn-primary">Đăng nhập</button>
 						<!-- button lấy token graph -->
 						<a href="https://developers.facebook.com/tools/explorer" class="btn btn-default" data-toggle="tooltip" title="Lấy token của ứng dụng" target="_blank">Lấy Token Graph FB</a>
+						<!-- button hướng dẫn -->
 						<a href="huong-dan.html" class="btn btn-info" target="_blank">Hướng dẫn</a>
+						<!-- button try demo -->
 						<button type="button" id="trydemo" class="btn btn-primary">Dùng thử</button>
 					</div>
 				</div>
@@ -66,55 +76,4 @@
 </html>
 <script src="//code.jquery.com/jquery.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script>
-	'use strict';
-	function validateForm() {
-		var email = $("[name=email]").val() !=='';
-		var password = $("[name=password]").val() !=='';
-		var token = $("[name=token]").val() !=='';
-		if(!email && !password && !token)
-		{
-			$(".aleft").html(`
-				<div class="warning">
-						Không thể đăng nhập nếu tất cả thông tin đều bỏ trống.
-				</div>`);
-			return false;
-		}
-		if( (email || password) && token)
-		{
-			$(".aleft").html(`
-				<div class="warning">
-						Chỉ chọn 1 trong 2 loại: đăng nhập bằng tài khoản hoặc bằng token.
-				</div>`);
-			return false;
-		}
-		if( email*password === 0 && !token )
-		{
-			$(".aleft").html(`
-				<div class="warning">
-						Vui lòng nhập đầy đủ cả tài khoản và mật khẩu.
-				</div>`);
-			return false;
-		}
-		return true;
-	}
-	function showHash() {
-		var hash = location.hash.slice(1);
-		var aleft = decodeURIComponent(hash);
-		if(!hash){
-			return;
-		}
-		$(".aleft").html(`
-			<div class="warning">
-					${aleft}
-			</div>`);
-		location.hash = '';
-	}
-	$(function() {
-		showHash();
-		$('#trydemo').click(function() {
-			$("[name=token]").val('EAACW5Fg5N2IBAP3RlQh6vMgkdWGcoqJxZCJtNTNMyS5lVzGZClYLwe00rjXR8ixSfTGsZClZAtLXbWv0cMsxjpAsMH4noSOx6E2DDFGQXx91Jxp1KoXK4RIR0CgolTzGn8dxHMFcuAntZAPZBcJDkRTyFmbJxbSMm3QotPgJnXCZBfI49QiCZCojlOBrgt3A7N8ZD');
-			$("#submit").click();
-		});
-	});
-</script>
+<script src="/frontend/js/login.js"></script>

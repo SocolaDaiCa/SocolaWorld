@@ -1,18 +1,21 @@
+<?php require_once '../../check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Check live Token</title>
-		<link rel="stylesheet" href="../../frontend/css/socola.css">
-		<link rel="stylesheet" href="../../vendor/bootstrap/css/bootstrap.min.css">
-		<link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<?php require_once '../../layout/header.php'; ?>
+		<?php require_once '../../layout/css.php'; ?>
 		<link rel="stylesheet" href="css/check-live-token.css">
 	</head>
 	<body>
+		<?php require_once '../../layout/nav.php'; ?>
 		<div class="container">
+			<div class="text-center">
+				<h1>Check live Token</h1>
+			</div>
 			<div class="form-group">
-				<legend>Check live Token</legend>
 				<span>Nhập danh sách token, mỗi token nằm trên 1 dòng</span>
 				<textarea id="token-input" class="form-control" rows="10" required="required"></textarea>
 			</div>
