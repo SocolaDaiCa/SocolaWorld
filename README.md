@@ -1,2 +1,2 @@
 # Socola World
-Nơi Socola biến những ý tưởng xàm xàm của mình thành hiện thực
+Nơi Socola biến những ý tưởng của mình thành hiện thực
