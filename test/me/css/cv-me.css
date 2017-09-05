@@ -1,0 +1,21 @@
+.bg-black {
+    background: #fff;
+}
+
+body {
+    /*padding-top: 20px;*/
+    background: #e4e4e4;
+    font-size: 170%;
+    /*padding: auto;*/
+    /*margin: auto;*/
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333;
+    /* old IE */
+    background-color: #d6d6d6;
+    /* Modern Browsers */
+}

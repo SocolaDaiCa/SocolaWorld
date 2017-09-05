@@ -1,0 +1,26 @@
+.list-groups {
+    /*overflow: auto;*/
+}
+
+.list-groups li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    list-style-type: none;
+}
+
+.post {
+	word-wrap: break-word;
+    max-width: 500px;
+    margin-top: 20px;
+    /*padding: 10px;*/
+    /*border: 1px solid blue;*/
+}
+
+.post .post-body {
+	margin: 5px 0;
+}
+
+.post .post-body img {
+    width: 100%;
+}

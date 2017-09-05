@@ -22,7 +22,7 @@
 	if ($fb->checkToken() == false) {
 		// $fb->showError();
 		$_SESSION["login"] = false;
-		header('Location: login.html#'.'Token không hợp lệ.');
+		header('Location: login.php#'.'Token không hợp lệ.');
 		exit();
 	}
 	$fb->setData();

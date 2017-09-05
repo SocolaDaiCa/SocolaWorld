@@ -76,7 +76,7 @@
 				'ads_management'                 => 0,
 				'business_management'            => 0,
 			/*page*/
-				'manage_pages'                   => 0,
+				'manage_pages'                   => 1,
 				'publish_pages'                  => 0,
 				'pages_show_list'                => 0,
 				'pages_manage_cta'               => 0,
@@ -98,7 +98,7 @@
 			'redirect_uri' => redirect_uri,
 			'scope' => $scope,
 		);
-		header('Location: '.getUrl($url, $param));
+		header('Location: '.(getUrl($url, $param)));
 	}
 
 	function getTokenFromCode(){

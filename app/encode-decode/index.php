@@ -1,4 +1,4 @@
-<?php $login = true; ?>
+<?php require_once '../../check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -19,6 +19,7 @@
 					<textarea name="" id="input" class="form-control" rows="15" required="required"></textarea>
 				</div>
 				<div class="col-lg-6">
+					<label for="">Output</label>
 					<textarea name="" id="output" class="form-control" rows="15" required="required"></textarea>
 				</div>
 			</div>

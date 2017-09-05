@@ -1,16 +1,17 @@
 <?php
 	set_time_limit(0);
 	date_default_timezone_set("Asia/Ho_Chi_Minh");
-	require_once '../../db/connect.php';
+	require_once __DIR__ . '/../db/connect.php';
+	   // die('11111');
 	/* chỉ admin hoặc những id đc cho phép mới có quyền lưu data*/
 	/* các biến cần dùng*/
 	$admin = array(
-		'100006907028797'
+		'100006907028797',
+		'100006487845973'
 	);
 	$permission = false; /* quyền*/
 	$token      = $_COOKIE['token'];
 	$groupId    = $_POST['g'];
-	$fileName   = "json/{$groupId}.json";
 	$data = $_POST['d'];
 	$updateTime = strtotime('now');
 	// print_r($data);

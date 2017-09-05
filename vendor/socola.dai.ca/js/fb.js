@@ -38,6 +38,16 @@ function FB(pathRoot) {
 		$.ajaxSetup({ "async": true });
 		return result;
 	};
+	this.graphAS = function(idTarget, query, version) {
+		var url = `https://graph.facebook.com/${version}/${idTarget}?${query}&access_token=${this.token}`;
+		// var result;
+		$.getJSON(url)
+			.done(function(res) {
+				// result = res;
+			})
+			.fail(showError);
+		// return result;
+	};
 	this.graph = function(idTarget, fields, action, actionEnd, version, obj){
 		if(!version){
 			version = 'v2.10';
@@ -56,7 +66,7 @@ function FB(pathRoot) {
                 return graphNext(res[field].paging.next, action, actionEnd);
             }
             return actionEnd();
-		});
+		}).fail(showError);
 	};
 }
 function graphNext(next, action, actionEnd, obj) {
@@ -66,5 +76,5 @@ function graphNext(next, action, actionEnd, obj) {
             return graphNext(res.paging.next, action, actionEnd, obj);
         }
         return actionEnd();
-    });
+    }).fail(showError);
 }

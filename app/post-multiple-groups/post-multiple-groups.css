@@ -1,0 +1,15 @@
+#new-post {
+    width: 510px;
+    min-height: 345px;
+    background: #e4e4e4;
+    padding: 10px;
+}
+
+textarea {
+    resize: none;
+    min-height: 85px;
+	overflow: hidden;
+}
+.btn-small{
+	padding: 2px 14px 2px 14px;
+}

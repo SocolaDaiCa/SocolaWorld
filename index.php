@@ -1,13 +1,26 @@
 <?php require_once 'data/chuc-nang.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vn">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- meta -->
+        <meta property="fb:app_id" content="425249171186475">
+        <meta property="og:site_name" content="www.socola.tentstudy.xyz">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Socola World" />
+        <meta property="og:description" content="Nơi Socola biến những ý tưởng của mình thành hiện thực" />
+        <meta property="og:url" content="https://socola.tentstudy.xyz/">
+        <meta property="og:image" content="https://tentstudy.xyz/images/banner_share_fb.png" />
+        <meta property="og:image:type" content="image/jpeg">
+        <meta property="og:locale" content="vi_VN">
+        <!-- /meta -->
+
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Socola world - nơi Socola biến những ý tưởng xàm xàm của mình thành hiện thực</title>
+        <title>Socola world - nơi Socola biến những ý tưởng của mình thành hiện thực</title>
+        
         <!-- Bootstrap Core CSS -->
         <?php require_once 'layout/header.php'; ?>
         <?php require_once 'layout/css.php'; ?>
@@ -64,7 +77,7 @@
                 <div class="header-content-inner">
                     <h1 id="homeHeading">Chào mừng đến với thế giới của Socola</h1>
                     <hr>
-                    <p>Nơi Socola biến những ý tưởng xàm xàm của mình thành hiện thực.</p>
+                    <p>Nơi Socola biến những ý tưởng của mình thành hiện thực.</p>
                     <a href="#about" class="btn btn-primary btn-xl page-scroll">Giới thiệu</a>
                 </div>
             </div>
@@ -94,154 +107,154 @@
             <div class="container">
                 <?php $width = 0; ?>
                 <?php foreach ($chucNang as $key => $value): ?>
-                <?php 
-                    if ($width == 0) {
-                        echo '<div class="row">';
+                <?php
+                if ($width == 0) {
+                echo '<div class="row">';
                     }
                     $width += $col;
                     $value->showForIndex();
                     if ($width == 12) {
-                        echo '</div>';
-                        $width = 0;
-                    }
+                echo '</div>';
+                $width = 0;
+                }
                 ?>
                 <?php endforeach ?>
-                <?php 
-                    if ($width != 0) {
-                        echo '</div>';
-                    }
-                ?>
-            </div>
-        </section>
-        <section class="no-padding" id="portfolio">
-            <div class="container-fluid">
-                <div class="row no-gutter popup-gallery">
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="frontend/images/portfolio/fullsize/1.jpg" class="portfolio-box">
-                            <img src="frontend/images/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
+                <?php
+                if ($width != 0) {
+            echo '</div>';
+            }
+            ?>
+        </div>
+    </section>
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+            <div class="row no-gutter popup-gallery">
+                <div class="col-lg-4 col-sm-6">
+                    <a href="frontend/images/portfolio/fullsize/1.jpg" class="portfolio-box">
+                        <img src="frontend/images/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="frontend/images/portfolio/fullsize/2.jpg" class="portfolio-box">
-                            <img src="frontend/images/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="frontend/images/portfolio/fullsize/2.jpg" class="portfolio-box">
+                        <img src="frontend/images/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="frontend/images/portfolio/fullsize/3.jpg" class="portfolio-box">
-                            <img src="frontend/images/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="frontend/images/portfolio/fullsize/3.jpg" class="portfolio-box">
+                        <img src="frontend/images/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="frontend/images/portfolio/fullsize/4.jpg" class="portfolio-box">
-                            <img src="frontend/images/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="frontend/images/portfolio/fullsize/4.jpg" class="portfolio-box">
+                        <img src="frontend/images/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="frontend/images/portfolio/fullsize/5.jpg" class="portfolio-box">
-                            <img src="frontend/images/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="frontend/images/portfolio/fullsize/5.jpg" class="portfolio-box">
+                        <img src="frontend/images/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
                                 </div>
                             </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a href="frontend/images/portfolio/fullsize/6.jpg" class="portfolio-box">
-                            <img src="frontend/images/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <a href="frontend/images/portfolio/fullsize/6.jpg" class="portfolio-box">
+                        <img src="frontend/images/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+                                    Project Name
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </section>
-        <aside class="bg-dark">
-            <div class="container text-center">
-                <div class="call-to-action">
-                    <h2>Extension!</h2>
-                    <a href="#" class="btn btn-default btn-xl sr-button">Tải ngay!</a>
+        </div>
+    </section>
+    <aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Extension!</h2>
+                <a href="#" class="btn btn-default btn-xl sr-button">Tải ngay!</a>
+            </div>
+        </div>
+    </aside>
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Liên hệ!</h2>
+                    <hr class="primary">
+                    <p>Nếu bạn cần trợ giúp hãy liên hệ ngay với mình.</p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2 text-center">
+                    <i class="fa fa-phone fa-3x sr-contact"></i>
+                    <p>096 8998 735</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
+                    <p><a href="mailto:SocolaDaiCa@gmail.com">SocolaDaiCa@gmail.com</a></p>
                 </div>
             </div>
-        </aside>
-        <section id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <h2 class="section-heading">Liên hệ!</h2>
-                        <hr class="primary">
-                        <p>Nếu bạn cần trợ giúp hãy liên hệ ngay với mình.</p>
-                    </div>
-                    <div class="col-lg-4 col-lg-offset-2 text-center">
-                        <i class="fa fa-phone fa-3x sr-contact"></i>
-                        <p>096 8998 735</p>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                        <p><a href="mailto:SocolaDaiCa@gmail.com">SocolaDaiCa@gmail.com</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <?php require_once 'layout/js.php'; ?>
-        <!-- Plugin JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        <script src="/vendor/scrollreveal/scrollreveal.min.js"></script>
-        <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <!-- Theme JavaScript -->
-        <script src="/frontend/js/creative.min.js"></script>
-    </body>
+        </div>
+    </section>
+    <?php require_once 'layout/js.php'; ?>
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Theme JavaScript -->
+    <script src="/frontend/js/creative.min.js"></script>
+</body>
 </html>

@@ -1,3 +1,6 @@
 .action button{
 	width: 125px;
 }
+textarea{
+	resize: none;
+}

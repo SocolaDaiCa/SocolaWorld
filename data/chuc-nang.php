@@ -1,5 +1,5 @@
 <?php
-	$login = '<a href="login.html">Đăng nhập</a>';
+	$login = '<a href="login.php">Đăng nhập</a>';
 	$logout = '';
 	if(!empty($_COOKIE['token'])){
 		$usename = $_COOKIE['username'];
@@ -55,12 +55,12 @@ class ChucNang
 	}
 }
 	$chucNang = array();
-	// $chucNang[] = new ChucNang(
-	// 	'fa fa-group text-primary sr-icons',
-	// 	'/app/check-rank',
-	// 	'Ranking member',
-	// 	'Thống kê tương tác, xếp hạng thành viên.'
-	// );
+	$chucNang[] = new ChucNang(
+		'fa fa-group text-primary sr-icons',
+		'/app/check-rank',
+		'Ranking member',
+		'Thống kê tương tác, xếp hạng thành viên.'
+	);
 	// $chucNang[] = new ChucNang(
 	// 	'fa fa-link text-primary sr-icons',
 	// 	'/app/get-link-shutterstock',
@@ -81,21 +81,34 @@ class ChucNang
 	);
 	$chucNang[] = new ChucNang(
 		'fa fa-filter text-primary sr-icons',
-		'/app/comments-checker',
-		'Comments checker',
+		'/app/filter-comments',
+		'Filter Comments',
 		'Lọc mail, số điện thoại và cả link từ bình luận.'
 	);
 	$chucNang[] = new ChucNang(
-			'fa fa-search text-primary sr-icons',
-			'/app/members-checker',
-			'Member checker',
-			'Kiểm tra thành viên thuộc nhóm A nhưng có thuộc nhóm B hay không.'
+		'fa fa-search text-primary sr-icons',
+		'/app/members-checker',
+		'Member checker',
+		'Kiểm tra thành viên thuộc nhóm A nhưng có thuộc nhóm B hay không.'
 	);
-	// $chucNang[] = new ChucNang(
-		// 	'fa fa-4x fa-paper-plane text-primary sr-icons',
-		// 	'Xếp hạng bạn bè',
-		// 	'Thống kê tương tác bạn bè.'
-	// );
+	$chucNang[] = new ChucNang(
+			'fa fa-newspaper-o text-primary sr-icons',
+			'/app/filter-posts',
+			'Filter post',
+			'Lọc bài viết mới nhất trong nhóm.'
+	);
+	$chucNang[] = new ChucNang(
+		'fa fa-clone text-primary sr-icons',
+		'/app/post-multiple-groups/',
+		'Post multiple groups',
+		'Đăng bài trong nhiều nhóm cùng lúc.'
+	);
+	$chucNang[] = new ChucNang(
+		'fa fa-clone text-primary sr-icons',
+		'/app/delete-all-posts-in-wall',
+		'Clean wall',
+		'Xóa toàn bộ bài viết trên tường của bạn.'
+	);
 	// $chucNang[] = new ChucNang(
 		// 	'fa fa-4x fa-newspaper-o text-primary sr-icons',
 		// 	'<a href="bai-viet-gan-day.php">Bài viết gần đây</a>',

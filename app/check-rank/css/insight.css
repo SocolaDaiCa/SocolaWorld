@@ -1,0 +1,22 @@
+table img{
+	height: 36px;
+	width: 36px;
+}
+.disabled{
+	opacity: 0.5;
+	cursor: not-allowed;
+	/*background: black;*/
+}
+.inline-block{
+	/*display: inline;*/
+	display: inline-block;
+}
+label.set-width{
+	width: 40px;
+	display: inline-block;
+	margin-left: 10px;
+}
+input.set-width{
+	width: 70px;
+	display: inline-block;
+}

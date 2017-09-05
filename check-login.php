@@ -1,4 +1,9 @@
 <?php
+	function loginFalse()
+	{
+		require_once __DIR__ . '/layout/iframe-login.php';
+		exit();
+	}
 	session_start();
 	$login = $_SESSION["login"] ?? false;
 	require_once __DIR__ . '/lib/FB.php';
@@ -10,14 +15,14 @@
 		if(!$fb->checkToken()){
 			$_SESSION["login"] = $login = false;
 			setcookie('auto_login',  'false', time() - 5184000);
-			header('Location: /login.php');
-			exit();	
+			loginFalse();
 		} else {
 			$_SESSION["login"] = $login = true;
 		}
 	}
 	/* nếu chưa đăng nhập*/
 	if (!$login){
-		die(header('Location: /login.php'));
+		loginFalse();
+		// die(header('Location: /login.php'));
 	}
 ?>

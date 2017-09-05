@@ -5,7 +5,7 @@ var app = new Vue({
 	data: {
 		query: {
 			getListGroups: 'groups.limit(100){name,icon}',
-			getListMembers: 'members.limit(500)'
+			getListMembers: 'members.limit(500){name}'
 		},
 		listGroups: [],
 		members: {
@@ -40,7 +40,6 @@ var app = new Vue({
 		},
 		getListMembersInGroupsA: function() {
 			var groupId = $("#list-groups-a option:selected").attr('data-id-group');
-			console.log(groupId);
 			fb.graph(groupId, app.query.getListMembers, function(listMembers) {
 				listMembers.forEach(function(member) {
 					member.check = '';
@@ -53,16 +52,15 @@ var app = new Vue({
 		},
 		getListMembersInGroupsB: function() {
 			var groupId = $("#list-groups-b option:selected").attr('data-id-group');
-			console.log(groupId);
 			fb.graph(groupId, app.query.getListMembers, function(listMembers) {
 				listMembers.forEach(function(member) {
 					if(typeof app.members.key[`_${member.id}`] !== 'undefined'){
 						app.members.list[app.members.key[`_${member.id}`]].check = 'fa fa-check-square-o';
+						console.log(member.id + ',' + member.name);
 					}
 				});
 			}, function() {
 				app.members.list.sort(function (a, b) {
-
 					return a.check.length - b.check.length;
 				});
 				app.status = 'kiểm tra hoàn tất';
