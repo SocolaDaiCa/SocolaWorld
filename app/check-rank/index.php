@@ -36,13 +36,13 @@
 							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 								Phạm vi quét:
 								<div class="radio">
-									<label><input type="radio" v-model="interval" value="30">30 Ngày</label>
+									<label><input type="radio" v-model="interval" value="30" checked>30 Ngày</label>
 								</div>
 								<div class="radio">
 									<label><input type="radio" v-model="interval" value="7">7 Ngày</label>
 								</div>
 								<div class="radio">
-									<label><input type="radio" v-model="interval" value="1" checked>1 Ngày</label>
+									<label><input type="radio" v-model="interval" value="1">1 Ngày</label>
 								</div>
 							</div>
 							<!-- setup điểm tương ứng -->
@@ -90,7 +90,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- <tr v-for="record in members.list">
+							<tr v-if="end.all" v-for="record in members.list">
 								<td><img src="/images/rank/{{record.rank}}.png" alt=""></td>
 								<td>
 									<img src="https://graph.facebook.com/{{record.id}}/picture?type=large&redirect=true&width=60&height=60" class="img-circle"alt="">
@@ -102,7 +102,7 @@
 								<td>{{record.reactions.out}}</td>
 								<td>{{record.reactions.in}}</td>
 								<td>{{record.score}}</td>
-							</tr> -->
+							</tr>
 						</tbody>
 					</table>
 				</div>

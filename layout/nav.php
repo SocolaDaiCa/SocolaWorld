@@ -21,25 +21,19 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-right">
 				<!-- giới thiệu -->
-				<li><a href="#" title="">Giới thiệu</a></li>
+				<li><a href="/" title="">Giới thiệu</a></li>
 				<!-- ứng dụng -->
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 						Ứng dụng
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<?php
-								foreach ($chucNang as $key => $value) {
-									$value->showForNav();
-								}
-							?>
-							<!-- <li><a href="/app/get-link-shutterstock/">Get link Shutterstock</a></li>
-							<li><a href="/app/check-live-token/">Check live Token</a></li>
-							<li><a href="/app/encode-decode/">Encode decode</a></li>
-							<li><a href="/app/comments-checker/">Comments checker</a></li> -->
+							<?php foreach ($chucNang as $key => $value) ?>
+							<?php $value->showForNav(); ?>
 						</ul>
 					</li>
 					<li><a href="#">Liên hệ</a></li>
+					<li><a href="/blog">Blog</a></li>
 					<?php if ($login){ ?>
 					<!-- đăng xuất -->
 					<li class="dropdown">

@@ -16,7 +16,7 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon">ID bài viết</span>
-						<input type="text" v-model="idStatus" class="form-control" placeholder="Id status" value="100004399725901_852114151611901">
+						<input type="text" v-model="idStatus" class="form-control" placeholder="Id status" value="">
 						<span class="input-group-btn">
 							<button v-on:click="filterComments" class="btn btn-secondary" type="button">Filter!</button>
 						</span>
@@ -98,7 +98,4 @@
 	</body>
 </html>
 <?php require_once '../../layout/js.php'; ?>
-<script src="../../vendor/vue/vue.min.js"></script>
-<script src="../../vendor/socola-dai-ca/js/fb.js"></script>
-<script src="js/filter-comments.js"></script>
-<script src=""></script>
+<script src="filter-comments.js"></script>

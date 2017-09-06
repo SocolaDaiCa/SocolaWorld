@@ -109,23 +109,17 @@ class ChucNang
 		'Clean wall',
 		'Xóa toàn bộ bài viết trên tường của bạn.'
 	);
-	// $chucNang[] = new ChucNang(
-		// 	'fa fa-4x fa-newspaper-o text-primary sr-icons',
-		// 	'<a href="bai-viet-gan-day.php">Bài viết gần đây</a>',
-		// 	'Cập nhật tin tức mới nhất của một nhóm hoặc trang.'
-	// );
+	$chucNang[] = new ChucNang(
+		'fa fa-clone text-primary sr-icons',
+		'/app/auto-beep',
+		'Auto beep',
+		'Tự động chửi, chửi không ngừng nghỉ.'
+	);
 	// $chucNang[] = new ChucNang(
 		// 	'fa fa-4x fa-heart text-primary sr-icons',
 		// 	'<a href="app/an-link">Ẩn link</a>',
 		// 	'Ẩn link, chống ninja, chống xem chùa.'
 	// );
-	// $chucNang[] = new ChucNang(
-		// 	'',
-		// 	'<a href="app/filter-comments">Lọc bình luận</a>',
-		// 	''
-	// );
-	// đã check
-	// chưa check
 	// $chucNang[] = new ChucNang(
 		// 	'fa fa-search fa-4x text-primary sr-icons',
 		// 	'<a href="app/find-my-fb-id/" title="">Find my Facebook ID</a>',

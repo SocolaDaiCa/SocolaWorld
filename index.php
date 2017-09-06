@@ -51,18 +51,13 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="page-scroll" href="#about">Giới thiệu</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#services">Ứng dụng</a>
-                        </li>
+                        <li><a class="page-scroll" href="#about">Giới thiệu</a></li>
+                        <li><a class="page-scroll" href="#services">Ứng dụng</a></li>
                         <!--  <li>
                             <a class="page-scroll" href="#portfolio">Portfolio</a>
                         </li> -->
-                        <li>
-                            <a class="page-scroll" href="#contact">Liên hệ</a>
-                        </li>
+                        <li><a class="page-scroll" href="#contact">Liên hệ</a></li>
+                        <li><a href="/blog">Blog</a></li>
                         <li class="dropdown">
                             <?php echo $login; ?>
                         </li>
@@ -86,11 +81,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <h2 class="section-heading">Mình có thứ mà bạn cần!</h2>
+                        <h2 class="section-heading">Giới Thiệu</h2>
                         <hr class="light">
-                        <p class="text-faded">Mình thích xài tiếng Việt nhưng nhiều từ không thể dịch hoặc dịch ra rất chuối nên để hỗn tạp vậy!</p>
-                        <p class="text-faded">Chẳng biết phải viết gì ở đây nữa, bấm vào "dùng ngay" kìa!</p>
-                        <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Dùng ngay!</a>
+                        <p class="text-faded">Đa số các ứng dụng mình viết chủ yếu giúp việc sử dụng và quản lý group, page và cả trang cá nhân</p>
+                        <!-- <p class="text-faded">Chẳng biết phải viết gì ở đây nữa, bấm vào "dùng ngay" kìa!</p> -->
+                        <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Trải Nghiệm Ngay!</a>
                     </div>
                 </div>
             </div>

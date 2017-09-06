@@ -15,7 +15,7 @@ var app = new Vue({
             if (app.process) { return; }
             app.process = true;
             /* xóa dữ liệu trong bảng từ lần lọc bình luận trước*/
-            app.cleardata();
+            app.clearData();
             /* kiểm tra token trước khi lọc bình luận*/
             fb.checkLiveToken();
             /* bắt đầu lọc bình luận*/
@@ -51,15 +51,15 @@ var app = new Vue({
                     return app.commentsHasPhone.push(comment);
                 }
             });
+        },
+        getWords: function(comment) {
+            return comment.message.split(/,| |\n/);
+        },
+        clearData: function() {
+            this.allComments = [];
+            this.commentsHasMail = [];
+            this.commentsHasPhone = [];
         }
-    },
-    getWords: function(comment) {
-        return comment.message.split(/,| |\n/);
-    },
-    cleardata: function() {
-        this.allComments = [];
-        this.commentsHasMail = [];
-        this.commentsHasPhone = [];
     }
 });
 

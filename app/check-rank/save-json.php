@@ -1,7 +1,7 @@
 <?php
 	set_time_limit(0);
 	date_default_timezone_set("Asia/Ho_Chi_Minh");
-	require_once __DIR__ . '/../db/connect.php';
+	require_once __DIR__ . '/../../db/connect.php';
 	   // die('11111');
 	/* chỉ admin hoặc những id đc cho phép mới có quyền lưu data*/
 	/* các biến cần dùng*/

@@ -5,4 +5,4 @@
 <script src="/vendor/jquery.cookie/jquery.cookie.js"></script>
 <script src="/vendor/vue/vue.min.js"></script>
 <script src="/vendor/socola.dai.ca/js/fb.js"></script>
-<!-- <script src="/vendor/socola.dai.ca/js/socola.js"></script> -->
+<script src="/vendor/socola.dai.ca/js/socola.js"></script>
