@@ -14,25 +14,24 @@
 		<div class="container">
 			<div class="text-center">
 				<h1>Post Multiple Groups</h1>
-				<p>Đăng lên nhiều nhóm cùng lúc.</p>
+				<p>Viết bài lên nhiều nhóm chỉ với 1 lần đăng.</p>
 			</div>
 			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 				<div id="new-post">
 					<div class="media">
 						<div class="media-left">
-							<img src="../../frontend/images/Socola.jpg" class="media-object" style="width:36px">
+							<img src="https://graph.facebook.com/<?php echo$_COOKIE['userid'] ?>/picture?type=large&redirect=true&width=100&height=100" class="media-object" style="width:55px">
 						</div>
 						<div class="media-body">
 							<!-- <h4 class="media-heading">John Doe</h4> -->
-							<!-- <p>Lorem ipsum...</p> -->
 							<div class="form-group">
-								<textarea name="" id="input" class="form-control" required="required" onkeyup="auto_grow(this)" placeholder="Bạn đang nghĩ gì?"></textarea>
+								<textarea name="" id="input" class="form-control" required="required" onkeyup="auto_grow(this)" placeholder="Bạn đang nghĩ gì?" v-model="message"></textarea>
 							</div>
-							<button type="button" class="btn btn-primary btn-small pull-right">Đăng</button>
+							<div class="form-group">
+								Tới: <span v-for="group in listGroupsWillPost">&nbsp;<span class="label label-primary">{{group.name}}</span> </span>
+							</div>
+							<button type="button" class="btn btn-primary btn-small pull-right" v-on:click="post">Đăng</button>
 						</div>
-						<!-- <div class="">
-							
-						</div> -->
 					</div>
 				</div>
 			</div>
@@ -41,7 +40,7 @@
 				<div class="form-group">
 					<div class="checkbox" v-for="group in listGroups">
 						<label>
-							<input type="checkbox" value="">
+							<input type="checkbox" v-bind:value="group" v-model="listGroupsWillPost">
 							{{group.name}}
 						</label>
 					</div>

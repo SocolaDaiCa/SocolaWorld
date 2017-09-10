@@ -28,8 +28,8 @@
 						Ứng dụng
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<?php foreach ($chucNang as $key => $value) ?>
-							<?php $value->showForNav(); ?>
+							<?php foreach ($chucNang as $key => $value)
+								$value->showForNav(); ?>
 						</ul>
 					</li>
 					<li><a href="#">Liên hệ</a></li>

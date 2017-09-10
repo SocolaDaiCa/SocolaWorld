@@ -16,7 +16,7 @@
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon">ID bài viết</span>
-						<input type="text" v-model="idStatus" class="form-control" placeholder="Id status" value="">
+						<input type="text" v-model="idStatus" class="form-control" placeholder="Id status" value="100004399725901_874539162702733">
 						<span class="input-group-btn">
 							<button v-on:click="filterComments" class="btn btn-secondary" type="button">Filter!</button>
 						</span>
@@ -28,6 +28,7 @@
 				<li class="active"><a data-toggle="tab" href="#home">Toàn bộ bình luận</a></li>
 				<li><a data-toggle="tab" href="#menu1">Bình luận chứa Email</a></li>
 				<li><a data-toggle="tab" href="#menu2">Bình luận chứa số điện thoại</a></li>
+				<li><a data-toggle="tab" href="#menu3">Bình luận chứa link</a></li>
 			</ul>
 			<div class="tab-content" id="list-comments">
 				<!-- bảng chứa tất cả bình luận -->
@@ -89,6 +90,27 @@
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td>{{comment.phone}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- bảng chứa bình luận chứa link -->
+				<div id="menu3" class="tab-pane fade">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<td></td>
+								<th>Usename</th>
+								<th>Bình luận chứa số link</th>
+								<th>Link tìm thấy</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="(index, comment) in commentsHasLink">
+								<td>{{index+1}}</td>
+								<td>{{comment.from.name}}</td>
+								<td>{{comment.message}}</td>
+								<td><a v-bind:href="comment.link" title="" target="_blank">{{comment.link}}</a></td>
 							</tr>
 						</tbody>
 					</table>

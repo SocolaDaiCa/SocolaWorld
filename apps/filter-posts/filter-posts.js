@@ -14,6 +14,15 @@ var app = new Vue({
         }
     },
     methods: {
+        start: function(groupId) {
+            console.log(groupId);
+            if (groupId) {app.groupId = groupId;}
+            app.clearData();
+            app.getListPosts();
+        },
+        clearData: function() {
+            app.listPosts = [];
+        },
         getListGroups: function() {
             fb.graph('me', app.query.getListGroups, function(listGroups) {
                 listGroups.forEach(function(group) {
@@ -28,10 +37,10 @@ var app = new Vue({
                 	}
                 });
             }, 'v2.3');
-
         },
         getListPosts: function() {
             fb.graph(app.groupId, app.query.getListPosts, function(listPosts) {
+                if (!listPosts) {return;}
                 listPosts.forEach(function(post) {
                     if(new Date(post.created_time).getTime() < app.since){ return;}
                     post.created_time = app.showCreatTime(post.created_time);
@@ -69,5 +78,5 @@ $(function() {
     fb = new FB('./');
     fb.setToken($.cookie('token'));
     app.getListGroups();
-    app.getListPosts();
+    // app.getListPosts();
 });

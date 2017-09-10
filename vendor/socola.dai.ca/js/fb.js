@@ -5,8 +5,9 @@ function saveInfoOfMeAndLog(info) {
 	console.log('Token live');
 }
 function showError(error) {
-	error = error.responseJSON.error;
-	console.log(error.message);
+	// console.log(error);
+	// error = error.responseJSON.error;
+	// console.log(error.message);
 }
 function FB(pathRoot) {
 	/*var*/

@@ -60,69 +60,69 @@ function User(id, name) {
 	this.reactions = { in: 0, out: 0 };
 	this.detailReactions = { LIKE: 0, LOVE: 0, HAHA: 0, WOW: 0, SAD: 0, ANGRY: 0	};
 	this.score = '?';
-	this.getData = function() {
-		let rank = this.rank;
-		let id = this.id;
-		let name = this.name;
-		let posts = this.posts;
-		let comments = this.comments;
-		let reactions = this.reactions;
-		let score = this.score;
-		return { rank, id, name, posts, comments, reactions, score };
-	};
-	this.commentIn = function() {
-		this.comments.in++;
-	};
-	this.commentOut = function() {
-		statistics.comments.total++;
-		this.comments.out++;
-	};
-	this.reactionIn = function(type) {
-		this.reactions.in++;
-		this.detailReactions[type]++;
-	};
-	this.reactionOut = function(type) {
-		statistics.reactions.total++;
-		this.reactions.out++;
-		this.detailReactions[type]++;
-	};
-	this.postOut = function() {
-		this.posts++;
-	};
-	this.calculateScore = function() {
-		let score = statistics.score;
-		this.score = this.posts * score.post 
-			+ (this.comments.in + this.comments.out) * score.comment
-			+ this.detailReactions.LIKE * score.like
-			+ this.detailReactions.LOVE * score.love
-			+ this.detailReactions.HAHA * score.haha
-			+ this.detailReactions.WOW * score.wow
-			+ this.detailReactions.SAD * score.sad
-			+ this.detailReactions.ANGRY * score.angry;
-		// this.score = (this.reactions.in + this.reactions.out) * 1 +
-			// (this.comments.in + this.comments.out) * 3 +
-			// this.posts * 5;
-		return this;
-	};
 	/* get thôi khỏi set*/
-	this.getPost = function() {
-		return this.post;
-	};
-	this.getCommentOut = function() {
-		return this.comments.out;
-	};
-	this.getCommentsIn = function() {
-		return this.comments.in;
-	};
-	this.getReactionsOut = function() {
-		return this.reactions.out;
-	};
-	this.getReactionsIn = function() {
-		return this.reactions.in;
-	};
 	return this;
 }
-
+User.prototype.getData = function() {
+	let rank = this.rank;
+	let id = this.id;
+	let name = this.name;
+	let posts = this.posts;
+	let comments = this.comments;
+	let reactions = this.reactions;
+	let score = this.score;
+	return { rank, id, name, posts, comments, reactions, score };
+};
+User.prototype.commentIn = function() {
+	this.comments.in++;
+};
+User.prototype.commentOut = function() {
+	statistics.comments.total++;
+	this.comments.out++;
+};
+User.prototype.reactionIn = function(type) {
+	this.reactions.in++;
+	this.detailReactions[type]++;
+};
+User.prototype.reactionOut = function(type) {
+	statistics.reactions.total++;
+	this.reactions.out++;
+	this.detailReactions[type]++;
+};
+User.prototype.postOut = function() {
+	this.posts++;
+};
+User.prototype.calculateScore = function() {
+	let score = statistics.score;
+	this.score = this.posts * score.post 
+		+ (this.comments.in + this.comments.out) * score.comment
+		+ this.detailReactions.LIKE * score.like
+		+ this.detailReactions.LOVE * score.love
+		+ this.detailReactions.HAHA * score.haha
+		+ this.detailReactions.WOW * score.wow
+		+ this.detailReactions.SAD * score.sad
+		+ this.detailReactions.ANGRY * score.angry;
+	// this.score = (this.reactions.in + this.reactions.out) * 1 +
+		// (this.comments.in + this.comments.out) * 3 +
+		// this.posts * 5;
+	return this;
+};
+User.prototype.getPost = function() {
+	return this.post;
+};
+User.prototype.getCommentOut = function() {
+	return this.comments.out;
+};
+User.prototype.getCommentsIn = function() {
+	return this.comments.in;
+};
+User.prototype.getReactionsOut = function() {
+	return this.reactions.out;
+};
+User.prototype.getReactionsIn = function() {
+	return this.reactions.in;
+};
+/*end user*/
 function Null() {}
 var statistics = new Vue({
 	el: '#statistics',
@@ -163,10 +163,10 @@ var statistics = new Vue({
 			this.intervalView = `trong ${this.interval} ngày gần đây`;
 			this.query = {
 				totalMenbers: 'members.limit(0).summary(true)',
-				listMembers: 'members.limit(500)',
-				listPosts: `feed.since(${since}).limit(200){id,from,created_time}`,
-				listCommentsInPost: `comments.limit(1000).since(${since}){comments.limit(0).summary(true),from{id},created_time}`,
-				listCommentsInComment: `comments.limit(1000).since(${since}){from{id},created_time}`,
+				listMembers: 'members.limit(500){id,name}',
+				listPosts: `feed.since(${since}).limit(6){id,from,created_time}`,
+				listCommentsInPost: `comments.limit(200).since(${since}){comments.limit(0).summary(true),from{id},created_time}`,
+				listCommentsInComment: `comments.limit(200).since(${since}){from{id},created_time}`,
 				listReactionInPost: `reactions.limit(1000).since(${since}){id,created_time,type}`
 			};
 			this.since = since * 1000;
@@ -192,10 +192,10 @@ var statistics = new Vue({
 		},
 		getListMembers: function() {
 			statistics.icon.members = icon.loading;
-			fb.graph(this.idGroup, this.query.listMembers, function(res) {
-				res.forEach(function(member) {
-					statistics.addMember(member.id, member.name);
-				});
+			fb.graph(this.idGroup, this.query.listMembers, function(listMembers) {
+				for (let i = listMembers.length - 1; i >= 0; i--) {
+					statistics.addMember(listMembers[i].id, listMembers[i].name);	
+				}
 			}, function end() {
 				statistics.icon.members = icon.endload;
 				statistics.getListPost();
@@ -208,11 +208,7 @@ var statistics = new Vue({
 			statistics.icon.comments = icon.loading;
 			statistics.icon.reactions = icon.loading;
 			fb.graph(statistics.idGroup, statistics.query.listPosts, function(listPosts) {
-				if (!listPosts.length) { return; }
-				listPosts.forEach(function(post) {
-					// if (postDontCare.indexOf(post.id) !== -1) {
-					//     return;
-					// }
+				(listPosts || []).forEach(function(post) {
 					statistics.post.total++;
 					let ownPost = statistics.addMember(post.from.id, post.from.id);
 					if (new Date(post.created_time).getTime() >= statistics.since) {
@@ -249,7 +245,6 @@ var statistics = new Vue({
 		},
 		getListCommentsInPost: function(postId, ownPost) {
 			fb.graph(postId, statistics.query.listCommentsInPost, function(listComments) {
-				if (!listComments.length) { return; }
 				listComments.forEach(function(comment) {
 					statistics.comments.mustCheckRep++;
 					let ownCmt = statistics.addMember(comment.from.id, comment.from.id);
@@ -299,7 +294,6 @@ var statistics = new Vue({
 		},
 		getListReactionsInComment: function(commentId, ownCmt) {
 			fb.graph(commentId, statistics.query.listReactionInPost, function(listReactions) {
-				if (!listReactions.length) { return; }
 				listReactions.forEach(function(reaction) {
 					if (new Date(reaction.created_time).getTime() < statistics.since) { return; }
 					// cộng điểm cho thằng reac

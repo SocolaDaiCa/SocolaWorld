@@ -8,7 +8,9 @@ function auto_grow(element) {
 var app = new Vue({
 	el: "#app",
 	data: {
+		message: '',
 		listGroups: [],
+		listGroupsWillPost: [],
 		query: {
 			getListGroups: 'groups.limit(100){name,icon}'
 		}
@@ -16,14 +18,19 @@ var app = new Vue({
 	methods: {
 		getListGroups: function() {
 			fb.graph('me', app.query.getListGroups, function(listGroups) {
-				// console.log(listGroups);
-				listGroups.forEach(function(group){
-					console.log(group);
-					app.listGroups.push(group);
-				});
+				app.listGroups = app.listGroups.concat(listGroups);
 			}, function() {
 				
 			}, 'v2.3');
+		},
+		post: function() {
+			if (!app.listGroupsWillPost) {return;}
+			var message = encodeURI(app.message);
+			app.listGroupsWillPost.forEach(function(group) {
+				fb.graphAS(group.id + '/feed', `&method=post&message=${message}`, 'v2.3');
+				
+			});
+			console.log('đăng');
 		}
 	}
 });

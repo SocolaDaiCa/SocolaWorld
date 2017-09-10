@@ -17,7 +17,7 @@
 					<!-- Default panel contents -->
 					<div class="panel-heading">
 						<i class="fa fa-bar-chart"></i> Bảng xếp hạng thành viên
-						<a href="" title="../rank/{{idGroup}}" target="_blank">View</a>
+						<a v-if="idGroup" href="/rank/{{idGroup}}.html" target="_blank">View</a>
 					</div>
 					<div class="panel-body">
 						<!-- chọn nhóm -->
@@ -90,10 +90,10 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-if="end.all" v-for="record in members.list">
-								<td><img src="/images/rank/{{record.rank}}.png" alt=""></td>
+							<!-- <tr v-if="end.all" v-for="record in members.list">
+								<td><img src="/frontend/images/rank/{{record.rank}}.png" alt=""></td>
 								<td>
-									<img src="https://graph.facebook.com/{{record.id}}/picture?type=large&redirect=true&width=60&height=60" class="img-circle"alt="">
+									<img src="https://graph.facebook.com/{{record.id}}/picture?type=large&redirect=true&width=60&height=60" class="img-circle" alt="">
 									<a href="https://fb.com/{{record.id}}" target="_blank" title="">{{record.name}}</a>
 								</td>
 								<td>{{record.posts}}</td>
@@ -103,7 +103,7 @@
 								<td>{{record.reactions.in}}</td>
 								<td>{{record.score}}</td>
 							</tr>
-						</tbody>
+ -->						</tbody>
 					</table>
 				</div>
 			</div>

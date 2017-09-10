@@ -15,20 +15,13 @@
 		<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<ul id="list-groups">
 				<li v-for="group in listGroups">
-					<!-- <a class="crop small" v-on:click= title="">{{group.name}}</a> -->
+					<a class="crop small" href="#groups" v-on:click="start(group.id)">{{group.name}}</a>
 				</li>
 			</ul>
 		</div>
-		<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+		<div class="col-xs-12 col-sm-12 col-md-5 col-lg-10">
 			<div class="list-posts">
 				<div class="post"  v-for="(index, post) in listPosts">
-					<!-- avatar -->
-					<!-- <a href="https://fb.com/{{status.from.id}}" target="_blank">
-								<img alt="image" src=""/>
-					</a> -->
-					<!-- username -->
-					<!-- <a href="https://fb.com/${target.id}">{{status.from.name}}</a> -->
-					<!-- header -->
 					<div class="post-header">
 						<div class="media">
 							<div class="media-left">

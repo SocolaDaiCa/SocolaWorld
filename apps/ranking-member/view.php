@@ -20,8 +20,8 @@
 			case '0': return 'V';
 		}
 	}
-	require_once __DIR__ . '/db/connect.php';
-	$groupId = empty($_GET['groupID']) ? '1796364763915932' : $_GET['groupID'];
+	require_once __DIR__ . '/../../db/connect.php';
+	$groupId = empty($_GET['q']) ? '1796364763915932' : $_GET['q'];
 	$listName = array(
 			'1796364763915932' => 'SFIT - UTC',
 			'677222392439615' => 'SFIT - Giao lưu học hỏi'
@@ -85,11 +85,11 @@
 									<?php foreach ($listMembers as $member): ?>
 									<tr>
 										<td class="text-left">
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/rank/<?php echo($member->rank) ?>.png" alt="Rank #1" title="Rank #1" width="32" height="32">
-											<?php echo getIndex($member->rank) ?>
+											<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/frontend/images/rank/<?php //echo($member->rank) ?>.png" alt="Rank #1" title="Rank #1" width="32" height="32"> -->
+											<?php //echo getIndex($member->rank) ?>
 										</td>
 										<td class="text-left">
-											<img src="https://graph.facebook.com/<?php echo($member->id) ?>/picture?type=large&redirect=true&width=40&height=40" alt="" class=".img-circle" width="32" height="32">
+											<!-- <img src="https://graph.facebook.com/<?php //echo($member->id) ?>/picture?type=large&redirect=true&width=40&height=40" alt="" class=".img-circle" width="32" height="32"> -->
 											<?php linkProfile($member) ?>
 										</td>
 										<td class="text-center"><?php echo($member->posts) ?></td>

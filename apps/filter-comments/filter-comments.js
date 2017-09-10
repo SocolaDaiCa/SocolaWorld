@@ -8,7 +8,8 @@ var app = new Vue({
         idStatus: '',
         allComments: [],
         commentsHasMail: [],
-        commentsHasPhone: []
+        commentsHasPhone: [],
+        commentsHasLink: []
     },
     methods: {
         filterComments: function() {
@@ -25,6 +26,7 @@ var app = new Vue({
                     app.addComment(comment);
                     app.addIfHasMail(comment);
                     app.addIfhasPhone(comment);
+                    app.addIfhasLink(comment);
                 });
             }, function() {
                 app.process = false;
@@ -43,12 +45,21 @@ var app = new Vue({
                 }
             });
         },
-        addCommentHaddIfhasPhoneasPhone: function(comment) {
+        addIfhasPhone: function(comment) {
             var words = app.getWords(comment);
             words.forEach(function(word) {
                 if (validatePhone(word)) { // nếu chứa mail thì
                     comment.phone = word;
                     return app.commentsHasPhone.push(comment);
+                }
+            });
+        },
+        addIfhasLink: function(comment) {
+            var words = app.getWords(comment);
+            words.forEach(function(word) {
+                if (validateUrl(word)) { // nếu chứa link thì
+                    comment.link = word;
+                    return app.commentsHasLink.push(comment);
                 }
             });
         },
@@ -72,7 +83,16 @@ function validatePhone(phone) {
     var re = /^\+?([0-9]{2,})\)?[-. ]?([0-9]{2,})[-. ]?([0-9]{2,})$/;
     return re.test(phone);
 }
-
+function validateUrl(url) {
+    // var re = /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    var re = new RegExp('^(https?|ftp|file)(:\\/\\/)?'+ // protocol
+  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+  '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return re.test(url);
+}
 $(function() {
     fb = new FB('../../');
     fb.setToken($.cookie('token'));
