@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Rank friends</title>
+		<title>Ranking Member</title>
 		<?php require_once '../../layout/header.php'; ?>
 		<?php require_once '../../layout/css.php'; ?>
 		<link rel="stylesheet" type="text/css" href="css/insight.css">

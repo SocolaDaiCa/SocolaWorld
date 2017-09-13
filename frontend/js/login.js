@@ -1,13 +1,15 @@
-/*function*/
+'use strict';
 function validateForm() {
+	// console.log($("[name=loginwithfacebook]").val());
+	console.log('sssssss');
 	var email = $("[name=email]").val() !=='';
 	var password = $("[name=password]").val() !=='';
 	var token = $("[name=token]").val() !=='';
-	if(!email && !password && !token)
-	{
-		$(".aleft").html(`<div class="warning">Không thể đăng nhập nếu tất cả thông tin đều bỏ trống.</div>`);
-		return false;
-	}
+	// if(!email && !password && !token)
+	// {
+	// 	$(".aleft").html(`<div class="warning">Không thể đăng nhập nếu tất cả thông tin đều bỏ trống.</div>`);
+	// 	return false;
+	// }
 	if( (email || password) && token)
 	{
 		$(".aleft").html(`
@@ -15,7 +17,7 @@ function validateForm() {
 			</div>`);
 		return false;
 	}
-	if( email*password === 0 && !token )
+	if( email*password === 0 && !token && email!=password)
 	{
 		$(".aleft").html(`<div class="warning">Vui lòng nhập đầy đủ cả tài khoản và mật khẩu.</div>`);
 		return false;

@@ -5,8 +5,7 @@
 		$usename = $_COOKIE['username'];
 		$logout = '<a href="logout.php"><i class="fa fa-sign-out"></i>Log out</a>';
 		$login = "
-			<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">{$usename}
-					<span class=\"caret\"></span>
+			<a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">{$usename}<span class=\"caret\"></span>
 			</a>
 			<ul class=\"dropdown-menu\">
 				<li>{$logout}</li>
@@ -32,23 +31,17 @@ class ChucNang
 		echo"
 		<div class=\"col-lg-{$col} col-md-6 text-center\">
 			<div class=\"service-box\">
-				<a href=\"{$this->url}\" title=\"\">
-					<i class=\"{$this->icon} fa-4x\"></i>
+				<a href=\"{$this->url}\" title=\"\"><i class=\"{$this->icon} fa-4x\"></i>
 				</a>
 				<h3><a href=\"/apps/{$this->url}\" title=\"\">{$this->title}</a></h3>
 				<p class=\"text-muted text-justify\">{$this->content}</p>
 			</div>
-		</div>
-		";
+		</div>";
 	}
 	public function showForNav()
 	{
 		echo("
-		<li><a href=\"/apps/{$this->url}\" title=\"\">
-				<i class=\"{$this->icon}\"></i>
-				{$this->title}
-		</a></li>
-		");
+				<li><a href=\"/apps/{$this->url}\" title=\"\"><i class=\"{$this->icon}\"></i> {$this->title}</a></li>");
 	}
 }
 	$chucNang = array();
@@ -57,6 +50,24 @@ class ChucNang
 		'ranking-member',
 		'Ranking member',
 		'Thống kê tương tác, xếp hạng thành viên.'
+	);
+	$chucNang[] = new ChucNang(
+		'fa fa-filter text-primary sr-icons',
+		'filter-comments',
+		'Filter Comments',
+		'Lọc mail, số điện thoại, link từ bình luận.'
+	);
+	$chucNang[] = new ChucNang(
+		'fa fa-newspaper-o text-primary sr-icons',
+		'filter-posts',
+		'Filter post',
+		'Lọc bài viết mới nhất trong nhóm.'
+	);
+	$chucNang[] = new ChucNang(
+		'fa fa-keyboard-o text-primary sr-icons',
+		'post-multiple-groups/',
+		'Post multiple groups',
+		'Đăng bài trong nhiều nhóm cùng lúc.'
 	);
 	$chucNang[] = new ChucNang(
 		'fa fa-link text-primary sr-icons',
@@ -76,12 +87,7 @@ class ChucNang
 		'Encode decode',
 		'Url, Base64, md5'
 	);
-	$chucNang[] = new ChucNang(
-		'fa fa-filter text-primary sr-icons',
-		'filter-comments',
-		'Filter Comments',
-		'Lọc mail, số điện thoại và cả link từ bình luận.'
-	);
+	
 	$chucNang[] = new ChucNang(
 		'fa fa-search text-primary sr-icons',
 		'members-checker',
@@ -89,28 +95,22 @@ class ChucNang
 		'Kiểm tra thành viên thuộc nhóm A nhưng có thuộc nhóm B hay không.'
 	);
 	$chucNang[] = new ChucNang(
-		'fa fa-newspaper-o text-primary sr-icons',
-		'filter-posts',
-		'Filter post',
-		'Lọc bài viết mới nhất trong nhóm.'
-	);
-	$chucNang[] = new ChucNang(
-		'fa fa-clone text-primary sr-icons',
-		'post-multiple-groups/',
-		'Post multiple groups',
-		'Đăng bài trong nhiều nhóm cùng lúc.'
-	);
-	$chucNang[] = new ChucNang(
-		'fa fa-clone text-primary sr-icons',
+		'fa fa-eraser text-primary sr-icons',
 		'delete-all-posts-in-wall',
 		'Clean wall',
 		'Xóa toàn bộ bài viết trên tường của bạn.'
 	);
 	$chucNang[] = new ChucNang(
-		'fa fa-clone text-primary sr-icons',
+		'fa fa-commenting-o text-primary sr-icons',
 		'auto-beep',
 		'Auto beep',
 		'Tự động chửi, chửi không ngừng nghỉ.'
+	);
+	$chucNang[] = new ChucNang(
+		'fa fa-clone text-primary sr-icons',
+		'giveway-checker',
+		'Giveway Checker',
+		'Lorem ipsum dolor sit amet.'
 	);
 	// $chucNang[] = new ChucNang(
 		// 	'fa fa-4x fa-heart text-primary sr-icons',

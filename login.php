@@ -11,7 +11,7 @@
 	</head>
 	<body id="body">
 		<br><br>
-		<div class="container flogin" onsubmit="return validateForm()"> 
+		<div class="container flogin" onsubmit="return validateForm()">
 			<form action="return.php" method="GET" role="form">
 				<!-- alert -->
 				<div class="row form-group">
@@ -22,9 +22,9 @@
 				<!-- login with Facebook -->
 				<div class="row form-group">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-						<a href="actionToken.php?action=loginWithFacebook" class="" id="loginWithFacebook">
-							<img src="/frontend/images/img-lg-with-facebook.png" alt="" style="height: 45px">
-						</a>
+						<!-- <a href="actionToken.php?action=loginWithFacebook" class="" id="loginWithFacebook"> -->
+						<input type="image" src="/frontend/images/img-lg-with-facebook.png" name="loginwithfacebook" style="height: 45px" s="ss">
+						<!-- </a> -->
 					</div>
 				</div>
 				<h4 class=" text-white text-center">Hoặc</h4>
@@ -45,7 +45,7 @@
 				<!-- login with token -->
 				<div class="row form-group">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						<span class="label label-primary">Hoặc đăng nhập bằng token</span>
+						<span class="label label-primary">Token</span>
 						<input type="text" class="form-control" id="token" placeholder="EAACEdEose0cBAITP2FZAvl9sq9MC9WSFShsw35JOUuz2aIgjbcl1suZCqDCH5COwynCF8hnlZCtwImHeXdHnMQNTesJp0x1jsdgG91Reug0ATnsAA1elYsmTVGaYSVAYv9PtRYmKEwJKAW1AwlSAtMFRQ14kjaQQYZAZBzMJAKSsbdvLdz26ByAlKXe8g70gZD" name="token">
 					</div>
 				</div>
@@ -75,5 +75,5 @@
 	</body>
 </html>
 <script src="//code.jquery.com/jquery.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="/frontend/js/login.js"></script>

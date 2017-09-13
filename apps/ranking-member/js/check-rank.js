@@ -166,7 +166,7 @@ var statistics = new Vue({
 				listMembers: 'members.limit(500){id,name}',
 				listPosts: `feed.since(${since}).limit(6){id,from,created_time}`,
 				listCommentsInPost: `comments.limit(200).since(${since}){comments.limit(0).summary(true),from{id},created_time}`,
-				listCommentsInComment: `comments.limit(200).since(${since}){from{id},created_time}`,
+				listCommentsInComment: `comments.limit(200).since(${since}){comments.limit(0).summary(true),from{id},created_time}`,
 				listReactionInPost: `reactions.limit(1000).since(${since}){id,created_time,type}`
 			};
 			this.since = since * 1000;

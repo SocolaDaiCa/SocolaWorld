@@ -6,41 +6,43 @@
 		<title>Auto beep</title>
 		<?php require '../../layout/header.php'; ?>
 		<?php require '../../layout/css.php'; ?>
-		<style>
-		fieldset.scheduler-border {
-		border: 1px groove #ddd !important;
-		padding: 0 1.4em 1.4em 1.4em !important;
-		margin: 0 0 1.5em 0 !important;
-		-webkit-box-shadow:  0px 0px 0px 0px #000;
-		box-shadow:  0px 0px 0px 0px #000;
-		}
-		legend.scheduler-border {
-		font-size: 1.2em !important;
-		font-weight: bold !important;
-		text-align: left !important;
-		width:inherit; /* Or auto */
-		padding:0 10px; /* To give a bit of padding on the left and right */
-		border-bottom:none;
-		}
-		legend.scheduler-border {
-    width:inherit; /* Or auto */
-    padding:0 10px; /* To give a bit of padding on the left and right */
-    border-bottom:none;
-}
-		</style>
+		<link rel="stylesheet" href="auto-beep.css">
 	</head>
-	<body>
+	<body id="app">
 		<?php require '../../layout/nav.php'; ?>
 		<div class="container">
-			<div class="panel panel-default">
-				<div class="panel-heading">Panel Heading</div>
-				<div class="panel-body">Panel Content</div>
+			<div class="checkbox">
+				<div class="col-md-3">
+					<fieldset>
+						<legend>Chọn mục tiêu</legend>
+						<label><input type="checkbox" value="">Gặp ai cũng chửi</label>
+						<label><input type="checkbox" value="">Chửi tất cả trừ bạn bè</label>
+						<label><input type="checkbox" value="">Chửi thằng đăng status</label>
+						<label><input type="checkbox" value="">Chửi theo danh sách Status ID:</label>
+						<textarea rows="5"></textarea>
+						<label><input type="checkbox">Chửi theo danh sách User ID:</label>
+						<textarea rows="5"></textarea>
+					</fieldset>
+				</div>
+				<div class="col-md-3">
+					<fieldset>
+						<legend>Chọn chức năng</legend>
+						<label><input type="checkbox" value="">Chửi có văn hóa</label>
+						<label><input type="checkbox" value="">CHửi tất cả status trên News Feed</label>
+						<label><input type="checkbox" value="">Chửi tất cả Group, Page đã tham gia</label>
+						<label><input type="checkbox" value="">Chửi theo số đông</label>
+						<label><input type="checkbox" value="">Chửi có chiều sâu</label>
+						<label><input type="checkbox" value="">Chửi có Logic</label>
+						<label><input type="checkbox" value="">Chửi kiểu trẻ trâu</label>
+						<label><input type="checkbox" value="">Chửi theo vùng miền</label>
+						<label><input type="checkbox" value="">Chửi đổng</label>
+						<label><input type="checkbox" value="">Chửi theo nội dung Status</label>
+						<label><input type="checkbox" value="">Tự tìm logic để chửi</label>
+					</fieldset>
+				</div>
 			</div>
-			<fieldset class="scheduler-border">
-				<legend>title or explanatory caption</legend>
-				ádasdqwr
-			</fieldset>
 		</div>
 		<?php require '../../layout/js.php'; ?>
+		<script src="auto-beep.js"></script>
 	</body>
 </html>

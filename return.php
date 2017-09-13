@@ -5,18 +5,23 @@
 	require_once 'lib/function.php';
 	require_once 'db/connect.php';
 	/* get data*/
+	$loginWithFacebook = isset($_REQUEST['loginwithfacebook_x']);
 	$token     = $_REQUEST['token'] ?? '';
 	$code      = $_REQUEST['code']  ?? '';
 	$email     = $_REQUEST['email'] ?? '';
 	$password  = $_REQUEST['password'] ?? '';
-	$autoLogin = $_REQUEST['autologin'] == 'on' ? true : false;
+	$autoLogin = isset($_REQUEST['autologin']) && $_REQUEST['autologin'] == 'on' ? true : false;
+
+	if($loginWithFacebook){
+		loginWithFacebook();
+	}
 	if($code){
 		$token = getTokenFromCode();
 	} else 
 	if ($email && $password){
 		$token = getTokenFormEmailAndPassword($email, $password);
 	}
-
+	
 	$fb = new FB('./');
 	$fb->setAccess_token($token);
 	if ($fb->checkToken() == false) {

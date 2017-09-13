@@ -1,3 +1,23 @@
-.text-white{
-	color: #fff;
+legend {
+    display: block;
+    width: auto;
+    padding: 0 5px;
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: inherit;
+    border-bottom: none;
+}
+
+fieldset {
+    /*border: 10px groove gray;*/
+    border: 1.5px solid #c8c8c8;
+    padding: 5px;
+}
+
+textarea {
+    resize: none;
+}
+[class*=col-]{
+	padding-left: 10px;
+	padding-right: 10px;
 }
