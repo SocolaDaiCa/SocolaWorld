@@ -112,6 +112,12 @@ class ChucNang
 		'Giveway Checker',
 		'Lorem ipsum dolor sit amet.'
 	);
+	$chucNang[] = new ChucNang(
+		'fa fa-clone text-primary sr-icons',
+		'bot-remind-hashtag',
+		'Bot Remind HashTag',
+		'Lorem ipsum dolor sit amet.'
+	);
 	// $chucNang[] = new ChucNang(
 		// 	'fa fa-4x fa-heart text-primary sr-icons',
 		// 	'<a href="app/an-link">Ẩn link</a>',

@@ -70,6 +70,11 @@
 			$sql = "SELECT `json` FROM `post_dont_care` where `user_id`='{$userId}'";
 			return $this->conn->query($sql)->fetch_assoc()['json'];
 		}
-
+		// bot remind hashtag
+		public function getHashTag($userId, $groupId)
+		{
+			$sql = "select hashtag from bot_remind_hashtag where user_id='{$userId}' && group_id='{$groupId}'";
+			return $this->conn->query($sql)->fetch_assoc();
+		}
 	}
 ?>

@@ -19,3 +19,6 @@ body#body {
 .flogin .footer-login {
     padding: auto;
 }
+label, h4{
+	color: #fff;
+}

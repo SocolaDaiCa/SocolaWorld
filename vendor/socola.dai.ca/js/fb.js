@@ -19,7 +19,7 @@ function FB(pathRoot) {
 	};
 	this.checkLiveToken = function() {
 		$.ajaxSetup({ "async": false });
-		var url = `https://graph.facebook.com/v2.3/me`;
+		var url = `https://graph.facebook.com/v2.3/me?fields=name`;
 		var data = {access_token: this.token};
 		$.getJSON(url, data)
 			.done(saveInfoOfMeAndLog)

@@ -5,6 +5,7 @@
 		private $token = '';
 		private $endPoint = 'https://graph.facebook.com';
 		private $message = "";
+		private $messageKhuyet;
 		private $groupId = '677222392439615';
 		private $listHashTag = array(
 			'#sfit_news',
@@ -15,9 +16,15 @@
 			'#sfit_suggest',
 			'#sfit_job'
 		);
+		private $listHash = array(
+			'#sfit_new',
+			'#sfit_ques',
+			'#sfit_dis',
+		);
 		function __construct()
 		{
 			$this->message = urlencode("Bổ sung hashtag nhé \n https://sfit-utc.tentstudy.xyz/hashtags.html");
+			$this->messageKhuyet;
 		}
 		public function setToken($token)
 		{
@@ -36,25 +43,31 @@
 				return;
 			}
 			foreach ($listPosts as $post) {
-				if($this->checkHashtag($post)){
+				if($this->checkHashtag($post, $this->listHashTag)){
 					return;
 				}
 				if($db->checkRemindHashTag($post->id)){
 					// echo("đã từng được nhắc từ trước <a href=\"//fb.com/$post->id\" target=\"_blank\">$post->id</a><br>");
-				} else {
-					$this->remindHashTag($post->id);
+				} else { /*k có hash và chưa nhắc*/
+					// có thể là viết sai
+					$hind = $this->checkHashtag($post, $this->listHash);
+					if($hind){ 
+						$this->remindHashTag($post->id, $this->getMessageKhuyet($hind));
+					} else {
+						$this->remindHashTag($post->id, $this->message);
+					}
 					// echo("thiếu hashtag {$post->id}<br>");
 					$db->saveRemindHashTag($post->id);
 				}
 			}
 		}
-		public function checkHashtag($post)
+		public function checkHashtag($post, $listHashTag)
 		{
 			if(empty($post->message)){
 				return false;
 			}
 			$message = strtolower($post->message);
-			foreach ($this->listHashTag as $hashTag) {
+			foreach ($listHashTag as $hashTag) {
 				if(strpos($message, $hashTag) !== false){
 					return true;
 				}
@@ -73,9 +86,9 @@
 				return array();
 			}
 		}
-		public function remindHashTag($postId)
+		public function remindHashTag($postId, $message)
 		{
-			file_get_contents("{$this->endPoint}/{$postId}/comments?method=post&access_token={$this->token}&message={$this->message}");
+			file_get_contents("{$this->endPoint}/{$postId}/comments?method=post&access_token={$this->token}&message={$message}");
 		}
 	}
 	/*enc class*/

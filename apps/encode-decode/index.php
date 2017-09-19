@@ -1,4 +1,3 @@
-<?php require_once '../../check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>

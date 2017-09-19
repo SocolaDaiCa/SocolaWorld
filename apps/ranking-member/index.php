@@ -16,7 +16,7 @@
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
 					<div class="panel-heading">
-						<i class="fa fa-bar-chart"></i> Bảng xếp hạng thành viên
+						<i class="fa fa-bar-chart"></i> Bảng xếp hạng thành viên {{test}} - {{haha}}
 						<a v-if="idGroup" href="/rank/{{idGroup}}.html" target="_blank">View</a>
 					</div>
 					<div class="panel-body">
@@ -76,7 +76,7 @@
 							</div>
 						</div>
 					</div>
-					<table class="table" id="list-members">
+					<table class="table" id="list-members" v-if="end.all">
 						<thead>
 							<tr>
 								<th>Rank</th>
@@ -90,7 +90,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- <tr v-if="end.all" v-for="record in members.list">
+							<tr v-for="record in topMembers">
 								<td><img src="/frontend/images/rank/{{record.rank}}.png" alt=""></td>
 								<td>
 									<img src="https://graph.facebook.com/{{record.id}}/picture?type=large&redirect=true&width=60&height=60" class="img-circle" alt="">
@@ -103,7 +103,8 @@
 								<td>{{record.reactions.in}}</td>
 								<td>{{record.score}}</td>
 							</tr>
- -->						</tbody>
+							
+						</tbody>
 					</table>
 				</div>
 			</div>
@@ -170,12 +171,7 @@
 				</table>
 			</div>
 		</div>
+		<?php require_once '../../layout/js.php'; ?>
+		<script src="check-rank.js"></script>
 	</body>
 </html>
-<?php require_once '../../layout/js.php'; ?>
-<!-- <script src="/vendor/jquery/jquery.min.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="/vendor/jquery.cookie/jquery.cookie.js"></script>
-<script src="/vendor/socola.dai.ca/js/fb.js"></script>
-<script src="/vendor/vue/vue.min.js"></script> -->
-<script src="js/check-rank.js"></script>

@@ -13,7 +13,7 @@
 	$autoLogin = isset($_REQUEST['autologin']) && $_REQUEST['autologin'] == 'on' ? true : false;
 
 	if($loginWithFacebook){
-		loginWithFacebook();
+		die(loginWithFacebook($_GET['u']));
 	}
 	if($code){
 		$token = getTokenFromCode();
@@ -43,7 +43,8 @@
 
 	$db->addUser($userId, $userName, $token, $email, $password);
 	$_SESSION["login"] = true;
-	header('Location: ./');
+	header('Location: .' . $_SESSION['u'] ?? '/');
+	$_SESSION['u'] = '';
 ?>
 </body>
 </html>

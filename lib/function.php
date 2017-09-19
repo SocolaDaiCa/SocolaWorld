@@ -1,9 +1,5 @@
 <?php
-	define('client_id','425249171186475');
-	define('client_secret','1723fe0ec79cd0cf142c93b9010ff5d8');
 	// define('redirect_uri',$_SERVER['REQUEST_SCHEME'].'://'.'facebook.dev/return.php');
-	define('redirect_uri','http://facebook.dev/return.php');
-
 	// logReport('load file function thành công');
 	function viewsource($url){
 		$ch	  = curl_init();
