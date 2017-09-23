@@ -48,16 +48,7 @@
 			$sql = "INSERT INTO group_insight (group_id, update_time, json) VALUES ('{$groupId}', '{$updateTime}', '{$jsonString}')";
 			$this->conn->query($sql);
 		}
-		public function checkRemindHashTag($postId)
-		{
-			$sql = "SELECT count(post_id) as `count` FROM `remind_hashtag` where `post_id`='{$postId}'";
-			return $this->conn->query($sql)->fetch_assoc()['count'] > 0;
-		}
-		public function saveRemindHashTag($postId)
-		{
-			$sql = "INSERT INTO remind_hashtag (post_id) VALUES ('{$postId}')";
-			$this->conn->query($sql);
-		}
+		
 		/* post dont care*/
 		public function getListPostsDontCare($userId)
 		{
@@ -71,10 +62,53 @@
 			return $this->conn->query($sql)->fetch_assoc()['json'];
 		}
 		// bot remind hashtag
+		public function hadRemindHashTag($postId)
+		{
+			$sql = "SELECT count(post_id) as `count` FROM `remind_hashtag` where `post_id`='{$postId}'";
+			return $this->conn->query($sql)->fetch_assoc()['count'] > 0;
+		}
+		public function saveRemindHashTag($postId)
+		{
+			$sql = "INSERT INTO remind_hashtag (post_id) VALUES ('{$postId}')";
+			$this->conn->query($sql);
+		}
+		public function saveBot($userId, $group, $token)
+		{
+			$bot = $group['bot'];
+			$active = $group['active'] === 'true' ? 1 : 0;
+			$sql = "INSERT INTO `bot_remind_hashtag` (`user_id`, `group_id`, `bot`, `active`, `access_token`, `hashtag`) VALUES ('{$userId}', '{$group['id']}', '{$bot}', {$active}, '{$token}', '{$group['hashTag']}')";
+			$this->conn->query($sql);
+			$sql = "UPDATE `bot_remind_hashtag` set `bot`='{$bot}', `active`={$active}, `access_token`='{$token}', `hashtag`='{$group['hashTag']}' where user_id='{$userId}' and group_id='{$group['id']}';";
+			$this->conn->query($sql);
+			return $active === 1 ? 'add' : 'remove';
+		}
+		public function getBot($userId, $groupId)
+		{
+			$sql = "SELECT * from bot_remind_hashtag where user_id='{$userId}', group_id='{$groupId}'";
+			return $this->conn->query($sql)->fetch_all();
+		}
+		public function getListBots($userId)
+		{
+			$sql ="select group_id,bot,active,hashtag from bot_remind_hashtag where user_id='{$userId}'";
+			$data = $this->conn->query($sql)->fetch_all();
+			$string = json_encode($data);
+			return $string;
+		}
 		public function getHashTag($userId, $groupId)
 		{
-			$sql = "select hashtag from bot_remind_hashtag where user_id='{$userId}' && group_id='{$groupId}'";
-			return $this->conn->query($sql)->fetch_assoc();
+			$sql = "SELECT `hashtag` from bot_remind_hashtag where user_id='{$userId}' && group_id='{$groupId}'";
+			return $sql;
+			// return $this->conn->query($sql)->fetch_assoc()['hashtag'];
+		}
+		public function saveHashTag($userId, $groupId, $hashTag)
+		{
+			$sql = "UPDATE `bot_remind_hashtag` set `hashtag`='{$hashTag}' where user_id='{$userId}' and group_id='{$groupId}';";
+			return $this->conn->query($sql);
+		}
+		// for all
+		public function query($sql)
+		{
+			return $this->conn->query($sql)->fetch_all();
 		}
 	}
 ?>

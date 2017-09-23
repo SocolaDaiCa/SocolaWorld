@@ -33,6 +33,9 @@
 						<button name="base64_encode" class="btn btn-primary">Base64 encode</button>
 					</div>
 					<div class="form-group">
+						<button name="hexToString" class="btn btn-primary">Hex to String</button>
+					</div>
+					<div class="form-group">
 						<button name="md5" class="btn btn-primary">md5</button>
 					</div>
 				</div>
@@ -41,12 +44,17 @@
 	</body>
 </html>
 <?php require_once '../../layout/js.php'; ?>
+<script src="encode-decode.js"></script>
 <script>
 	'use strict';
 	$(function() {
 		$('button').click(function() {
 			var input = $('#input').val();
 			var action = $(this).attr('name');
+			switch(action){
+				case 'hexToString':
+					return hexToString(input); 
+			}
 			$.get('action.php', {
 				action:  action,
 				value : input

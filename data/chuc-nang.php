@@ -52,6 +52,12 @@ class ChucNang
 		'Thống kê tương tác, xếp hạng thành viên.'
 	);
 	$chucNang[] = new ChucNang(
+		'fa fa-android text-primary sr-icons',
+		'bot-remind-hashtag',
+		'Bot Remind HashTag',
+		''
+	);
+	$chucNang[] = new ChucNang(
 		'fa fa-filter text-primary sr-icons',
 		'filter-comments',
 		'Filter Comments',
@@ -112,12 +118,7 @@ class ChucNang
 		'Giveway Checker',
 		'Lorem ipsum dolor sit amet.'
 	);
-	$chucNang[] = new ChucNang(
-		'fa fa-clone text-primary sr-icons',
-		'bot-remind-hashtag',
-		'Bot Remind HashTag',
-		'Lorem ipsum dolor sit amet.'
-	);
+	
 	// $chucNang[] = new ChucNang(
 		// 	'fa fa-4x fa-heart text-primary sr-icons',
 		// 	'<a href="app/an-link">Ẩn link</a>',
