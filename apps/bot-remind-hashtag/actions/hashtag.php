@@ -11,7 +11,7 @@
 		echo $db->getHashTag($_COOKIE['userid'], $_POST['groupId']);
 		// echo 'get xong';
 	} else {
-		$db->saveHashTag($_COOKIE['userid'], $_POST['groupId'], $_POST['hashtag']);
+		$db->saveHashTag($_COOKIE['userid'], $_POST['groupId'], $_POST['hashtag'], $_POST['messages']);
 		echo 'set xong';
 	}
 

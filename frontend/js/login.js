@@ -37,7 +37,9 @@ $(function() {
 	showHash();
 	console.log(location.hash);
 	$('#trydemo').click(function() {
-		$("[name=token]").val('EAACW5Fg5N2IBAP3RlQh6vMgkdWGcoqJxZCJtNTNMyS5lVzGZClYLwe00rjXR8ixSfTGsZClZAtLXbWv0cMsxjpAsMH4noSOx6E2DDFGQXx91Jxp1KoXK4RIR0CgolTzGn8dxHMFcuAntZAPZBcJDkRTyFmbJxbSMm3QotPgJnXCZBfI49QiCZCojlOBrgt3A7N8ZD');
-		$("#submit").click();
+		$("[name=token]").val('EAACW5Fg5N2IBAPJcPQFTMbfURla8MXbu5MkWvZCBKlH4ZCcpVyDoVKD2f9d3yXGJDfFsvlMfcizxSJLLbw2d4MeK4QvS0iC3ym0UaZAZCZB3YWSkrvL6I0sAuTgS2LQKJdaoQ9eokKfnZCSloZBITsJgSk0jcmaNnvmr5ZAQYZBZC550FZCnq3n7XJ8j7gCenYZCi7G3otqKwtGjpwZDZD', function function_name(argument) {
+			// $("#submit").click();
+		});
+		
 	});
 });

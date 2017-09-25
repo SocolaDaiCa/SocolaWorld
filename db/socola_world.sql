@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `bot_remind_hashtag` (
   `active` bit(1) NOT NULL DEFAULT b'0',
   `access_token` text COLLATE utf8_unicode_ci NOT NULL,
   `hashtag` text COLLATE utf8_unicode_ci,
+  `messages` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`user_id`,`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -76,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `access_token` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
-  `Column 6` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

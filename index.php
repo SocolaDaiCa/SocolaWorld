@@ -70,7 +70,7 @@
         <header>
             <div class="header-content">
                 <div class="header-content-inner">
-                    <h1 id="homeHeading">Chào mừng đến với thế giới của Socola</h1>
+                    <h1 id="homeHeading">Socola World</h1>
                     <hr>
                     <p>Nơi Socola biến những ý tưởng của mình thành hiện thực.</p>
                     <a href="#about" class="btn btn-primary btn-xl page-scroll">Giới thiệu</a>

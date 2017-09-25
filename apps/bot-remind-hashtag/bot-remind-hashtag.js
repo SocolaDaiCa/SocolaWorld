@@ -7,9 +7,12 @@ var fb;
 var app = new Vue({
     el: "#app",
     data: {
+        modal1: {},
+        modal2: {groupName: ''},
         listGroups: {},
         listBots: {},
         hashTag: '',
+        messages: '',
         curentGroupId: ''
     },
     created: function() {
@@ -38,7 +41,7 @@ var app = new Vue({
         },
         getListGroups: function() {
             let firstBot = Object.keys(app.listBots)[0];
-            fb.graph('me', 'groups.limit(100){name,icon}', function(listGroups) {
+            fb.graph('me', 'groups.limit(1000){name,icon}', function(listGroups) {
                 listGroups.forEach(function(group) {
                     group.active = false;
                     group.hashTag = '';
@@ -55,6 +58,7 @@ var app = new Vue({
                         app.listGroups[record[0]].bot = record[1];
                         app.listGroups[record[0]].active = record[2] === '1';
                         app.listGroups[record[0]].hashTag = record[3];
+                        app.listGroups[record[0]].messages = record[4];
                     }
                     // console.log(bot);
                     // // let page = JSON.parse(bot[1]);
@@ -88,22 +92,34 @@ var app = new Vue({
         saveBot: function(groupId) {
             let group = app.listGroups[groupId];
             let token = app.listBots[group.bot].access_token;
-            $.post('actions/save-bot.php', { group, token }, function(action) {
-                app.listGroups[group.id].active = (action === 'add');
+            $.post('actions/save-bot.php', { group, token }, function(string) {
+                console.log(string);
+                let res = JSON.parse(string);
+                console.log(res);
+                // if(!res.success){
+                //     app.listGroups[group.id].active = 1 - app.listGroups[group.id].active;
+                // }
+                
             });
         },
-        editHashtag: function(groupId) {
+        // edit
+        editHashtags: function(groupId) {
         	app.curentGroupId = groupId;
         	app.hashTag = app.listGroups[groupId].hashTag;
         },
+        editMessages: function(groupId) {
+            console.log(groupId);
+            app.curentGroupId = groupId;
+            app.messages = app.listGroups[groupId].messages;
+        },
+        // save
         saveHashtag: function() {
         	app.listGroups[app.curentGroupId].hashTag = app.hashTag;
         	app.saveBot(app.curentGroupId);
-        //     $.post('actions/hashtag.php', { groupId: app.curentGroupId, hashtag: app.hashTag }, function(res) {
-        //     	console.log(res);
-        //         // app.hashTag = hashtag;
-        //         // app.curentGroupId = groupId;
-        //     });
+        },
+        saveMessages: function() {
+            app.listGroups[app.curentGroupId].messages = app.messages;
+            app.saveBot(app.curentGroupId);
         }
     }
 });

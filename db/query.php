@@ -76,11 +76,15 @@
 		{
 			$bot = $group['bot'];
 			$active = $group['active'] === 'true' ? 1 : 0;
-			$sql = "INSERT INTO `bot_remind_hashtag` (`user_id`, `group_id`, `bot`, `active`, `access_token`, `hashtag`) VALUES ('{$userId}', '{$group['id']}', '{$bot}', {$active}, '{$token}', '{$group['hashTag']}')";
-			$this->conn->query($sql);
-			$sql = "UPDATE `bot_remind_hashtag` set `bot`='{$bot}', `active`={$active}, `access_token`='{$token}', `hashtag`='{$group['hashTag']}' where user_id='{$userId}' and group_id='{$group['id']}';";
-			$this->conn->query($sql);
-			return $active === 1 ? 'add' : 'remove';
+			$messages = $group['messages'];
+			$sql = "INSERT INTO `bot_remind_hashtag` (`user_id`, `group_id`, `bot`, `active`, `access_token`, `hashtag`, messages) VALUES ('{$userId}', '{$group['id']}', '{$bot}', {$active}, '{$token}', '{$group['hashTag']}', '{$messages}')";
+			$res = $this->conn->query($sql);
+			$sql = "UPDATE `bot_remind_hashtag` set `bot`='{$bot}', `active`={$active}, `access_token`='{$token}', `hashtag`='{$group['hashTag']}', messages='{$messages}' where user_id='{$userId}' and group_id='{$group['id']}';";
+			$res |= $this->conn->query($sql);
+			return json_encode(array(
+				'success' => true,
+				'message' => ''
+			));
 		}
 		public function getBot($userId, $groupId)
 		{
@@ -89,7 +93,7 @@
 		}
 		public function getListBots($userId)
 		{
-			$sql ="select group_id,bot,active,hashtag from bot_remind_hashtag where user_id='{$userId}'";
+			$sql ="select group_id,bot,active,hashtag,messages from bot_remind_hashtag where user_id='{$userId}'";
 			$data = $this->conn->query($sql)->fetch_all();
 			$string = json_encode($data);
 			return $string;
@@ -100,7 +104,7 @@
 			return $sql;
 			// return $this->conn->query($sql)->fetch_assoc()['hashtag'];
 		}
-		public function saveHashTag($userId, $groupId, $hashTag)
+		public function saveHashTag($userId, $groupId, $hashTag, $messages)
 		{
 			$sql = "UPDATE `bot_remind_hashtag` set `hashtag`='{$hashTag}' where user_id='{$userId}' and group_id='{$groupId}';";
 			return $this->conn->query($sql);
@@ -108,7 +112,8 @@
 		// for all
 		public function query($sql)
 		{
-			return $this->conn->query($sql)->fetch_all();
+			return mysqli_fetch_all($this->conn->query($sql));
+			// return $this->conn->query($sql)->fetch_all();
 		}
 	}
 ?>

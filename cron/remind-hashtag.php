@@ -13,18 +13,20 @@
 		{
 			global $db;
 			// get list bot
-			$listBots = $db->query("SELECT group_id,access_token,hashtag from bot_remind_hashtag where active=1 and hashtag!=''");
+			$listBots = $db->query("SELECT group_id,access_token,hashtag,messages from bot_remind_hashtag where active=1 and hashtag!='' and messages!=''");
+			// print_r($listBots);
 			foreach ($listBots as $bot) {
 				// get data per bot
 				$groupId = $bot[0];
 				$token = $bot[1];
 				$listHashTags = explode("\n", $bot[2]);
+				$listMessages = explode(";", $bot[3]);
 				// chạy từng con bot
 				$listPosts = $this->getListPost($groupId, $token);
 				foreach ($listPosts as $post) {
 					if(!$this->hasHashTag($post->message, $listHashTags) && !$db->hadRemindHashTag($post->id)){
 						echo('re');
-						$this->remindHashTag($post->id, "ahihi", $token);
+						$this->remindHashTag($post->id, $listMessages[array_rand($listMessages, 1)], $token);
 						$db->saveRemindHashTag($post->id);
 					}
 				}
