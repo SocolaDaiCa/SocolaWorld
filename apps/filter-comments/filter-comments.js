@@ -70,6 +70,16 @@ var app = new Vue({
             this.allComments = [];
             this.commentsHasMail = [];
             this.commentsHasPhone = [];
+        },
+        /*download*/
+        downloadListEmails: function() {
+            
+        },
+        downloadListPhones: function() {
+            
+        },
+        downloadListlinks: function() {
+            
         }
     }
 });

@@ -59,7 +59,7 @@
 								<td></td>
 								<th>Usename</th>
 								<th>Bình luận chứa email</th>
-								<th>Email tìm thấy</th>
+								<th>Email tìm thấy <span class="glyphicon glyphicon-download-alt" v-on:click="downloadListEmails"></span></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -121,3 +121,4 @@
 </html>
 <?php require_once '../../layout/js.php'; ?>
 <script src="filter-comments.js"></script>
+<script src="../../vendor/filesaver/FileSaver.min.js" type="text/javascript" charset="utf-8" async defer></script>
