@@ -58,6 +58,7 @@
 		}
 		public function remindHashTag($postId, $message, $token)
 		{
+			$message = urlencode($message);
 			echo("{$this->endPoint}/{$postId}/comments?method=post&access_token={$token}&message={$message}");
 			file_get_contents("{$this->endPoint}/{$postId}/comments?method=post&access_token={$token}&message={$message}");
 			echo('end remind');
