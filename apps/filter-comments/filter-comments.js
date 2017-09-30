@@ -73,13 +73,28 @@ var app = new Vue({
         },
         /*download*/
         downloadListEmails: function() {
-            
+            let listMails = [];
+            this.commentsHasMail.forEach(function (comment) {
+                listMails.push(comment.mail);
+            });
+            var file = new File([listMails.join("\n")], "List mails.txt", { type: "text/plain;charset=utf-8" });
+            saveAs(file);
         },
         downloadListPhones: function() {
-            
+            let listPhones = [];
+            this.commentsHasPhone.forEach(function (comment) {
+                listPhones.push(comment.phone);
+            });
+            var file = new File([listPhones.join("\n")], "List phones.txt", { type: "text/plain;charset=utf-8" });
+            saveAs(file);
         },
-        downloadListlinks: function() {
-            
+        downloadListLinks: function() {
+            let listLinks = [];
+            this.commentsHasLink.forEach(function (comment) {
+                listLinks.push(comment.link);
+            });
+            var file = new File([listLinks.join("\n")], "List links.txt", { type: "text/plain;charset=utf-8" });
+            saveAs(file);
         }
     }
 });
@@ -93,14 +108,15 @@ function validatePhone(phone) {
     var re = /^\+?([0-9]{2,})\)?[-. ]?([0-9]{2,})[-. ]?([0-9]{2,})$/;
     return re.test(phone);
 }
+
 function validateUrl(url) {
     // var re = /^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
-    var re = new RegExp('^(https?|ftp|file)(:\\/\\/)?'+ // protocol
-  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
-  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-  '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    var re = new RegExp('^(https?|ftp|file)(:\\/\\/)?' + // protocol
+        '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|' + // domain name
+        '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+        '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+        '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
     return re.test(url);
 }
 $(function() {

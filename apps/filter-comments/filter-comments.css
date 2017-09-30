@@ -1,0 +1,6 @@
+.download{
+	border: 1px solid transparent;
+}
+.download:hover{
+	cursor: pointer;
+}

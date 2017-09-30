@@ -7,6 +7,7 @@
 		<title>Lọc bình luận</title>
 		<?php require_once '../../layout/header.php'; ?>
 		<?php require_once '../../layout/css.php'; ?>
+		<link rel="stylesheet" href="filter-comments.css">
 	</head>
 	<body id="app">
 		<?php require_once '../../layout/nav.php'; ?>
@@ -59,7 +60,7 @@
 								<td></td>
 								<th>Usename</th>
 								<th>Bình luận chứa email</th>
-								<th>Email tìm thấy <span class="glyphicon glyphicon-download-alt" v-on:click="downloadListEmails"></span></th>
+								<th>Email tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListEmails"></span></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -81,7 +82,7 @@
 								<td></td>
 								<th>Usename</th>
 								<th>Bình luận chứa số điện thoại</th>
-								<th>Số điện thoại tìm thấy</th>
+								<th>Số điện thoại tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListPhones"></span></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -102,7 +103,7 @@
 								<td></td>
 								<th>Usename</th>
 								<th>Bình luận chứa số link</th>
-								<th>Link tìm thấy</th>
+								<th>Link tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListLinks"></span></th>
 							</tr>
 						</thead>
 						<tbody>
