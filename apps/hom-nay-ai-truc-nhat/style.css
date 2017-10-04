@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+a, a:visited{
+    color: #fff;
+    text-decoration: none;
+}
+html {
+    font-size: 16px;
+    min-height: 100%;
+    /*background: url('http://eskipaper.com/images/paint-splatter-background-7.jpg') center no-repeat;*/
+    /*background-size: cover;*/
+}
+#queue, #order {
+    position: relative;
+    border-top: 5px solid #006d48;
+    width: 1000px;
+    margin: 100px auto 0;
+    padding: 50px 150px;
+    background: #f5f7ea;
+}
+span.title {
+    position: absolute;
+    top: -45px;
+    color: #fff;
+    background: #006d48;
+    height: 45px;
+    font-weight: 700;
+    padding: 10px 20px;
+    left: 0;
+}
+
+.user-div {
+    position: relative;
+    background: #006d48;
+    position: relative;
+    margin-bottom: 10px;
+    border-top: 4px solid #006d48;
+    border-bottom: 4px solid #006d48;
+}
+.user-div:after{
+    position: absolute;
+    content: "";
+    top: -4px;
+    right: 0px;
+    width: 0px;
+    height: 0px;
+    /*#f5f7ea*/
+    border-left: 24px solid transparent;
+    border-right: 0px solid #f5f7ea;
+    border-bottom: 56px solid #f5f7ea;
+}
+span {
+    position: relative;
+    display: inline-block;
+    margin: auto -3px;
+    line-height: 48px;
+}
+
+
+
+/*id*/
+
+span.id {
+    padding-left: 15px;
+    width: 70px;
+    color: #fff;
+    font-weight: 700;
+}
+
+
+
+/*avtar*/
+
+.avatar {
+    width: 40px;
+    z-index: 1;
+}
+
+span.avatar img {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    border-radius: 50%;
+    width: 100%;
+}
+
+span.name {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    background: #393836;
+    width: 275px;
+    padding: 0 35px;
+}
+
+
+
+/*white*/
+
+.white {
+    position: relative;
+    background: #f5f7ea;
+    /*height: 48px;*/
+    /*margin: auto 24px;*/
+}
+
+.white:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -24px;
+    width: 0px;
+    height: 0px;
+    line-height: 48px;
+    border-top: 0px solid #f5f7ea;
+    border-left: 24px solid transparent;
+    border-right: 0px solid #f5f7ea;
+    border-bottom: 48px solid #f5f7ea;
+}
+
+.white:after {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    content: "";
+    right: -24px;
+    top: 0px;
+    width: 0px;
+    height: 0px;
+    line-height: 48px;
+    border-right: 24px solid transparent;
+    border-left: 0px solid #f5f7ea;
+    border-top: 48px solid #f5f7ea;
+}
+
+
+/*button*/
+
+.button {
+    cursor: pointer;
+    color: #006d48;
+}
+
+.button:hover {
+    color: #499e81;
+}
+
+.button-down{
+    padding: 0 10px;
+    background: #E6E6DA;
+}
+.button-queue{
+    padding: 0 10px;
+    background: #f5f7ea;
+}
+.button-down:before{
+    /*border-right: 0px solid transparent;*/
+    /*border-left: 24px solid transparent;*/
+    border-bottom: 48px solid #e6e6da;
+}
+
+.button-down:after {
+    border-right: 24px solid transparent;
+    border-left: 0px solid #e6e6da;
+    border-top: 48px solid #e6e6da;
+}
+h1{
+    text-align: center;
+    color: #006d48;
+}

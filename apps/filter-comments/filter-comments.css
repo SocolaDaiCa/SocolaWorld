@@ -4,3 +4,9 @@
 .download:hover{
 	cursor: pointer;
 }
+.min{
+	width: 60px;
+}
+th{
+	text-align: center;
+}

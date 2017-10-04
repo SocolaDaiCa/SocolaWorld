@@ -40,13 +40,15 @@
 								<td></td>
 								<th>Usename</th>
 								<th>Bình luận</th>
+								<th class="min">Trả lời</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr v-for="(index,comment) in allComments">
 								<td>{{index+1}}</td>
-								<td><a href="/" title="">{{comment.from.name}}</a></td>
+								<td><a href="//com//" title="">{{comment.from.name}}</a></td>
 								<td>{{comment.message}}</td>
+								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -61,6 +63,7 @@
 								<th>Usename</th>
 								<th>Bình luận chứa email</th>
 								<th>Email tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListEmails"></span></th>
+								<th class="min">Trả lời</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -69,6 +72,7 @@
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td>{{comment.mail}}</td>
+								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -83,6 +87,7 @@
 								<th>Usename</th>
 								<th>Bình luận chứa số điện thoại</th>
 								<th>Số điện thoại tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListPhones"></span></th>
+								<th class="min">Trả lời</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -91,6 +96,7 @@
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td>{{comment.phone}}</td>
+								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -104,6 +110,7 @@
 								<th>Usename</th>
 								<th>Bình luận chứa số link</th>
 								<th>Link tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListLinks"></span></th>
+								<th class="min">Trả lời</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -112,6 +119,7 @@
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td><a v-bind:href="comment.link" title="" target="_blank">{{comment.link}}</a></td>
+								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>

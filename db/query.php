@@ -4,7 +4,7 @@
 	*/
 	class DB
 	{
-		private $conn;
+		public $conn;
 		function __construct()
 		{
 			$this->conn = new MySQLi(hostName, username, password, databaseName);
@@ -112,8 +112,12 @@
 		// for all
 		public function query($sql)
 		{
-			return mysqli_fetch_all($this->conn->query($sql));
-			// return $this->conn->query($sql)->fetch_all();
+			// return mysqli_fetch_all($this->conn->query($sql));
+			return $this->conn->query($sql)->fetch_all();
+		}
+		public function run($sql)
+		{
+			$this->conn->query($sql);
 		}
 	}
 ?>

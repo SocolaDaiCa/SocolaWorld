@@ -9,9 +9,9 @@
 		<?php require_once '../../layout/css.php'; ?>
 		<link rel="stylesheet" type="text/css" href="css/insight.css">
 	</head>
-	<body id="statistics">
+	<body>
 		<?php require_once '../../layout/nav.php'; ?>
-		<div class="container">
+		<div class="container" id="statistics">
 			<div class="col-md-8 col-lg-8">
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
@@ -24,7 +24,7 @@
 						<div class="form-group">
 							<div class="input-group">
 								<select  title="Pick a number" class="form-control" id="list-groups">
-									<option v-for="group in groups" data-id-group="{{group.id}}">{{group.name}}</option>
+									<option v-for="group in groups" :data-id-group="group.id">{{group.name}}</option>
 								</select>
 								<span class="input-group-btn">
 									<button type="button" v-on:click="start" class="btn btn-primary">Bắt đầu</button>
@@ -119,32 +119,32 @@
 					<table class="table">
 						<tr>
 							<td>Quét thông tin thành viên</td>
-							<td><i class="{{icon.members}}"></i></td>
+							<td><i :class="icon.members"></i></td>
 							<td class="text-center">{{members.real}}/{{members.total}}</td>
 						</tr>
 						<tr>
 							<td>Bài viết đã quét bình luận</td>
-							<td><i class="{{icon.postHasScanComments}}"></i></td>
+							<td><i :class="icon.postHasScanComments"></i></td>
 							<td class="text-center">{{post.hasScanComments}}/{{post.total}}</td>
 						</tr>
 						<tr>
 							<td>Bài viết đã quét rection</td>
-							<td><i class="{{icon.postHasScanReaction}}"></i></td>
+							<td><i :class="icon.postHasScanReaction"></i></td>
 							<td class="text-center">{{post.hasScanReaction}}/{{post.total}}</td>
 						</tr>
 						<tr>
 							<td>Tổng số bài viết</td>
-							<td><i class="{{icon.post}}"></i></td>
+							<td><i :class="icon.post"></i></td>
 							<td class="text-center">{{post.total}}</td>
 						</tr>
 						<tr>
 							<td>Tổng số bình luận</td>
-							<td><i class="{{icon.comments}}"></i></td>
+							<td><i :class="icon.comments"></i></td>
 							<td class="text-center">{{comments.total}}</td>
 						</tr>
 						<tr>
 							<td>Tổng số reaction</td>
-							<td><i class="{{icon.reactions}}"></i></td>
+							<td><i :class="icon.reactions"></i></td>
 							<td class="text-center">{{reactions.total}}</td>
 						</tr>
 						<tr>
@@ -164,7 +164,7 @@
 					<tbody>
 						<tr v-for="post in listPostsDontCare">
 							<td><i class="fa fa-check-square-o"></i></td>
-							<td><input type="text" name="" id="input" class="form-control" value="{{post}}" required="required" pattern="" title=""></td>
+							<td><input type="text" name="" id="input" class="form-control" :value="post" required="required" pattern="" title=""></td>
 							<td></td>
 						</tr>
 					</tbody>

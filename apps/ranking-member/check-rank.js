@@ -50,7 +50,9 @@ var listGroups = new Vue({
         }
     }
 });
+// class User{
 
+// };
 function User(id, name) {
     this.rank = 27;
     this.id = id;
