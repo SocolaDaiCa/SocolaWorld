@@ -16,8 +16,8 @@
 				<div class="panel panel-default">
 					<!-- Default panel contents -->
 					<div class="panel-heading">
-						<i class="fa fa-bar-chart"></i> Bảng xếp hạng thành viên {{test}} - {{haha}}
-						<a v-if="idGroup" href="/rank/{{idGroup}}.html" target="_blank">View</a>
+						<i class="fa fa-bar-chart"></i> Bảng xếp hạng thành viên
+						<a v-if="idGroup" :href="'/rank/'+idGroup+'.html'" target="_blank">View</a>
 					</div>
 					<div class="panel-body">
 						<!-- chọn nhóm -->
@@ -91,10 +91,10 @@
 						</thead>
 						<tbody>
 							<tr v-for="record in topMembers">
-								<td><img src="/frontend/images/rank/{{record.rank}}.png" alt=""></td>
+								<td><img src="'/frontend/images/rank/'+record.rank+'.png'" alt=""></td>
 								<td>
-									<img src="https://graph.facebook.com/{{record.id}}/picture?type=large&redirect=true&width=60&height=60" class="img-circle" alt="">
-									<a href="https://fb.com/{{record.id}}" target="_blank" title="">{{record.name}}</a>
+									<img :src="'https://graph.facebook.com/'+record.id+'/picture?type=large&redirect=true&width=60&height=60'" class="img-circle" alt="">
+									<a :href="'https://fb.com/'+record.id" target="_blank" title="">{{record.name}}</a>
 								</td>
 								<td>{{record.posts}}</td>
 								<td>{{record.comments.out}}</td>
