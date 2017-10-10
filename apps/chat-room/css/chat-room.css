@@ -1,0 +1,72 @@
+* {
+    --chat-room-height: 335px;
+    --title-height: 25px;
+}
+
+.chat-room {
+    height: var(--chat-room-height);
+    width: 260px;
+    position: absolute;
+    bottom: 0px;
+    /*right: 0px;*/
+    left: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+}
+
+.title {
+    height: var(--title-height);
+    background: yellow;
+    padding-left: 10px;
+    line-height: var(--title-height);
+    font-weight: bold;
+}
+
+.list-messages {
+    height: calc(var(--chat-room-height) - var(--title-height) - 34px);
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.media {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.media-object{
+   width: 36px;
+   height: 36px;
+}
+
+.media-body{
+    width: auto;
+    /*background: #f1f0f0;*/
+    /* border-radius: 15px; */
+    /*padding: 3px 10px;*/
+    max-width: 170px;
+}
+.media-body > div{
+	margin-bottom: 4px;
+}
+.media-body > div > span{
+	width: auto;
+	max-width: 170px;
+	background: #f1f0f0;
+	padding: 3px 10px;
+	border-radius: 15px;
+}
+.clear {
+    clear: both;
+}
+
+.me {
+    float: right;
+}
+.me .media-body > div{
+	text-align: right;
+}
+.me .media-body > div > span{
+    color: #fff;
+    /*color: black;*/
+    background: #4080ff;
+}
