@@ -110,6 +110,10 @@
 			return $this->conn->query($sql);
 		}
 		// for all
+		public function getData($sql)
+		{
+			return $this->conn->query($sql)->fetch_all();
+		}
 		public function query($sql)
 		{
 			// return mysqli_fetch_all($this->conn->query($sql));
