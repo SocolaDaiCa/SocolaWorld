@@ -1,13 +1,14 @@
 <?php
-	require_once __DIR__ . '/../../db/connect.php';
-	$totalUser = $db->getData("Select count(user_id) from user")[0][0];
+	$totalUsers = $mAdmin->getTotalUsers();
 ?>
 <div class="row tile_count">
+	<!-- total Users -->
 	<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-		<span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-		<div class="count"><?php print_r($totalUser) ?></div>
+		<span class="count_top"><i class="fa fa-user"></i> <a href="" title="">Total Users</a></span>
+		<div class="count"><?php print_r($totalUsers) ?></div>
 		<span class="count_bottom"><i class="green">4% </i> From last Week</span>
 	</div>
+	<!-- end total Users -->
 	<div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
 		<span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
 		<div class="count">123.50</div>

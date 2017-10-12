@@ -1,8 +1,5 @@
 <?php 
-	session_start();
-	session_destroy();
-	setcookie('token',  '', time() - 5184000);
-	setcookie('userid',  '', time() - 5184000);
-	setcookie('username',  '', time() - 5184000);
-	header('Location: ./');
+	require_once __DIR__ 'Comtroller/Controller_User.php';
+	$cUser = new Controller_User();
+	$cUser->logout();
 ?>

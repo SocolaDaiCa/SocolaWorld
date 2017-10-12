@@ -19,15 +19,8 @@
 	function logReport($report){
 		echo("<script>console.log('$report');</script>");
 	}
-   	function getUrl($url, $param =null){	
-		if ($param==null)
-			return $url;
-		return $url.'?'.http_build_query($param);
-	}
-	function getJSON($url, $param =null){
-		logReport(getUrl($url, $param));
-		return json_decode(viewsource(getUrl($url, $param)));
-	}
+   	
+	
 	function loginWithFacebook(){
 		$url = 'https://www.facebook.com/dialog/oauth';
 		$permission = array(

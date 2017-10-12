@@ -16,7 +16,7 @@
 				<div v-for="message in listMessages">
 					<div class="media" v-if="message.userID !== userID">
 						<a class="pull-left" href="#">
-							<img class="media-object img-circle" :src="'https://graph.facebook.com/'+message.userID+'/picture?type=large&redirect=true&width=40&height=40'" alt="Image">
+							<img class="media-object img-circle" :src="'https://graph.facebook.com/'+message.userID+'/picture?type=large&redirect=true&width=40&height=40'" v-bind:alt="message.username">
 						</a>
 						<div class="media-body">
 							<div v-for="message in message.message">

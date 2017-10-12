@@ -1,4 +1,3 @@
-<?php require_once '../../check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,9 +8,9 @@
 		<?php require_once '../../layout/css.php'; ?>
 		<link rel="stylesheet" href="filter-comments.css">
 	</head>
-	<body id="app">
+	<body>
 		<?php require_once '../../layout/nav.php'; ?>
-		<div class="container">
+		<div class="container" id="app">
 			<!-- input form -->
 			<div style="max-width: 600px; margin: auto">
 				<div class="form-group">
@@ -48,7 +47,7 @@
 								<td>{{index+1}}</td>
 								<td><a href="//com//" title="">{{comment.from.name}}</a></td>
 								<td>{{comment.message}}</td>
-								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
+								<td class="min"><a :href="'//fb.com/'+comment.id" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -72,7 +71,7 @@
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td>{{comment.mail}}</td>
-								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
+								<td class="min"><a :href="'//fb.com/'+comment.id" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -96,7 +95,7 @@
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td>{{comment.phone}}</td>
-								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
+								<td class="min"><a :href="'//fb.com/'+comment.id" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>
@@ -119,15 +118,15 @@
 								<td>{{comment.from.name}}</td>
 								<td>{{comment.message}}</td>
 								<td><a v-bind:href="comment.link" title="" target="_blank">{{comment.link}}</a></td>
-								<td class="min"><a href="//fb.com/{{comment.id}}" class="btn btn-primary" target="_blank">Trả lời</a></td>
+								<td class="min"><a :href="'//fb.com/'+comment.id" class="btn btn-primary" target="_blank">Trả lời</a></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 		</div>
+		<?php require_once '../../layout/js.php'; ?>
+		<script src="filter-comments.js"></script>
+		<script src="../../vendor/filesaver/FileSaver.min.js" type="text/javascript" charset="utf-8" async defer></script>
 	</body>
 </html>
-<?php require_once '../../layout/js.php'; ?>
-<script src="filter-comments.js"></script>
-<script src="../../vendor/filesaver/FileSaver.min.js" type="text/javascript" charset="utf-8" async defer></script>
