@@ -17,8 +17,7 @@
 				'access_token' => $token,
 				'fields' => 'name,id'
 			));
-
-			return true;
+			return empty($this->json->error);
 		}
 		public function getInfoUser()
 		{

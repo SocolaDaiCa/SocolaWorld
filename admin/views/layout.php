@@ -20,6 +20,7 @@
 			<!-- page content -->
 			<div class="right_col" role="main">
 				<?php
+					
 					require_once __DIR__ . "/{$page}.php";
 				?>
 			</div>

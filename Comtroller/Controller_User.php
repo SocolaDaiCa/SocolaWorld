@@ -12,12 +12,14 @@
 		}
 		public function checkLogin()
 		{
+			// print_r($_SESSION);
+			// exit();
 			$login = $_SESSION["login"] ?? false;
 			if($login){
 				$_SESSION["login"] = true;
 				return;
 			}
-			echo("Aaaaaaaaaaaaa" . $_SESSION["login"]);
+			// echo("Aaaaaaaaaaaaa" . $_SESSION["login"]);
 			$autoLogin = $_COOKIE['auto_login'] ?? false;
 			$token = $_COOKIE['token'] ?? '';
 			$graph = new SocolaGraphFacebook();
@@ -37,7 +39,6 @@
 		}
 		public function logout()
 		{
-			session_start();
 			session_destroy();
 			setcookie('token',  '', time() - 5184000);
 			setcookie('userid',  '', time() - 5184000);

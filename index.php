@@ -53,9 +53,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="page-scroll" href="#about">Giới thiệu</a></li>
                         <li><a class="page-scroll" href="#services">Ứng dụng</a></li>
-                        <!--  <li>
-                            <a class="page-scroll" href="#portfolio">Portfolio</a>
-                        </li> -->
+                         <li>
+                            <a class="page-scroll" href="#portfolio">Extension</a>
+                        </li>
                         <li><a class="page-scroll" href="#contact">Liên hệ</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li class="dropdown">
@@ -221,7 +221,7 @@
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>Extension!</h2>
-                <a href="#" class="btn btn-default btn-xl sr-button">Tải ngay!</a>
+                <a href="https://github.com/SocolaDaiCa/Socola-Tool/archive/master.zip" class="btn btn-default btn-xl sr-button">Tải ngay!</a>
             </div>
         </div>
     </aside>

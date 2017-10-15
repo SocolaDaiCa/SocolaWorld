@@ -11,7 +11,7 @@
 		private $conn;
 		function __construct()
 		{
-			if(!empty($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'facebook.dev:8080'){
+			if(!empty($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'facebook.dev'){
 				$this->host = 'localhost';
 				$this->username = 'root';
 				$this->password = '';
