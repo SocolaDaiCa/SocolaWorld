@@ -57,7 +57,7 @@
                             <a class="page-scroll" href="#portfolio">Extension</a>
                         </li>
                         <li><a class="page-scroll" href="#contact">Liên hệ</a></li>
-                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="https://socoladaica.wordpress.com">Blog</a></li>
                         <li class="dropdown">
                             <?php echo $login; ?>
                         </li>

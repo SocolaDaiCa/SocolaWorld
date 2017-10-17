@@ -19,7 +19,7 @@ var app = new Vue({
 			app.clearData();
 			/* kiểm tra token trước khi lọc bình luận*/
 			/* bắt đầu lọc bình luận*/
-			fb.graph(this.idStatus, 'comments.limit(100){from,message}', function showComment(listComments) {
+			fb.graph(this.idStatus, 'comments.limit(100){from,message,reactions.limit(0).summary(1)}', function showComment(listComments) {
 				if (!listComments) { return; }
 				listComments.forEach(function(comment) {
 					app.addComment(comment);
@@ -33,6 +33,7 @@ var app = new Vue({
 			}, 'v2.10');
 		},
 		addComment: function(comment) {
+			comment.reactions = comment.reactions.summary.total_count;
 			this.allComments.push(comment);
 		},
 		addIfHasMail: function(comment) {
