@@ -1,24 +1,41 @@
 <?php
 	session_start();
-	require_once __DIR__ . '/lib/Socola-graph-fb.php';
-	require_once __DIR__ . '/Comtroller/Controller_User.php';
+	require_once __DIR__ . '/vendor/socola.dai.ca/lib/graph-fb-Socola.php';
+	require_once __DIR__ . '/Controller/Controller_User.php';
 	require_once __DIR__ . '/Model/Model_User.php';
 	$cUser = new Controller_User();
 	$mUser = new Model_User();
-	$graph = new SocolaGraphFacebook();
-	$token     = $_REQUEST['token'] ?? '';
-	$code      = $_REQUEST['code']  ?? '';
-	$email     = $_REQUEST['email'] ?? '';
-	$password  = $_REQUEST['password'] ?? '';
-	$autoLogin = isset($_REQUEST['autologin']) && $_REQUEST['autologin'] == 'on' ? true : false;
-	if($graph->isTokenLive($token)){
-		[
-			'id' => $userID,
-			'name' => $username
-		]= $graph->getInfoUser();
-		$mUser->addUser($userID, $username, $token, $email, $password);
-		$cUser->setcookie($userID, $username, $token, $autoLogin);
-		die(header('Location: .' . $_SESSION['u'] ?? '/'));
+	$graph = new GraphFacebook();
+	/* lấy dữ liệu người dùng gửi lên*/
+	$loginWithFacebook = $_REQUEST['loginwithfacebook_x'] ?? '';
+	$token             = $_REQUEST['token'] ?? '';
+	$code              = $_REQUEST['code']  ?? '';
+	$email             = $_REQUEST['email'] ?? '';
+	$password          = $_REQUEST['password'] ?? '';
+	
+	$autoLogin = !empty($_REQUEST['autologin']) && $_REQUEST['autologin'] == 'on';
+	$cUser->setCookie("autoLogin", $autoLogin);
+
+	if(!empty($loginWithFacebook)){
+		die($graph->loginWithFacebook($permission, CLIENT_ID, REDIRECT_URI));
 	}
-	header('Location: login.php?error='. urlencode('Token không hợp lệ.'));
+	if(!empty($code)){
+		$token = $graph->getTokenFromCode($code, CLIENT_ID, REDIRECT_URI, CLIENT_SECRET);
+	}
+	// nếu có bất cứ lỗi nào xảy ra
+	if(empty($token) || !$graph->isTokenLive($token)){
+		$message = urlencode('Token không hợp lệ hoặc đã hết hạn.');
+		die(header("Location: login.php?error={$message}"));
+	}
+	// mọi chuyện đã ổn
+	[
+		'id' => $userID,
+		'name' => $username
+	] = $graph->getInfoUser();
+
+	$mUser->addUser($userID, $username, $token, $email, $password);
+	$cUser->setcookie("token", $token);
+	$cUser->setSession($userID, $username, $token, $autoLogin);
+	$_SESSION["login"] = true;
+	die(header('Location: .' . $_SESSION['u'] ?? '/'));
 ?>

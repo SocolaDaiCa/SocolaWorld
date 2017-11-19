@@ -8,34 +8,28 @@
 		<link rel="stylesheet" href="css/chat-room.css">
 	</head>
 	<body>
-		<div class="chat-room" id="app">
-			<div class="title">
-				Chat room
+		<div id="chat-box">
+			<div id="header">
+				<!-- online {{listUsers.length}} -->
 			</div>
-			<div class="list-messages">
-				<div v-for="message in listMessages">
-					<div class="media" v-if="message.userID !== userID">
-						<a class="pull-left" href="#">
-							<img class="media-object img-circle" :src="'https://graph.facebook.com/'+message.userID+'/picture?type=large&redirect=true&width=40&height=40'" v-bind:alt="message.username">
-						</a>
-						<div class="media-body">
-							<div v-for="message in message.message">
-								<span>{{message}}</span>
-							</div>
-						</div>
-					</div>
-					<div v-else class="media me">
-						<div class="media-body">
-							<div v-for="message in message.message">
-								<span>{{message}}</span>
-							</div>
-						</div>
-					</div>
-					<div class="clear"></div>
+			<div id="content">
+				<template v-for="message in listMessages">
+				<div :class="message.class">
+					<small>{{message.username}}</small>
+					<span>{{message.message}}</span>
+					<img :src="message.img" alt="">
 				</div>
+				<div class="clear"></div>
+				</template>
 			</div>
-			<div>
+			<div id="footer">
 				<input  type="text" class="form-control" v-model="message" v-on:keyup.13="sendMessage"></input>
+				<div>
+					<label for="" class="custom-file">
+						<input type="file" id="chooseImage" hidden="hidden" accept="image/*" class="custom-file-input">
+						<i class="fa fa-picture-o custom-file-control"></i>
+					</label>
+				</div>
 			</div>
 		</div>
 		<?php require_once '../../layout/js.php'; ?>

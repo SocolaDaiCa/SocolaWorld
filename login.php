@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Login</title>
-		<?php require_once 'layout/header.php'; ?>
-		<?php require_once 'layout/css.php'; ?>
-		<link rel="stylesheet" href="/frontend/css/login.css">
+		<?php require_once 'Views/layout/header.php'; ?>
+		<?php require_once 'Views/layout/css.php'; ?>
+		<link rel="stylesheet" href="vendor/socola.dai.ca/css/login.css">
 	</head>
 	<body id="body">
 		<br><br>
@@ -23,7 +23,7 @@
 				<div class="row form-group">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
 						<!-- <a href="actionToken.php?action=loginWithFacebook" class="" id="loginWithFacebook"> -->
-						<input type="image" src="/frontend/images/img-lg-with-facebook.png" name="loginwithfacebook" style="height: 45px" s="ss">
+						<input type="image" src="/vendor/socola.dai.ca/images/img-lg-with-facebook.png" name="loginwithfacebook" style="height: 45px" s="ss">
 						<!-- </a> -->
 					</div>
 				</div>

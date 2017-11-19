@@ -1,5 +1,0 @@
-<?php 
-	$listApp = array(
-		'url'
-	);
-?>

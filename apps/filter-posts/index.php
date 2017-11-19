@@ -1,17 +1,17 @@
-<?php require_once '../../check-login.php'; ?>
+<?php require_once '../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html lang="vn">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Filter posts</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 		<!-- <link rel="stylesheet" href="css/list_groups.css"> -->
 		<link rel="stylesheet" type="text/css" href="css/filter-posts.css">
 	</head>
 	<body id="app">
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<!--  list group -->
 		<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<ul id="list-groups">
@@ -85,5 +85,5 @@
 		</div>
 	</body>
 </html>
-<?php require_once '../../layout/js.php'; ?>
+<?php require_once '../../Views/layout/js.php'; ?>
 <script src="filter-posts.js"></script>

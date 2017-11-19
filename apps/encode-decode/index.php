@@ -4,13 +4,13 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Encode - Decode</title>
-		<?php require_once '../../layout/header.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
 		<!-- Latest compiled and minified CSS & JS -->
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" href="css/encode-decode.css">
 	</head>
 	<body>
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
@@ -43,7 +43,7 @@
 		</div>
 	</body>
 </html>
-<?php require_once '../../layout/js.php'; ?>
+<?php require_once '../../Views/layout/js.php'; ?>
 <script src="encode-decode.js"></script>
 <script>
 	'use strict';

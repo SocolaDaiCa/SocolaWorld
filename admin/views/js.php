@@ -37,3 +37,4 @@
 <script src="./vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- Custom Theme Scripts -->
 <script src="./build/js/custom.min.js"></script>
+<script type="/vendor/vue/vue.min.js"></script>

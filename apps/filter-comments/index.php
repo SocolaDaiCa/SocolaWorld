@@ -1,15 +1,16 @@
+<?php require_once __DIR__ . '/../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Lọc bình luận</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" href="filter-comments.css">
 	</head>
 	<body>
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<div class="container" id="app">
 			<!-- input form -->
 			<div style="max-width: 600px; margin: auto">
@@ -133,7 +134,7 @@
 				</div>
 			</div>
 		</div>
-		<?php require_once '../../layout/js.php'; ?>
+		<?php require_once '../../Views/layout/js.php'; ?>
 		<script src="filter-comments.js"></script>
 		<script src="../../vendor/filesaver/FileSaver.min.js" type="text/javascript" charset="utf-8" async defer></script>
 	</body>

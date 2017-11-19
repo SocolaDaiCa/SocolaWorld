@@ -1,16 +1,16 @@
-<?php require '../../check-login.php'; ?>
+<?php require '../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Post Multiple Groups</title>
-		<?php require '../../layout/header.php'; ?>
-		<?php require '../../layout/css.php'; ?>
+		<?php require '../../Views/layout/header.php'; ?>
+		<?php require '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" type="text/css" href="post-multiple-groups.css">
 	</head>
 	<body id="app">
-		<?php require '../../layout/nav.php'; ?>
+		<?php require '../../Views/layout/nav.php'; ?>
 		<div class="container">
 			<div class="text-center">
 				<h1>Post Multiple Groups</h1>
@@ -49,5 +49,5 @@
 		</div>
 	</body>
 </html>
-<?php require '../../layout/js.php'; ?>
+<?php require '../../Views/layout/js.php'; ?>
 <script src="post-multiple-groups.js"></script>

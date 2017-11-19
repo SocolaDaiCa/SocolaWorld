@@ -5,8 +5,14 @@
 	cursor: pointer;
 }
 .min{
-	width: 60px;
+	width: 63px;
 }
 th{
 	text-align: center;
+}
+table>tbody>tr>td{
+	vertical-align: middle !important;
+}
+table>tbody>tr>td:nth-child(2){
+	width: 150px;
 }

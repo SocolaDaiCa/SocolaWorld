@@ -1,18 +1,18 @@
-<?php require '../../check-login.php'; ?>
+<?php require '../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Check members</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="/vendor/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" href="members-checker.css">
 	</head>
 	<body id="app">
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<div class="header text-center">
 			<h1>Members Checker</h1>
 			<p>Kiếm tra 1 thành viên thuộc nhóm A nhưng có thuộc nhóm B hay không</p>
@@ -69,5 +69,5 @@
 	</div>
 </body>
 </html>
-<?php require_once '../../layout/js.php'; ?>
+<?php require_once '../../Views/layout/js.php'; ?>
 <script src="members-checker.js"></script>

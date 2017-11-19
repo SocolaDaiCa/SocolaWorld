@@ -1,6 +1,7 @@
 <?php 
 	$key = $_GET['key'] ?? '';
-	require_once '../../db/connect.php';
+	require_once '../../Controller/Controller.php';
+	$db = new Controller;
 	$sql = "SELECT * from `group` where group_id='$key' or group_email='$key'";
 	// echo $sql;
 	$data = $db->query($sql);
@@ -15,7 +16,7 @@
 	<head profile="http://gmpg.org/xfn/11">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<title>Hôm nay ai trực nhật - <?php echo$groupName ?></title>
-		<?php require_once '../../layout/header.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
 		<meta name="keywords" content="Hom nay ai truc nhat"/>
 		<meta name="description" content="Hôm nay ai trực nhật?">
 		<link rel="image_src" href="/frontend/images/nu-cuoi-phan-dien.jpg"/>
@@ -29,13 +30,13 @@
 			<span class="title">LƯỢT ƯU TIÊN</span>
 			<div v-for="(index, user) in listUser" class="user-div" data-id="{{user[0]}}">
 				<span class="id">{{index +1}}</span>
-				<span class="avatar white">s<img v-bind:src="user[2]" alt=""></span>
-				<span class="name"><a href="//fb.com/{{user[0]}}" title="" target="_blank">{{user[1]}}</a></span>
+				<span class="avatar white">s<img v-bind:src="user.avatar" alt=""></span>
+				<span class="name"><a href="//fb.com/{{user.user_id}}" title="" target="_blank">{{user.user_name}}</a></span>
 				<span class="button button-queue white">queue</span>
 				<span style="width: 24px;"></span>
 				<span class="button button-down white">done</span>
 				<span style="width: 24px;"></span>
-				<span class="id ">{{user[3]}}</span>
+				<span class="id ">{{user.counter}}</span>
 			</div>
 		</div>
 		<!-- <div id="order">
@@ -49,7 +50,7 @@
 			?>
 		</div> -->
 		<!-- <div class="save"><a class="button button-save">save order</a></div> -->
-		<?php require_once '../../layout/js.php'; ?>
+		<?php require_once '../../Views/layout/js.php'; ?>
 		<script src="hom-nay-ai-truc-nhat.js"></script>
 	</body>
 </html>

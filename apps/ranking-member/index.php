@@ -1,16 +1,16 @@
-<?php require_once __DIR__ . '/../../check-login.php'; ?>
+<?php require_once __DIR__ . '/../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Ranking Member</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once __DIR__ . '/../../Views/layout/header.php'; ?>
+		<?php require_once __DIR__ . '/../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" type="text/css" href="css/insight.css">
 	</head>
 	<body>
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once __DIR__ . '/../../Views/layout/nav.php'; ?>
 		<div class="container" id="statistics">
 			<div class="col-md-8 col-lg-8">
 				<div class="panel panel-default">
@@ -171,7 +171,7 @@
 				</table>
 			</div>
 		</div>
-		<?php require_once '../../layout/js.php'; ?>
+		<?php require_once '../../Views/layout/js.php'; ?>
 		<script src="check-rank.js"></script>
 	</body>
 </html>

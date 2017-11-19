@@ -20,16 +20,20 @@
 			case '0': return 'V';
 		}
 	}
-	require_once __DIR__ . '/../../db/connect.php';
+	require_once __DIR__ . '/../../Controller/Controller.php';
+	$db = new Controller;
 	$groupId = empty($_GET['q']) ? '1796364763915932' : $_GET['q'];
 	$listName = array(
 			'1796364763915932' => 'SFIT - UTC',
 			'677222392439615' => 'SFIT - Giao lưu học hỏi'
 	);
-	$data        = $db->getInsightGroup($groupId);
-	$total       = $data['json']->total;
-	$listMembers = $data['json']->members;
-	$update_time = $data['update_time'];
+	$sql = "select * from group_insight where group_id = '$groupId' ORDER by update_time limit 1";
+	$data = $db->query($sql)[0];
+	$json = json_decode($data->json);
+	// exit();
+	$total = $json->total;
+	$listMembers = $json->members;
+	$update_time = $data->update_time;
 	?>
 	<!DOCTYPE html>
 	<html>
@@ -58,7 +62,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 text-center">
-						<h1><?php echo $listName[$groupId]; ?> Ranking</h1>
+						<h1><?php echo $listName[$groupId] ?? 'Group'; ?> Ranking</h1>
 						<p>Total: <strong><?php echo($total->posts) ?></strong> posts, <strong><?php echo($total->comments) ?></strong> comments and <strong><?php echo($total->reactions) ?></strong> reactions, <strong><?php echo("{$total->activeMembers}/{$total->members}") ?></strong> active member. Updated at: <?php echo date('d/m/Y H:i A', $update_time); ?></p>
 					</div>
 				</div>

@@ -1,15 +1,16 @@
+<?php require_once '../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Giveway Checker</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" href="giveway-checker.css">
 	</head>
 	<body id="app">
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<div class="container">
 			<!-- input form -->
 			<div style="max-width: 600px; margin: auto">
@@ -44,7 +45,7 @@
 				</tbody>
 			</table>
 		</div>
-		<?php require_once '../../layout/js.php'; ?>
+		<?php require_once '../../Views/layout/js.php'; ?>
 		<script src="giveway-checker.js"></script>
 	</body>
 </html>

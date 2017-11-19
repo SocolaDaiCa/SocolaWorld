@@ -1,16 +1,16 @@
-<?php require_once '../../check-login.php'; ?>
+<?php require_once '../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Check live Token</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" href="css/check-live-token.css">
 	</head>
 	<body>
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<div class="container">
 			<div class="text-center">
 				<h1>Check live Token</h1>

@@ -1,17 +1,15 @@
-<?php 
-	if (empty($_GET['page'])) {
+<?php
+	$page = $_GET['page'];
+	if (empty($page)) {
 		die(header('Location: /admin/dashboard'));
 	}
-	$page = $_GET['page'];
-	require_once __DIR__ . '/../Model/Model_User.php';
-	require_once __DIR__ . '/../Model/Model_Admin.php';
-	$mAdmin = new Model_Admin();
-	$mUser = new Model_User();
+	require_once __DIR__ . '/../Controller/Controller_Admin.php';
+	$cAdmin = new Controller_Admin();
 	// data
 	[
 		'id' => $id,
 		'name' => $name,
 		'avartar' => $avartar
-	] = $mUser->getInfo();
-	require_once __DIR__ . '/views/layout.php';
+	] = $cAdmin->getInfo();
+	require_once __DIR__ . '/Views/layout.php';
 ?>

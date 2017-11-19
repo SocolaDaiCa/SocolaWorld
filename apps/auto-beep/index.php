@@ -1,16 +1,16 @@
-<?php require_once '../../check-login.php'; ?>
+<?php require_once '../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Auto beep</title>
-		<?php require '../../layout/header.php'; ?>
-		<?php require '../../layout/css.php'; ?>
+		<?php require '../../Views/layout/header.php'; ?>
+		<?php require '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" href="auto-beep.css">
 	</head>
 	<body>
-		<?php require '../../layout/nav.php'; ?>
+		<?php require '../../Views/layout/nav.php'; ?>
 		<div id="app">
 			<div class="container">
 				<div class="progress">
@@ -80,8 +80,8 @@
 				</div>
 			</div>
 		</div>
-		<?php require_once '../../layout/footer.php'; ?>
-		<?php require '../../layout/js.php'; ?>
+		<?php require_once '../../Views/layout/footer.php'; ?>
+		<?php require '../../Views/layout/js.php'; ?>
 		<script src="auto-beep.js"></script>
 	</body>
 </html>

@@ -2,7 +2,7 @@
 	/**
 	* 
 	*/
-	require_once __DIR__ . '/Database.php';
+	require_once __DIR__ . '/Model.php';
 	class Model_User extends Database
 	{
 		function __construct()
@@ -12,7 +12,7 @@
 		public function issetUser($userID)
 		{
 			$sql = "select count(user_id) from user where user_id = '$userID'";
-			return $this->query($sql)[0][0] != 0;
+			return $this->query($sql) != 0;
 		}
 		public function createUser($userID, $username, $token, $email = '', $password = '')
 		{

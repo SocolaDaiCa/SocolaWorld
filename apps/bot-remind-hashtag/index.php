@@ -1,16 +1,16 @@
-<?php require_once '../../check-login.php'; ?>
+<?php require_once '../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html lang="vn">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Bot Remind hashTag</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 		<link rel="stylesheet" href="bot-remind-hashtag.css">
 	</head>
 	<body id="app">
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<div class="container">
 			<table class="table table-bordered table-hover">
 				<thead>
@@ -83,7 +83,7 @@
 				</div>
 			</div>
 		</div>
-		<?php require_once '../../layout/js.php'; ?>
+		<?php require_once '../../Views/layout/js.php'; ?>
 		<script src="bot-remind-hashtag.js"></script>
 	</body>
 </html>

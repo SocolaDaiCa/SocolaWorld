@@ -1,15 +1,15 @@
-<?php require_once '../../check-login.php'; ?>
+<?php require_once __DIR__ . '/../../Views/layout/check-login.php'; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Get link Shutterstock</title>
-		<?php require_once '../../layout/header.php'; ?>
-		<?php require_once '../../layout/css.php'; ?>
+		<?php require_once '../../Views/layout/header.php'; ?>
+		<?php require_once '../../Views/layout/css.php'; ?>
 	</head>
 	<body>
-		<?php require_once '../../layout/nav.php'; ?>
+		<?php require_once '../../Views/layout/nav.php'; ?>
 		<div class="container">
 			<div class="page-header text-center">
 				<h1>Get link Shutterstock</h1>
@@ -30,7 +30,7 @@
 			</div>
 		</body>
 	</html>
-	<?php require_once '../../layout/js.php'; ?>
+	<?php require_once '../../Views/layout/js.php'; ?>
 	<script>
 		'use strict';
 		$(function() {

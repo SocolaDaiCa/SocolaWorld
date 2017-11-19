@@ -1,6 +1,6 @@
 <pre>
 <?php 
-	require_once '../../../db/connect.php';
+	require_once '../../../Controller/Controller.php';
 	// $_GET = [
 	// 	'groupID' => '710340422434287'
 	// ];
