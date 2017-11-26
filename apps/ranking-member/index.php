@@ -91,7 +91,7 @@
 						</thead>
 						<tbody>
 							<tr v-for="record in topMembers">
-								<td><img :src="'/frontend/images/rank/'+record.rank+'.png'" alt=""></td>
+								<td><img :src="'/public/images/rank/'+record.rank+'.png'" alt=""></td>
 								<td>
 									<img :src="'https://graph.facebook.com/'+record.id+'/picture?type=large&redirect=true&width=60&height=60'" class="img-circle" alt="">
 									<a :href="'https://fb.com/'+record.id" target="_blank" title="">{{record.name}}</a>

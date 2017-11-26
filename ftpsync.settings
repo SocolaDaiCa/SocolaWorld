@@ -4,10 +4,10 @@
 
 	"default": {
 
-		"host": "ftp.tentstudy.xyz",
-		"username": "socola@tentstudy.xyz",  // or null for anonymous login
-		"password": "socola1997@",
-		"path": "/",
+		"host": "103.254.12.55",
+		"username": "admin@socolaworld.ga",  // or null for anonymous login
+		"password": "1bnBZYww",
+		"path": "/public_html",
 
 		"upload_on_save": false, // set *false* if you do not want to upload on save!
 

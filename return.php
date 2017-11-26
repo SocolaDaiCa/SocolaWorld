@@ -12,7 +12,7 @@
 	$code              = $_REQUEST['code']  ?? '';
 	$email             = $_REQUEST['email'] ?? '';
 	$password          = $_REQUEST['password'] ?? '';
-	
+
 	$autoLogin = !empty($_REQUEST['autologin']) && $_REQUEST['autologin'] == 'on';
 	$cUser->setCookie("autoLogin", $autoLogin);
 
@@ -24,7 +24,7 @@
 	}
 	// nếu có bất cứ lỗi nào xảy ra
 	if(empty($token) || !$graph->isTokenLive($token)){
-		$message = urlencode('Token không hợp lệ hoặc đã hết hạn.');
+		$message = urlencode('Token không hợp lệ hoặc đã hết hạns.');
 		die(header("Location: login.php?error={$message}"));
 	}
 	// mọi chuyện đã ổn
@@ -32,10 +32,12 @@
 		'id' => $userID,
 		'name' => $username
 	] = $graph->getInfoUser();
-
-	$mUser->addUser($userID, $username, $token, $email, $password);
-	$cUser->setcookie("token", $token);
 	$cUser->setSession($userID, $username, $token, $autoLogin);
+	$mUser->addUser($userID, $username, $token, $email, $password);
+	
+	$cUser->setcookie("token", $token);
+	$cUser->setcookie("username", $username);
+	$cUser->setcookie("userID", $userID);
 	$_SESSION["login"] = true;
 	die(header('Location: .' . $_SESSION['u'] ?? '/'));
 ?>

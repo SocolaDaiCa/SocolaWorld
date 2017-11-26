@@ -27,7 +27,8 @@
 			'1796364763915932' => 'SFIT - UTC',
 			'677222392439615' => 'SFIT - Giao lưu học hỏi'
 	);
-	$sql = "select * from group_insight where group_id = '$groupId' ORDER by update_time limit 1";
+	$sql = "select * from group_insight where group_id = '$groupId' ORDER by update_time DESC limit 1";
+	// print_r($sql);
 	$data = $db->query($sql)[0];
 	$json = json_decode($data->json);
 	// exit();
@@ -89,11 +90,11 @@
 									<?php foreach ($listMembers as $member): ?>
 									<tr>
 										<td class="text-left">
-											<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/frontend/images/rank/<?php //echo($member->rank) ?>.png" alt="Rank #1" title="Rank #1" width="32" height="32"> -->
-											<?php //echo getIndex($member->rank) ?>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/public/images/rank/<?php echo($member->rank) ?>.png" alt="Rank #1" title="Rank #1" width="32" height="32">
+											<?php echo getIndex($member->rank) ?>
 										</td>
 										<td class="text-left">
-											<!-- <img src="https://graph.facebook.com/<?php //echo($member->id) ?>/picture?type=large&redirect=true&width=40&height=40" alt="" class=".img-circle" width="32" height="32"> -->
+											<img src="https://graph.facebook.com/<?php echo($member->id) ?>/picture?type=large&redirect=true&width=40&height=40" alt="" class="img-circle" width="32" height="32">
 											<?php linkProfile($member) ?>
 										</td>
 										<td class="text-center"><?php echo($member->posts) ?></td>

@@ -31,17 +31,17 @@
 						Ứng dụng
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<?php foreach ($cLayout->getListApps() as $key => $app): ?>
+							<?php foreach ($cLayout->getApps() as $key => $app): ?>
 							<li><a href="/apps/<?php echo$app->path ?>"><i class="<?php echo$app->icon ?>"></i> <?php echo$app->name ?></a></li>
 							<?php endforeach ?>
 						</ul>
 					</li>
 					<li><a href="#">Liên hệ</a></li>
 					<li><a href="https://socoladaica.blogspot.com">Blog</a></li>
-					<?php if ($_SESSION["login"]){ ?>
+					<?php if ($_SESSION["login"] ?? FALSE){ ?>
 					<!-- đăng xuất -->
 					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span><?php echo($_SESSION['username']) ?>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span><?php echo($_COOKIE['username']) ?>
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="/logout.php">Đăng xuất</a></li>

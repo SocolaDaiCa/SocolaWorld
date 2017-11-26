@@ -2,17 +2,23 @@
 	/**
 	* 
 	*/
-	require_once __DIR__ . '/Controller.php';
+	require_once __DIR__ . '/Controller_User.php';
+	require_once __DIR__ . '/../Model/Model_Layout.php';
 	require_once __DIR__ . '/../vendor/socola.dai.ca/lib/graph-fb-Socola.php';
-	class Controller_Layout extends Controller
+	class Controller_Layout extends Controller_User
 	{
+		protected $m;
 		function __construct()
 		{
 			parent::__construct();
+			$this->m = new Model_Layout;
 		}
-		public function getListApps(){
-			$sql = "select * from apps";
-			return $this->query($sql);
+		public function getApps($category = ""){
+			return $this->m->getApps($category);
+		}
+		public function getCategory()
+		{
+			return $this->m->getCategory();
 		}
 		public function showBtnLogin()
 		{

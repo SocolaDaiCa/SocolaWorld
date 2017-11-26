@@ -6,7 +6,7 @@
 		private $username;
 		private $password;
 		private $database;
-		private $conn;
+		protected $conn;
 		function __construct()
 		{
 			if(!empty($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'facebook.dev:8888'){
@@ -16,9 +16,9 @@
 				$this->database = 'socola_world';
 			} else {
 				$this->host = 'localhost';
-				$this->username = 'tentstud_socola_world';
-				$this->password = 'ORRM6JpFL+ul';
-				$this->database = 'tentstud_socola_world';
+				$this->username = 'dangdung_admin';
+				$this->password = '1bnBZYww';
+				$this->database = 'dangdung_socolaworld';
 			}
 			$this->conn = new MySQLi(
 				$this->host,
@@ -31,9 +31,17 @@
 			}
 			mysqli_set_charset($this->conn,"utf8");
 		}
+		public function getStmt($stmt)
+		{
+			$data = [];
+			$result = $this->conn->query($sql);
+			while($row = $result->fetch_assoc())
+				$data[] = $row;
+			return json_decode(json_encode($data));
+		}
 		public function query($sql)
 		{
-			$data = [];//return ->fetch_all();
+			$data = [];
 			$result = $this->conn->query($sql);
 			while($row = $result->fetch_assoc())
 				$data[] = $row;
