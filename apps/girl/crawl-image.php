@@ -1,0 +1,15 @@
+<?php
+	require_once __DIR__ . '/../../Controller/Controller_Girl.php';
+	$cGirl = new Controller_Girl("EAACW5Fg5N2IBAKCgVCZAWexdtLQPS148Fnv4KYjGB1duirZAosZBdhWuzoOKd9Ai2i9qX1fAuFABkU3MMq2rO10ZBujOJFPTs54jWGRxQCcLZBrF1dVkZBiaGMTEpwARG2EpnZBqQuhpmdIiHzQp02P2EWczmsp22PuBLhf9XhZABKDgbvNIoZBj4EvDM1sYcShFHrym6QHn9HQZDZD");
+	$groupIDs = array(
+		"1710126539287794",
+		// "748231438569209",
+		"1173636692750000"
+	);
+	foreach ($groupIDs as $groupID) {
+		$cGirl->crawl($groupID);
+	}
+	// 1710126539287794 1710126539287794_1780867338880380
+	// EAACW5Fg5N2IBAAzmcUxzzmyGqnqfM4flOKwULTvQBxFAyaxQt4bSqoxT4lZA0cVJbCbKrLPMxFOaCa7y75KkFI7OIGt2d1jfjT3RLqLmdTaN1qV59EyBBC9HNGAoXtci9gw6G27NAZB1m3MEZBvACUKwjCz4zjlZAVyZA7kTaTogR6GaoVGASZAwnuMinjzHlAkFiU6yVRbgZDZD 
+	// https://graph.facebook.com/v2.11/1710126539287794_1780266162273831?fields=attachments{subattachments{media{image{src}}}}&access_token=EAACW5Fg5N2IBABpXKHJhaEsGpmVA1BERjb63Uz0HrBc7sPQDXzXiyh28oSBZArFzYU3XMGjdCyz5YAECkFnYYh0A9eeA7et8ogiTxqPqZCZCLfXZAnh1FLu9sLTVDNICr6SZApR9nypSVMBxiX13tnFKvYk1CHdh3tBdtBSNnfKBp5nM0UAaqjw9P3YgBSF2i3T8g4iYq1wZDZD
+?>

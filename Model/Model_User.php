@@ -34,10 +34,8 @@
 		}
 		public function getInfo()
 		{
-			[
-				'userid' => $id,
-				'username' => $name
-			] = $_COOKIE;
+			$id = $_COOKIE['userid'];
+			$name = $_COOKIE['username'];
 			return array(
 				'id' => $id,
 				'name' => $name,

@@ -3,12 +3,52 @@
 	* 
 	*/
 	require_once __DIR__ . '/curl.php';
-	interface GraphFacebookInterface
+	/**
+	* 
+	*/
+	class Graph
 	{
-		public function isTokenLive($token);
-		public function getInfoUser();
+		protected $token = "";
+		protected $endPoint = "https://graph.facebook.com/v2.11/";
+		function __construct($token = "")
+		{
+			$this->setToken($token);
+		}
+		public function setToken($token)
+		{
+			$this->token = empty($token) ? $this->token : $token;
+		}
+		public function graph($target, $param = array())
+		{
+			$param["access_token"] = $this->token;
+			return getJSON($this->endPoint . $target, $param);
+		}
+		public function isTokenLive($token = "")
+		{
+			$this->setToken($token);
+			$this->json = $this->graph("me", array(
+				'fields' => 'name,id'
+			));
+			return empty($this->json->error);
+		}
+		function tokenToCode($code, $clienID, $redirectUri, $clientSecret){
+			$param = array(
+				'client_id'     => $clienID,
+				'redirect_uri'  => $redirectUri,
+				'client_secret' => $clientSecret,
+				'code'          => $code,
+			);
+			$url  = 'https://graph.facebook.com/v2.3/oauth/access_token';
+			$json = getJSON($url, $param);
+			if(isset($json->error))
+			{
+				print_r($json->error);
+				exit();
+			}
+			return $json->access_token;
+		}
 	}
-	class GraphFacebook implements GraphFacebookInterface
+	class GraphFacebook
 	{
 		private $token;
 		private $json;
@@ -16,14 +56,6 @@
 		function __construct($token = "")
 		{
 			$this->token = $token;
-		}
-		public function isTokenLive($token)
-		{
-			$this->json = getJSON($this->endPoint . "me",array(
-				'access_token' => $token,
-				'fields' => 'name,id'
-			));
-			return empty($this->json->error);
 		}
 		public function getInfoUser()
 		{
@@ -47,24 +79,6 @@
 				'scope' => $scope,
 			);
 			header('Location: ' . getUrl($url, $param));
-		}
-		function getTokenFromCode($code, $clienID, $redirectUri, $clientSecret){
-			$param = array(
-				'client_id'     => $clienID,
-				'redirect_uri'  => $redirectUri,
-				'client_secret' => $clientSecret,
-				'code'          => $code,
-			);
-			$url  = 'https://graph.facebook.com/v2.3/oauth/access_token';
-			// $json = file
-			$json = getJSON($url, $param);
-			// print_r($json);
-			// return $json;
-			if(isset($json->error))
-			{
-				die(logReport('getTokenFromCode: '.$json->error));
-			}
-			return $json->access_token;
 		}
 	}
 	// default

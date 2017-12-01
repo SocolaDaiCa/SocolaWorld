@@ -1,0 +1,8 @@
+.image{
+	/*width: calc(100% / 4);*/
+	/*display: inline;*/
+	width: 100%;
+}
+.zz{
+	display: inline-block;
+}

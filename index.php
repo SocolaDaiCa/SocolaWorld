@@ -56,7 +56,6 @@
 						<h2 class="section-heading">Giới Thiệu</h2>
 						<hr class="light">
 						<p class="text-faded">Đa số các ứng dụng mình viết chủ yếu giúp việc sử dụng và quản lý group, page và cả trang cá nhân</p>
-						<!-- <p class="text-faded">Chẳng biết phải viết gì ở đây nữa, bấm vào "dùng ngay" kìa!</p> -->
 						<a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Trải Nghiệm Ngay!</a>
 					</div>
 				</div>
@@ -75,9 +74,9 @@
 			</div>
 			<div class="container">
 				<?php foreach ($cLayout->getApps($category->key) as $key => $app): ?>
-				<div class="col-lg-3 col-md-6 text-center" style="height: 200px;">
+				<div class="col-lg-3 col-md-6 text-center" style="margin-bottom: 70px;">
 					<div class="service-box">
-						<a href="<?php echo"/apps/$app->path" ?>" title=""><i class="<?php echo$app->icon ?> fa-4x"></i></a>
+						<a href="<?php echo"/apps/$app->path" ?>" title=""><i class="<?php echo$app->icon ?> text-primary sr-icons fa-4x"></i></a>
 						<h3><a href="<?php echo"/apps/$app->path" ?>"><?php echo$app->name ?></a></h3>
 						<p class="text-muted text-justify"><?php echo$app->description ?></p>
 					</div>
@@ -89,9 +88,10 @@
 		<section class="no-padding" id="portfolio">
 			<div class="container-fluid">
 				<div class="row no-gutter popup-gallery">
+					<?php for ($i = 1; $i<= 6; $i++): ?>
 					<div class="col-lg-4 col-sm-6">
-						<a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-							<img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+						<a href="/public/theme/img/portfolio/fullsize/<?php echo$i ?>.jpg" class="portfolio-box">
+							<img src="/public/theme/img/portfolio/thumbnails/<?php echo$i ?>.jpg" class="img-responsive" alt="">
 							<div class="portfolio-box-caption">
 								<div class="portfolio-box-caption-content">
 									<div class="project-category text-faded">
@@ -103,82 +103,8 @@
 								</div>
 							</div>
 						</a>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-							<img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
-							<div class="portfolio-box-caption">
-								<div class="portfolio-box-caption-content">
-									<div class="project-category text-faded">
-										Category
-									</div>
-									<div class="project-name">
-										Project Name
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-							<img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
-							<div class="portfolio-box-caption">
-								<div class="portfolio-box-caption-content">
-									<div class="project-category text-faded">
-										Category
-									</div>
-									<div class="project-name">
-										Project Name
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-							<img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
-							<div class="portfolio-box-caption">
-								<div class="portfolio-box-caption-content">
-									<div class="project-category text-faded">
-										Category
-									</div>
-									<div class="project-name">
-										Project Name
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-							<img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
-							<div class="portfolio-box-caption">
-								<div class="portfolio-box-caption-content">
-									<div class="project-category text-faded">
-										Category
-									</div>
-									<div class="project-name">
-										Project Name
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="col-lg-4 col-sm-6">
-						<a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-							<img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
-							<div class="portfolio-box-caption">
-								<div class="portfolio-box-caption-content">
-									<div class="project-category text-faded">
-										Category
-									</div>
-									<div class="project-name">
-										Project Name
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
+					</div>	
+					<?php endfor ?>
 				</div>
 			</div>
 		</section>

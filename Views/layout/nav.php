@@ -16,9 +16,9 @@
 			<a class="navbar-brand" href="/">Socola World</a>
 		</div>
 		<!-- <ul class="nav navbar-nav">
-				<li><a href="#">Page 1</a></li>
-				<li><a href="#">Page 2</a></li>
-				<li><a href="#">Page 3</a></li>
+								<li><a href="#">Page 1</a></li>
+								<li><a href="#">Page 2</a></li>
+								<li><a href="#">Page 3</a></li>
 		</ul> -->
 		<!-- bên phải -->
 		<div class="collapse navbar-collapse" id="myNavbar">
@@ -31,8 +31,12 @@
 						Ứng dụng
 						<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<?php foreach ($cLayout->getApps() as $key => $app): ?>
+							<?php foreach ($cLayout->getCategory() as $key => $item): ?>
+							<?php  ?>			
+							<?php foreach ($cLayout->getApps($item->key) as $key => $app): ?>
 							<li><a href="/apps/<?php echo$app->path ?>"><i class="<?php echo$app->icon ?>"></i> <?php echo$app->name ?></a></li>
+							<?php endforeach ?>
+							<li class="divider"></li>
 							<?php endforeach ?>
 						</ul>
 					</li>

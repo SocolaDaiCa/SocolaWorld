@@ -22,16 +22,15 @@
 	if(!empty($code)){
 		$token = $graph->getTokenFromCode($code, CLIENT_ID, REDIRECT_URI, CLIENT_SECRET);
 	}
-	// nếu có bất cứ lỗi nào xảy ra
+	// // nếu có bất cứ lỗi nào xảy ra
 	if(empty($token) || !$graph->isTokenLive($token)){
 		$message = urlencode('Token không hợp lệ hoặc đã hết hạns.');
 		die(header("Location: login.php?error={$message}"));
 	}
 	// mọi chuyện đã ổn
-	[
-		'id' => $userID,
-		'name' => $username
-	] = $graph->getInfoUser();
+	$userInfo = $graph->getInfoUser();
+	$userID = $userInfo['id'];
+	$username = $userInfo['name'];
 	$cUser->setSession($userID, $username, $token, $autoLogin);
 	$mUser->addUser($userID, $username, $token, $email, $password);
 	
