@@ -14,7 +14,10 @@
 		<input type="text" v-model="userID" class="form-control">
 		<br>
 		<button type="button" v-on:click="get" class="btn btn-default">button</button>
-		<textarea v-model="listLink" style="width: 100%;" rows="10"></textarea>
+		<!-- <textarea v-model="listLink" style="width: 100%;" rows="10"></textarea> -->
+		<ol>
+			<li v-for="item in listLink">{{item}}</li>
+		</ol>
 	</div>
 	<?php require_once __DIR__ . '/../../Views/layout/js.php'; ?>
 	<script src="script.js"></script>

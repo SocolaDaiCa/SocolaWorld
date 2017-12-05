@@ -103,7 +103,7 @@
 								</div>
 							</div>
 						</a>
-					</div>	
+					</div>
 					<?php endfor ?>
 				</div>
 			</div>
