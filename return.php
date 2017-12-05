@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	require_once '';
 	require_once __DIR__ . '/vendor/socola.dai.ca/lib/graph-fb-Socola.php';
 	require_once __DIR__ . '/Controller/Controller_User.php';
 	require_once __DIR__ . '/Model/Model_User.php';
