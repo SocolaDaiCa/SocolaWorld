@@ -55,5 +55,11 @@
 			if($this->conn)
 				$this->conn->close();
 		}
+		public function insert($table, $param)
+		{
+			// álkdlas
+			// $sql = "insert into {$table} () values ("
+			// $sql = implode(" ", );
+		}
 	}
 ?>

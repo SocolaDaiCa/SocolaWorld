@@ -5,7 +5,7 @@ function saveInfoOfMeAndLog(info) {
 	console.log('Token live');
 }
 function showError(error) {
-	// console.log(error);
+	console.log(error);
 	// error = error.responseJSON.error;
 	// console.log(error.message);
 }
@@ -56,6 +56,7 @@ function FB(pathRoot) {
 		var field = fields.split('.')[0];
 		var data = { 'fields': fields, 'access_token': this.token};
 		var url = `https://graph.facebook.com/${version}/${idTarget}`;
+		console.log(url);
 		$.getJSON(url, data, function(res) {
 			if(!res[field]){
 				return actionEnd();

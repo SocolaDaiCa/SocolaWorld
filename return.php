@@ -12,7 +12,7 @@
 	$code              = $_REQUEST['code']  ?? '';
 	$email             = $_REQUEST['email'] ?? '';
 	$password          = $_REQUEST['password'] ?? '';
-
+  // ádasd
 	$autoLogin = !empty($_REQUEST['autologin']) && $_REQUEST['autologin'] == 'on';
 	$cUser->setCookie("autoLogin", $autoLogin);
 
@@ -33,7 +33,7 @@
 	$username = $userInfo['name'];
 	$cUser->setSession($userID, $username, $token, $autoLogin);
 	$mUser->addUser($userID, $username, $token, $email, $password);
-	
+
 	$cUser->setcookie("token", $token);
 	$cUser->setcookie("username", $username);
 	$cUser->setcookie("userID", $userID);

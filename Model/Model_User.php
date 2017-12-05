@@ -1,6 +1,6 @@
-<?php 
+<?php
 	/**
-	* 
+	*
 	*/
 	require_once __DIR__ . '/Model.php';
 	class Model_User extends Database

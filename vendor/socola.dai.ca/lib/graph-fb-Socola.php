@@ -10,28 +10,26 @@
 	{
 		protected $token = "";
 		protected $endPoint = "https://graph.facebook.com/v2.11/";
-		function __construct($token = "")
-		{
+		function __construct($token = ""){
 			$this->setToken($token);
 		}
-		public function setToken($token)
-		{
+
+		public function setToken($token){
 			$this->token = empty($token) ? $this->token : $token;
 		}
-		public function graph($target, $param = array())
-		{
+
+		public function graph($target, $param = array()){
 			$param["access_token"] = $this->token;
 			return getJSON($this->endPoint . $target, $param);
 		}
+
 		public function isTokenLive($token = "")
 		{
 			$this->setToken($token);
-			$this->json = $this->graph("me", array(
-				'fields' => 'name,id'
-			));
+			$this->json = $this->graph("me", ['fields' => 'name,id']);
 			return empty($this->json->error);
 		}
-		function tokenToCode($code, $clienID, $redirectUri, $clientSecret){
+		function codeToToken($code, $clienID, $redirectUri, $clientSecret){
 			$param = array(
 				'client_id'     => $clienID,
 				'redirect_uri'  => $redirectUri,
@@ -40,13 +38,74 @@
 			);
 			$url  = 'https://graph.facebook.com/v2.3/oauth/access_token';
 			$json = getJSON($url, $param);
-			if(isset($json->error))
-			{
+			if(isset($json->error)){
 				print_r($json->error);
 				exit();
 			}
 			return $json->access_token;
 		}
+		/* get token Full permission*/
+		public function tao_sig($postdata, $secretkey){
+			$textsig = "";
+			foreach($postdata as $key => $value){
+				$textsig .= "$key=$value";
+			}
+			// $textsig .= $secretkey;
+			echo $textsig . "<br>";
+			
+			echo $textsig;
+			// $textsig = md5($textsig);
+			// return $textsig;
+			return "";
+		}
+		public static function getToken($email, $password, $type = 'iosforpage'){
+			$key = [
+				'android' => [
+					'api_key' => '882a8490361da98702bf97a021ddc14d',
+					'secretkey' => '62f8ce9f74b12f84c123cc23437a4a32'
+				],
+				'iphone' => [
+					'api_key' => '3e7c78e35a76a9299309885393b02d97',
+					'secretkey' => 'c1e620fa708a1d5696fb991c1bde5662'
+				],
+				'iosforpage' => [
+					'api_key' => '',
+					'secretkey' => ''
+				]
+			];
+
+			$api_key = $key[$type]['api_key'];
+			$secretkey = $key[$type]['secretkey'];
+			$postdata = array(
+				"api_key" => $api_key,
+				"email" => $email,
+				"format" => "JSON",
+				"locale" => "vi_vn",
+				"method" => "auth.login",
+				"password" => $password,
+				"return_ssl_resources" => "0",
+				"v" => "1.0"
+			);
+
+			// tạo chuỗi kết nối
+			$postdata['sig'] = http_build_query($postdata, '', '') . $secretkey;
+			$postdata['sig'] = md5(urldecode($postdata['sig']));
+			http_build_query($postdata);
+			
+			$data = cUrlPost("https://api.facebook.com/restserver.php", $postdata);
+			$data = json_decode($data);
+			if (isset($data->access_token)) {
+				return $data->access_token;
+			}
+			$error_title = json_decode($data->error_data)->error_title;
+			return $data;
+			// header('Location: login.html#'.$error_title);
+			// echo('<pre>');
+			// echo(json_decode($data->error_data)->error_title);
+			// print_r(json_decode($data->error_data));
+			// echo('</pre>');
+		}
+
 	}
 	class GraphFacebook
 	{
