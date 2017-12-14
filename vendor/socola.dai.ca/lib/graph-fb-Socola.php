@@ -105,7 +105,13 @@
 			// print_r(json_decode($data->error_data));
 			// echo('</pre>');
 		}
-
+		public function getInfoUser()
+		{
+			return array(
+				'id' => $this->json->id,
+				'name' => $this->json->name
+			);
+		}
 	}
 	class GraphFacebook
 	{
@@ -115,13 +121,6 @@
 		function __construct($token = "")
 		{
 			$this->token = $token;
-		}
-		public function getInfoUser()
-		{
-			return array(
-				'id' => $this->json->id,
-				'name' => $this->json->name
-			);
 		}
 		public function loginWithFacebook($permission, $clienID, $redirectUri){
 			$url = 'https://www.facebook.com/dialog/oauth';

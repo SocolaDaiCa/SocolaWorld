@@ -1,12 +1,11 @@
 <?php
 	session_start();
-	require_once '';
 	require_once __DIR__ . '/vendor/socola.dai.ca/lib/graph-fb-Socola.php';
 	require_once __DIR__ . '/Controller/Controller_User.php';
 	require_once __DIR__ . '/Model/Model_User.php';
 	$cUser = new Controller_User();
 	$mUser = new Model_User();
-	$graph = new GraphFacebook();
+	$graph = new Graph();
 	/* lấy dữ liệu người dùng gửi lên*/
 	$loginWithFacebook = $_REQUEST['loginwithfacebook_x'] ?? '';
 	$token             = $_REQUEST['token'] ?? '';

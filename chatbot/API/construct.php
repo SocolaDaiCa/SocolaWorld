@@ -1,6 +1,7 @@
 <?php
 	require_once 'define.php';
 	require_once PATH_LIB . 'SDK-Php-Chatfuel-Socola.php';
+	require_once __DIR__ . '/../../vendor/socola.dai.ca/lib/curl.php';
 	if(!isset($debug))
 		$debug = TRUE;
 	if(!isset($validate))

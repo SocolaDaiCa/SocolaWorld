@@ -261,20 +261,21 @@
 	    }
 
 		public function sentMessages(){
-			if(is_null($this->messages))
-				$this->sendText(NULL);
 			header('Content-Type: application/json; charset=utf-8');
 			if($this->debug){
-				
-				// header('Content-Type: text/html; charset=utf-8');
-				// $data = json_decode($data, false, 512, JSON_UNESCAPED_UNICODE);
-				// $data = json_encode($this, JSON_UNESCAPED_LINE_TERMINATORS);
-				// $data = json_encode($this, JSON_UNESCAPED_UNICODE);
-				$data = json_encode($this, JSON_PRETTY_PRINT);
-				echo($data);
-			}else{
-				echo json_encode($this);
+				/*debug mode*/
+				if($this->messages == NULL){
+					$this->sendText(NULL);
+				}
+				$res = json_encode($this, JSON_PRETTY_PRINT);
+			} else {
+				/*nomal mode*/
+				if($this->messages == NULL){
+					$this->sendText("");
+				}
+				$res = json_encode($this);
 			}
+			echo $res;
 		}
 
 	}

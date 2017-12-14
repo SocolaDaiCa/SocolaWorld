@@ -22,7 +22,7 @@
 				return;
 			// exit();
 			$token = $_COOKIE['token'] ?? '';
-			$graph = new GraphFacebook();
+			$graph = new Graph();
 			if (!empty($token) &&  $graph->isTokenLive($token)){
 				$_SESSION["login"] = TRUE;
 				$data = $graph->getInfoUser();
