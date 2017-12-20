@@ -16,7 +16,7 @@
 		<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
 			<ul id="list-groups">
 				<li v-for="group in listGroups">
-					<a class="crop small" href="#groups" v-on:click="start(group.id)">
+					<a class="crop small" href="#groups/{{group.id}}" v-on:click="start(group.id)">
 						<img v-bind:src="group.icon" alt="">&nbsp;&nbsp;
 						{{group.name}}
 					</a>

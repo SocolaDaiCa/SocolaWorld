@@ -9,7 +9,7 @@
 		protected $conn;
 		function __construct()
 		{
-			if(!empty($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'facebook.dev:8888'){
+			if(!empty($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'facebook:8888'){
 				$this->host = 'localhost';
 				$this->username = 'root';
 				$this->password = '';
@@ -57,9 +57,6 @@
 		}
 		public function insert($table, $param)
 		{
-			// álkdlas
-			// $sql = "insert into {$table} () values ("
-			// $sql = implode(" ", );
 		}
 	}
 ?>

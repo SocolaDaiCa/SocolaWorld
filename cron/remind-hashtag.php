@@ -19,7 +19,7 @@
 				// get data per bot
 				$groupId = $bot[0];
 				$token = $bot[1];
-				$listHashTags = explode("\r\n", $bot[2]);
+				$listHashTags = explode(",", $bot[2]);
 				// var_dump($listHashTags);
 				$listMessages = explode(";", $bot[3]);
 				// chạy từng con bot

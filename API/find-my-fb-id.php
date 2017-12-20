@@ -10,7 +10,7 @@
 <?php endif ?>
 <?php
 	require_once __DIR__ . '/../vendor/socola.dai.ca/lib/graph-fb-Socola.php';
-	$token = $_REQUEST['token'] ?? "EAACW5Fg5N2IBAKCgVCZAWexdtLQPS148Fnv4KYjGB1duirZAosZBdhWuzoOKd9Ai2i9qX1fAuFABkU3MMq2rO10ZBujOJFPTs54jWGRxQCcLZBrF1dVkZBiaGMTEpwARG2EpnZBqQuhpmdIiHzQp02P2EWczmsp22PuBLhf9XhZABKDgbvNIoZBj4EvDM1sYcShFHrym6QHn9HQZDZD";
+	$token = $_REQUEST['token'] ?? "EAACW5Fg5N2IBAEo4h8wUnMAFe3qwhwg7CEtTt0fkDV430pYL8mr9o9MeTq3oUN589dZC395FGWMLq9zAejklZB5VPihArC5bCL60LBQFzZAqod9AJuoEMshoPP2ZCqhG6rqbglgwoMw11PYrpxsOVfPqjyE0aveYQV7oWYrJ27YzGo5tq2ZAD2YyHLlUjvt0ZD";
 	$q = $_REQUEST['q'] ?? '';
 	if (empty($q)) return;
 	$urlGraph = "https://graph.facebook.com/?" . http_build_query([
