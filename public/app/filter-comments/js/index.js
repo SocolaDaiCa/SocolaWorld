@@ -1,106 +1,93 @@
 'use strict';
-/* danh sách các biến*/
 var fb;
 var app = new Vue({
 	el: '#app',
 	data: {
 		process: false,
-		// commnet
-		idStatus: '',
-		allComments: [],
-		commentsHasMail: [],
-		commentsHasPhone: [],
-		commentsHasLink: []
+		comments: [],
+		condition: '',
+		idStatus: ''
 	},
 	methods: {
-		filterComments: function() {
+		start: function() {
 			if (app.process) { return; }
 			app.process = true;
-			/* xóa dữ liệu trong bảng từ lần lọc bình luận trước*/
-			app.clearData();
-			/* kiểm tra token trước khi lọc bình luận*/
-			/* bắt đầu lọc bình luận*/
-			fb.graph(this.idStatus, 'comments.limit(100){from,message,reactions.limit(0).summary(1)}', function showComment(listComments) {
+			this.reset();
+			this.getComments();
+		},
+		reset: function() {
+			this.comments = [];
+		},
+		getComments: function() {
+			let query = 'comments.limit(100){from,message,reactions.limit(0).summary(1)}';
+			fb.graph(this.idStatus, query, (listComments) => {
 				if (!listComments) { return; }
-				listComments.forEach(function(comment) {
-					app.addComment(comment);
-					app.addIfHasMail(comment);
-					app.addIfhasPhone(comment);
-					app.addIfhasLink(comment);
-				});
-			}, function() {
+				listComments.forEach(comment => {
+					this.comments.push(comment);
+				})
+				
+			}, () => {
 				console.log("xong");
 				app.process = false;
 			}, 'v2.10');
 		},
-		addComment: function(comment) {
-			comment.reactions = comment.reactions.summary.total_count;
-			this.allComments.push(comment);
-		},
-		addIfHasMail: function(comment) {
-			var words = app.getWords(comment);
-			/**/
-			words.forEach(function(word) {
-				if (validateEmail(word)) { // nếu chứa mail thì
-					comment.mail = word;
-					return app.commentsHasMail.push(comment);
-				}
+		filter: function(comments) {
+			return comments.filter((comment) => {
+				// return true;
+				return comment.message.search(this.condition) !== -1;
 			});
-		},
-		addIfhasPhone: function(comment) {
-			var words = app.getWords(comment);
-			words.forEach(function(word) {
-				if (validatePhone(word)) { // nếu chứa mail thì
-					comment.phone = word;
-					return app.commentsHasPhone.push(comment);
-				}
-			});
-		},
-		addIfhasLink: function(comment) {
-			var words = app.getWords(comment);
-			words.forEach(function(word) {
-				if (validateUrl(word)) { // nếu chứa link thì
-					comment.link = word;
-					return app.commentsHasLink.push(comment);
-				}
-			});
-		},
-		getWords: function(comment) {
-			return comment.message.split(/,| |\n/);
-		},
-		clearData: function() {
-			this.allComments = [];
-			this.commentsHasMail = [];
-			this.commentsHasPhone = [];
-			this.commentsHasLink = [];
-		},
-		/*download*/
-		downloadListEmails: function() {
-			let listMails = [];
-			this.commentsHasMail.forEach(function (comment) {
-				listMails.push(comment.mail);
-			});
-			var file = new File([listMails.join("\n")], "List mails.txt", { type: "text/plain;charset=utf-8" });
-			saveAs(file);
-		},
-		downloadListPhones: function() {
-			let listPhones = [];
-			this.commentsHasPhone.forEach(function (comment) {
-				listPhones.push(comment.phone);
-			});
-			var file = new File([listPhones.join("\n")], "List phones.txt", { type: "text/plain;charset=utf-8" });
-			saveAs(file);
-		},
-		downloadListLinks: function() {
-			let listLinks = [];
-			this.commentsHasLink.forEach(function (comment) {
-				listLinks.push(comment.link);
-			});
-			var file = new File([listLinks.join("\n")], "List links.txt", { type: "text/plain;charset=utf-8" });
-			saveAs(file);
 		}
+	},
+	computed: {
+		commentsHasMail: function() {
+			var comments = [];
+			this.comments.forEach((comment) => {
+				comment.mail = [];
+				getWords(comment).forEach((word) => {
+					if (!validateEmail(word)) {
+						return;
+					}
+					comment.mail.push(word);
+				});
+				comment.mail.length &&  comments.push(comment);
+			});
+			return comments;
+		},
+		commentsHasPhone: function() {
+			var comments = [];
+			this.comments.forEach((comment) => {
+				comment.phone = [];
+				getWords(comment).forEach((word) => {
+					validatePhone(word) && comment.phone.push(word);
+				});
+				comment.phone.length && comments.push(comment);
+			});
+			return comments;
+		},
+		commentsHasLink: function() {
+			var comments = [];
+			this.comments.forEach((comment) => {
+				comment.link = [];
+				getWords(comment).forEach((word) => {
+					validateUrl(word) && comment.link.push(word);
+				});
+				comment.link.length && comments.push(comment);
+			});
+			return comments;
+		},
+	},
+	created: function() {
+		fb = new FB('../../');
+		$.get('/apps/token', function(token) {
+			fb.setToken(token);
+			fb.checkLiveToken();
+		});
 	}
 });
+
+function getWords(comment) {
+	return comment.message.split(/,| |\n/);
+}
 
 function validateEmail(email) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -122,10 +109,3 @@ function validateUrl(url) {
 		'(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
 	return re.test(url);
 }
-$(function() {
-	fb = new FB('../../');
-	$.get('/apps/token', function(token) {
-		fb.setToken(token);
-		fb.checkLiveToken();
-	});
-});

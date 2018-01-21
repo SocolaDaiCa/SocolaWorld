@@ -16,3 +16,7 @@ table>tbody>tr>td{
 table>tbody>tr>td:nth-child(2){
 	width: 150px;
 }
+.nav-tabs input{
+	/*padding: 0px;*/
+	margin: 0px;
+}

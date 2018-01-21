@@ -17,7 +17,7 @@
 				<span class="input-group-addon">ID bài viết</span>
 				<input type="text" v-model="idStatus" class="form-control" placeholder="Id status" value="100004399725901_874539162702733">
 				<span class="input-group-btn">
-					<button v-on:click="filterComments" class="btn btn-secondary" type="button">Filter!</button>
+					<button v-on:click="start" class="btn btn-secondary" type="button">Filter!</button>
 				</span>
 			</div>
 		</div>
@@ -28,6 +28,7 @@
 		<li><a data-toggle="tab" href="#menu1">Bình luận chứa Email</a></li>
 		<li><a data-toggle="tab" href="#menu2">Bình luận chứa số điện thoại</a></li>
 		<li><a data-toggle="tab" href="#menu3">Bình luận chứa link</a></li>
+		<li><input type="text" class="form-control" v-model="condition" placeholder="Search"></li>
 	</ul>
 	<div class="tab-content" id="list-comments">
 		<!-- bảng chứa tất cả bình luận -->
@@ -43,7 +44,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(index,comment) in allComments">
+					<tr v-for="(index,comment) in filter(comments)">
 						<td>@{{index+1}}</td>
 						<td><a href="//com//" title="">@{{comment.from.name}}</a></td>
 						<td>@{{comment.message}}</td>
@@ -68,7 +69,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(index, comment) in commentsHasMail">
+					<tr v-for="(index, comment) in filter(commentsHasMail)">
 						<td>@{{index+1}}</td>
 						<td>@{{comment.from.name}}</td>
 						<td>@{{comment.message}}</td>
@@ -94,7 +95,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(index, comment) in commentsHasPhone">
+					<tr v-for="(index, comment) in filter(commentsHasPhone)">
 						<td>@{{index+1}}</td>
 						<td>@{{comment.from.name}}</td>
 						<td>@{{comment.message}}</td>
@@ -119,7 +120,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="(index, comment) in commentsHasLink">
+					<tr v-for="(index, comment) in filter(commentsHasLink)">
 						<td>@{{index+1}}</td>
 						<td>@{{comment.from.name}}</td>
 						<td>@{{comment.message}}</td>
