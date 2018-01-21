@@ -1,0 +1,14 @@
+.fa {
+	font-size: 150%;
+}
+
+/*.table-apps {
+	vertical-align: middle;
+}*/
+.table-apps th{
+	text-align: center;
+}
+.table-apps tbody tr td:nth-child(1) {
+	width: 30px;
+	
+}

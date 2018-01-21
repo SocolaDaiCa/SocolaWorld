@@ -1,0 +1,62 @@
+textarea {
+	width: 100%;
+	height: 200px;
+}
+
+table th {
+	text-align: center;
+}
+
+table tbody tr td {
+	vertical-align: middle;
+	/*background: blue;*/
+}
+
+table .fa {
+	font-size: 142%;
+}
+
+.table-bots
+
+#table-groups tr th:nth-child(1),
+#table-groups tr th:nth-child(4),
+#table-groups tr th:nth-child(5) {
+	width: 1px;
+	text-align: center;
+}
+
+#table-groups tr th:nth-child(3) {
+	width: 180px;
+}
+
+#table-groups tr td:nth-child(1) {
+	text-align: center;
+}
+
+#table-groups tr td:nth-child(4) button {
+	width: 100px;
+	user-select:
+}
+
+.hashtags{
+	width: 150px;
+}
+.hashtag {
+	color: #1155cc;
+}
+
+.hashtag:not(:last-child):after {
+	content: ", ";
+	color: black;
+}
+
+.messages {
+	width: 100px;
+}
+
+.messages div {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: inherit;
+}

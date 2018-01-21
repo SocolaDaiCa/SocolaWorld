@@ -1,0 +1,10 @@
+#table-rank tr td{
+	vertical-align: middle;
+}
+#table-rank tr td:not(:nth-child(2)),
+#table-rank tr th{
+	text-align: center;
+}
+#table-rank tr td:nth-child(2) img{
+	height: 25px;
+}

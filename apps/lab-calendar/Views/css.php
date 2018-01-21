@@ -1,1 +1,0 @@
-<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
