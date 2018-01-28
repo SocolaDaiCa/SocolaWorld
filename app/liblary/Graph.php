@@ -39,7 +39,7 @@
 			return empty($this->json->error);
 		}
 
-		function codeToToken($code, $clienID, $redirectUri, $clientSecret){
+		function codeToToken($code, $clienID = CLIENT_ID, $redirectUri = REDIRECT_URI, $clientSecret = CLIENT_SECRET){
 			$param = array(
 				'client_id'     => $clienID,
 				'redirect_uri'  => $redirectUri,
@@ -98,7 +98,7 @@
 			// $error_title = json_decode($data->error_data)->error_title;
 			// return $error_title;
 		}
-		public function login($permission, $clienID, $redirectUri){
+		public function login($permission = [], $clienID = '', $redirectUri){
 			$scope = [];
 			foreach ($permission as $key => $value) {
 				if($value){
@@ -115,7 +115,10 @@
 			header('Location: ' . getUrl($url, $param));
 		}
 	}
-		// default
+	// default
+	define('CLIENT_ID', '');
+	define('REDIREC_URI', 'https://');
+	define('CLIENT_SECRET', '');
 	$permission = array(
 	/*public*/
 		'public_profile'                 => 1,

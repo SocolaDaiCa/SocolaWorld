@@ -32,16 +32,14 @@ class SiteController extends Controller
 		$this->data['categorys'] = $categorys;
 		return view('site.pages.index', $this->data);
 	}
-	public function getLogin()
+	public function login(Request $request)
 	{
-		return view('site.pages.login', $this->data);
-	}
-	public function postLogin(Request $request)
-	{
+		
 		$username = $request['username'];
-		$password = $request['password'] ?? 'default';
-		$token = $request['token'];
-		$code = $request['code'];
+		$password = $request['password'] ?? '';
+		$token    = $request['token'];
+		$code     = $request['code'];
+		$ok = false;
 		if(!empty($code)){
 			$token = Graph::codeToToken($code);
 		}
@@ -50,6 +48,11 @@ class SiteController extends Controller
 		}
 		$fb = new Graph($token);
 		$info = $fb->graph('me', ['fields' => 'id, name, email']);
+		if(!empty($info->id)){
+			return $info;
+		}
+		print_r($info);
+		return '';
 		$user = User::firstOrNew(['user_id' => $info->id]);
 		$user->email = $info->email;
 		$user->name = $info->name;
@@ -59,7 +62,6 @@ class SiteController extends Controller
 		$data = ['user_id' => $user->user_id, 'password' => $password];
 		if(Auth::attempt($data))
 			return redirect()->route('site.index');
-		return redirect()->route('site.index');
 	}
 	public function logout()
 	{

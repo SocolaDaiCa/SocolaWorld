@@ -15,3 +15,4 @@
 <!-- /meta -->
 <meta name="description" content="">
 <meta name="author" content="">
+<link rel="manifest" href="{{asset('manifest.webmanifest')}}">

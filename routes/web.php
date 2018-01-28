@@ -45,6 +45,7 @@ Route::group(['prefix' => 'apps', 'middleware' => ['AppsMiddleware']], function(
 	Route::get('members-checker', 'AppsMembersCheckerController@index');
 });
 Route::group(['prefix' => 'apps'], function(){
+	Route::get('cookie-to-token', 'AppsController@cookieToToken');
 	/* hôm nay ai trưc nhật*/
 	Route::group(['prefix' => 'hom-nay-ai-truc-nhat'], function(){
 		Route::get('', function (){
@@ -86,8 +87,8 @@ Route::group(['prefix' => 'api'], function (){
 });
 Route::group(['prefix' => ''], function(){
 	Route::get('', 'SiteController@index')->name('site.index');
-	Route::get('login', 'SiteController@getLogin')->name('site.login');
-	Route::post('login', 'SiteController@postLogin')->name('site.login');
+	Route::get('login', 'SiteController@Login')->name('site.login');
+	Route::post('login', 'SiteController@Login')->name('site.login');
 	Route::get('logout', 'SiteController@logout')->name('site.logout');
 });
 Route::group(['prefix' => 'admin', 'middleware' => ['AppsMiddleware']], function(){

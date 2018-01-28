@@ -1,5 +1,5 @@
 <style>
-	body{padding-top: 85px;}
+	body{padding-top: 60px;}
 </style>
 <nav class="navbar navbar-default navbar-fixed-top" style="background: #444">
 	<div class="container-fluid">

@@ -89,7 +89,8 @@ section {
 	content: "";
 	position: absolute;
 	top: 0px;
-	left: 0px;
+	left: -1px;
+	height: 100%;
 	border-top: solid transparent 155px;
 	border-right: solid transparent 25px;
 	border-bottom: solid #06a763 155px;
@@ -99,6 +100,7 @@ section {
 	width: 290px;
 	float: right;
 	position: relative;
+	background: #06a763;
 }
 #info .avatar img{
 	width: inherit;

@@ -23,6 +23,7 @@ var app = new Vue({
 			fb.graph(this.idStatus, query, (listComments) => {
 				if (!listComments) { return; }
 				listComments.forEach(comment => {
+					comment.reactions = comment.reactions.summary.total_count;
 					this.comments.push(comment);
 				})
 				
@@ -36,6 +37,30 @@ var app = new Vue({
 				// return true;
 				return comment.message.search(this.condition) !== -1;
 			});
+		},
+		downloadEmails: function() {
+			let listMails = [];
+			this.commentsHasMail.forEach(function(comment) {
+				listMails.push(comment.mail.join("\n"));
+			});
+			var file = new File([listMails.join("\n")], "List mails.txt", { type: "text/plain;charset=utf-8" });
+			saveAs(file);
+		},
+		downloadPhones: function() {
+			let listPhones = [];
+			this.commentsHasPhone.forEach(function(comment) {
+				listPhones.push(comment.phone.join("\n"));
+			});
+			var file = new File([listPhones.join("\n")], "List phones.txt", { type: "text/plain;charset=utf-8" });
+			saveAs(file);
+		},
+		downloadLinks: function() {
+			let listLinks = [];
+			this.commentsHasLink.forEach(function(comment) {
+				listLinks.push(comment.link.join('\n'));
+			});
+			var file = new File([listLinks.join("\n")], "List links.txt", { type: "text/plain;charset=utf-8" });
+			saveAs(file);
 		}
 	},
 	computed: {

@@ -56,14 +56,13 @@
 		</div>
 		<!-- bảng chứa bình luận có mail -->
 		<div id="menu1" class="tab-pane fade">
-			Nếu có nhiều email, thì mình chỉ lọc ra email đầu tiên tìm được
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<td></td>
 						<th>Usename</th>
 						<th>Bình luận chứa email</th>
-						<th>Email tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListEmails"></span></th>
+						<th>Email tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadEmails"></span></th>
 						<th>Reaction</th>
 						<th class="min">Trả lời</th>
 					</tr>
@@ -82,14 +81,13 @@
 		</div>
 		<!-- bảng chứa bình luận có số điện thoại -->
 		<div id="menu2" class="tab-pane fade">
-			Nếu có nhiều số điện thoại trong một bình luận, mình chỉ lọc ra số điện thoại đầu tiên tìm được
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<td></td>
 						<th>Usename</th>
 						<th>Bình luận chứa số điện thoại</th>
-						<th>Số điện thoại tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListPhones"></span></th>
+						<th>Số điện thoại tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadPhones"></span></th>
 						<th>Reaction</th>
 						<th class="min">Trả lời</th>
 					</tr>
@@ -114,7 +112,7 @@
 						<td></td>
 						<th>Usename</th>
 						<th>Bình luận chứa số link</th>
-						<th>Link tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadListLinks"></span></th>
+						<th>Link tìm thấy <span class="download glyphicon glyphicon-download-alt" v-on:click="downloadLinks"></span></th>
 						<th>Reaction</th>
 						<th class="min">Trả lời</th>
 					</tr>

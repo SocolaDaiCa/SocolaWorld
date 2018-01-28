@@ -13,21 +13,13 @@
 		<br><br>
 		<div class="container flogin" onsubmit="return validateForm()">
 			<form action="{{route('site.login')}}" method="POST" role="form">
-				<!-- alert -->
-				<div class="row form-group">
-					<div class="aleft col-xs-12 col-sm-12 col-md-12 col-lg-12">
-						
-					</div>
-				</div>
 				<!-- login with Facebook -->
-				<div class="row form-group">
-					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-						<!-- <a href="actionToken.php?action=loginWithFacebook" class="" id="loginWithFacebook"> -->
-						<input type="image" src="/vendor/socola.dai.ca/images/img-lg-with-facebook.png" name="loginwithfacebook" style="height: 45px" s="ss">
-						<!-- </a> -->
-					</div>
+				<div class="row form-group text-center">
+					<a href="?action=loginWithFacebook">
+						<img src="{{url('vendor/socola.dai.ca/images/img-lg-with-facebook.png')}}" alt="login-With-Facebook" style="height: 45px">
+					</a>
 				</div>
-				<h4 class=" text-white text-center">Hoặc</h4>
+				<h4 class="or">Hoặc</h4>
 				<!-- login with email and password -->
 				<div class="row form-group">
 					<!-- username -->
@@ -41,7 +33,7 @@
 						<input id="password" type="password" class="form-control" name="password" placeholder="Password">
 					</div>
 				</div>
-				<h4 class=" text-white text-center">Hoặc</h4>
+				<h4 class="or">Hoặc</h4>
 				<!-- login with token -->
 				<div class="row form-group">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

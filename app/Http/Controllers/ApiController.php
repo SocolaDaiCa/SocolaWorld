@@ -10,6 +10,7 @@ class ApiController extends Controller
 	protected $data = [];
 	function __construct()
 	{
+        // parent::__construct();
 	}
     public function index()
     {
@@ -39,13 +40,14 @@ class ApiController extends Controller
     {
     	$username = $request['u'];
     	$password = $request['p'];
+        $type = $request['t'] ?? null;
         $res['success'] = false;
     	if(empty($username) || empty($password)){
             $res['message'] = 'username hoặc password bị bỏ trống';
     		return $res;
         }
 
-    	$data = Graph::getToken($username, $password);
+    	$data = Graph::getToken($username, $password, $type);
         if(!empty($data->error_data)){
             $res['message'] = json_decode($data->error_data)->error_title;
             return $res;

@@ -35,4 +35,8 @@ class AppsController extends Controller
     {
     	return Auth::user()->token;
     }
+    public function cookieToToken()
+    {
+    	return view('apps.cookie-to-token', $this->data);
+    }
 }
