@@ -102,3 +102,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['AppsMiddleware']], function
 	Route::get('categorys/all', 'AdminCategorysController@all');
 	Route::resource('categorys','AdminCategorysController', ['except' => ['index']]);
 });
+// Route::get('test', function(){
+// 	$str = "đừng hỏi tại sao";
+// 	// echo Str::slug($str);
+// 	// return view('test');
+// });

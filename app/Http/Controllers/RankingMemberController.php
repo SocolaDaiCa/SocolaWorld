@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Insight;
 use App\Group;
+use App\Insight;
 use App\Liblary\Graph;
 use App\RankingMember;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RankingMemberController extends AppsController
 {
