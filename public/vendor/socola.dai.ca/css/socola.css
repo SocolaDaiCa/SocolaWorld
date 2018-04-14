@@ -1,23 +1,7 @@
-legend {
-    display: block;
-    width: auto;
-    padding: 0 5px;
-    margin-bottom: 0;
-    font-size: inherit;
-    line-height: inherit;
-    border-bottom: none;
-}
-
-fieldset {
-    /*border: 10px groove gray;*/
-    border: 1.5px solid #c8c8c8;
-    padding: 5px;
-}
-
-textarea {
-    resize: none;
-}
-[class*=col-]{
-	padding-left: 10px;
-	padding-right: 10px;
-}
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:05:18
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-28 20:48:23
+ */legend{display:block;width:auto;padding:0 5px;margin-bottom:0;font-size:inherit;line-height:inherit;border-bottom:none}fieldset{border:1.5px solid #c8c8c8;padding:5px}textarea{resize:none}[class*=col-]{padding-left:10px;padding-right:10px}

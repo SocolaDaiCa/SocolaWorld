@@ -1,3 +1,9 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 20:03:32
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-04-09 06:34:17
+ */
 'use strict';
 var fb;
 
@@ -25,19 +31,19 @@ var app = new Vue({
 			}, 'v2.3');
 		},
 		post: function() {
-			if (!app.listGroupsWillPost) { return; }
+			if (!app.listGroupsWillPost.length) { return; }
 			var message = encodeURI(app.message);
 			app.listGroupsWillPost.forEach(function(group) {
-				fb.graphAS(group.id + '/feed', `&method=post&message=${message}`, 'v2.3');
-
+				fb.graphAS(group.id + '/feed', `method=post&message=${message}`, 'v2.3');
 			});
 			console.log('đăng');
 		}
 	}
 });
 $(function() {
-	fb = new FB('./');
+	fb = new FacebookGraph('./');
 	$.get('/apps/token', function(token) {
+		console.log(token);
 		fb.setToken(token);
 		fb.checkLiveToken();
 		app.getListGroups();

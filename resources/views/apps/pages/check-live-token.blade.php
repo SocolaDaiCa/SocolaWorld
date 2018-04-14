@@ -16,7 +16,9 @@
 	</div>
 	<div class="form-group">
 		<span>Nhập danh sách token, mỗi token nằm trên 1 dòng</span>
-		<textarea v-model="listTokens" class="form-control" rows="10" required="required"></textarea>
+		<input type="file" name="" value="" placeholder="" id="tokenfile">
+		<textarea v-model="tokens" class="form-control" rows="10" required="required">
+		</textarea>
 	</div>
 	<div class="">
 		All: @{{all}}, Live: @{{live}}, die: @{{die}}
@@ -31,10 +33,10 @@
 		<button type="button" class="btn btn-default" data-clipboard-action="cut" data-clipboard-target="#token-input">
 		<i class="fa fa-cut"></i> Cut to clipboard</button>
 	</div>
-	<span id="countToken"></span> <span id="result"></span>
-	<p>Result</p>
+	{{-- <span id="countToken"></span> <span id="result"></span> --}}
+{{-- 	<p>Result</p>
 	<ol id="result-live" class="bg-success">
 		<li v-for="item in res">@{{item}}</li>
-	</ol>
+	</ol> --}}
 </div>
 @endsection

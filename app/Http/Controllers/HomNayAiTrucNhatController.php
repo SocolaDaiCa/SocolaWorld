@@ -1,6 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:29
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-28 20:10:56
+ */
+namespace App\Http\Controllers\Apps;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

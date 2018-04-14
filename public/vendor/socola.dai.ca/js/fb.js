@@ -1,3 +1,9 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 20:05:18
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-23 17:59:13
+ */
 'use strict';
 var me;
 function saveInfoOfMeAndLog(info) {
@@ -6,10 +12,8 @@ function saveInfoOfMeAndLog(info) {
 }
 function showError(error) {
 	console.log(error);
-	// error = error.responseJSON.error;
-	// console.log(error.message);
 }
-function FB(pathRoot) {
+function FacebookGraph(pathRoot) {
 	/*var*/
 	this.pathRoot = pathRoot;
 	this.token = null;
@@ -63,19 +67,19 @@ function FB(pathRoot) {
 			if(res[field] && res[field].data){
 				action(res[field].data, obj);
 			}
-            if (res[field].paging && res[field].paging.next){
-                return graphNext(res[field].paging.next, action, actionEnd);
-            }
-            return actionEnd();
+			if (res[field].paging && res[field].paging.next){
+				return graphNext(res[field].paging.next, action, actionEnd);
+			}
+			return actionEnd();
 		}).fail(showError);
 	};
 }
 function graphNext(next, action, actionEnd, obj) {
-    $.getJSON(next, function(res) {
-    	action(res.data, obj);
-        if (res.paging && res.paging.next){
-            return graphNext(res.paging.next, action, actionEnd, obj);
-        }
-        return actionEnd();
-    }).fail(showError);
+	$.getJSON(next, function(res) {
+		action(res.data, obj);
+		if (res.paging && res.paging.next){
+			return graphNext(res.paging.next, action, actionEnd, obj);
+		}
+		return actionEnd();
+	}).fail(showError);
 }

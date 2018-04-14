@@ -1,3 +1,9 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 20:03:32
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-23 17:54:02
+ */
 'use strict';
 /*import { User, Users } from './user.js';*/
 var fb;
@@ -294,7 +300,7 @@ var app = new Vue({
 	}
 });
 $(() => {
-	fb = new FB('../../');
+	fb = new FacebookGraph('../../');
 	$.get('/apps/token', function(token) {
 		fb.setToken(token);
 		fb.checkLiveToken();

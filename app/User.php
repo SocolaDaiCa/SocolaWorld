@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:29
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-25 12:44:42
+ */
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
@@ -26,4 +33,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function permission()
+    {
+        return $this->belongsTo('App\Models\Permission');
+    }
 }

@@ -6,15 +6,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		@include('site.elements.header')
 		@yield('header')
-		@include('apps.elements.css')
+		@include('apps.inc.css')
 		@yield('css')
 	</head>
 	<body>
-		@include('apps.elements.navbar')
+		@include('apps.inc.navbar')
 		<div id="app">
 			@yield('content')
 		</div>
-		@include('apps.elements.js')
+		@include('apps.inc.js')
 		@yield('js')
 	</body>
 </html>

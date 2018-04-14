@@ -12,13 +12,13 @@
 <div class="container">
 	<div class="text-center">
 		<h1>Post Multiple Groups</h1>
-		<p>Viết bài lên nhiều nhóm chỉ với 1 lần đăng.</p>
+		<p>Viết bài lên nhiều nhóm chỉ với 1 lần đăng <span class="text-warning">Token Android</span>.</p>
 	</div>
 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 		<div id="new-post">
 			<div class="media">
 				<div class="media-left">
-					<img src="https://graph.facebook.com/{{$user->user_id}}/picture?type=large&redirect=true&width=1000&height=1000" class="media-object img-circle" style="width:55px">
+					<img src="{{$user->avatar}}" class="media-object img-circle" style="width:55px">
 				</div>
 				<div class="media-body">
 					<!-- <h4 class="media-heading">John Doe</h4> -->

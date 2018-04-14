@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:31
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-27 15:23:24
+ */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,7 +21,7 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
+            $table->string('email', 50)->index();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });

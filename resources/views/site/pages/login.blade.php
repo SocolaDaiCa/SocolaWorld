@@ -15,7 +15,7 @@
 			<form action="{{route('site.login')}}" method="POST" role="form">
 				<!-- login with Facebook -->
 				<div class="row form-group text-center">
-					<a href="?action=loginWithFacebook">
+					<a href="{{ route('site.login.facebook') }}">
 						<img src="{{url('vendor/socola.dai.ca/images/img-lg-with-facebook.png')}}" alt="login-With-Facebook" style="height: 45px">
 					</a>
 				</div>

@@ -1,3 +1,9 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 20:03:32
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-04-09 16:45:43
+ */
 'use strict';
 var app = new Vue({
 	el: '#app',
@@ -6,7 +12,10 @@ var app = new Vue({
 		chuiTheoStatusId: false,
 		chuiTheoUserId: false,
 		chuiFriends: true,
-		time: 1,
+		time: {
+			total: 0,
+			curent: 0
+		},
 		intervalTime: 10,
 		listStatus: '',
 		listUsers: '',

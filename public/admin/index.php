@@ -1,1 +1,1 @@
-<?php header('Location: ./dashboard'); ?>
+<?php die(header('Location: /admin/dashboard')); ?>

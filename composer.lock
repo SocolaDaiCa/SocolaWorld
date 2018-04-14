@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "968cf95a384fbcc1cedcded4dcc280aa",
+    "content-hash": "4d78c83ad3de478b4ca3822ffb406375",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1605,6 +1605,81 @@
                 "uuid"
             ],
             "time": "2017-09-22T20:46:04+00:00"
+        },
+        {
+            "name": "socola/facebook-graph",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocolaDaiCa/Facebook-Graph.git",
+                "reference": "02fdb16b6805e1f9d62e5fabc3d2ada890e31390"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocolaDaiCa/Facebook-Graph/zipball/02fdb16b6805e1f9d62e5fabc3d2ada890e31390",
+                "reference": "02fdb16b6805e1f9d62e5fabc3d2ada890e31390",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Socola\\": "src/Socola/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Socola",
+                    "email": "tokentien@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Class php for graph facebook",
+            "homepage": "https://github.com/SocolaDaiCa/Facebook-Graph",
+            "time": "2018-02-07 04:04:27"
+        },
+        {
+            "name": "socola/sdk-php-chatfuel-socola",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocolaDaiCa/SDK-Php-Chatfuel-Socola.git",
+                "reference": "538b88b92e4d7b0d4f477a37198e1bee2a694584"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocolaDaiCa/SDK-Php-Chatfuel-Socola/zipball/538b88b92e4d7b0d4f477a37198e1bee2a694584",
+                "reference": "538b88b92e4d7b0d4f477a37198e1bee2a694584",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Socola\\": "src/Socola/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Socola Đại Ca",
+                    "email": "tokentien@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "class gender json for chatbot facebook chatfuel",
+            "time": "2018-02-05 03:17:09"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4258,7 +4333,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "socola/facebook-graph": 20,
+        "socola/sdk-php-chatfuel-socola": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

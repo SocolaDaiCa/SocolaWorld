@@ -1,3 +1,9 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 20:03:32
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-23 17:53:14
+ */
 'use strict';
 var fb;
 var app = new Vue({
@@ -69,7 +75,7 @@ var app = new Vue({
 	}
 });
 $(function() {
-	fb = new FB('./')
+	fb = new FacebookGraph('./')
 	$.get('/apps/token', function(token) {
 		fb.setToken(token);
 		fb.checkLiveToken();

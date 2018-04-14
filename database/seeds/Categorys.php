@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:31
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-27 15:30:02
+ */
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class Categorys extends Seeder
@@ -19,10 +27,10 @@ class Categorys extends Seeder
 			['Quản Lý Trang Cá Nhân', 'profile'],
 		];
 		foreach ($data as $value) {
-			DB::table('categorys')->insert([
-			'name' => $value[0],
-			'tag' => $value[1],
-		]);
+			$category = new Category;
+			$category->name = $value[0];
+			$category->slug = $value[1];
+			$category->save();
 		}
 	}
 }

@@ -1,47 +1,37 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:29
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-24 20:20:41
+ */
 namespace App\Http\Controllers;
 
 use App\App;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller
 {
 	protected $data = [];
-	function __construct()
-	{
-		$this->middleware(function ($request, $next) {
-			$user = Auth::user();
-			$avatar = "https://graph.facebook.com/{$user->user_id}/picture?type=large&redirect=true&width=40&height=40";
-			$this->data['name'] = $user->name;
-			$this->data['avatar'] = $avatar;
-			return $next($request);
-		}); 
-	}
 	public function index()
 	{
-		return redirect()->route('admin.dashboard');
-	}
-	public function dashboard()
-	{
-		$a = User::all()->count();
-		$lastWeek = date("Y-m-d", strtotime("-7 days"));
-		$c = User::where('created_at', '>=', $lastWeek)->count();
-		$this->data['totalUsers'] = $a;
-		$this->data['percentUserNew'] = $a ? (100.0 * $c / ($a - $c)) : '?';
-		return view('admin.dashboard', $this->data);
-	}
-	public function users()
-	{
-		$this->data['users'] = User::all();
-		return view('admin.users', $this->data);
+		return redirect()->route('admin.dashboard.index');
 	}
 	/* Apps */
 	public function apps()
 	{
 		$this->data['apps'] = App::all();
 		return view('admin.apps', $this->data);
+	}
+
+	public function test()
+	{
+		$data['user'] = Auth::user();
+		return view('x', $data);
 	}
 }

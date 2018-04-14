@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:31
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-27 14:46:59
+ */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,7 +20,7 @@ class AddUserNameToRankingMember extends Migration
      */
     public function up()
     {
-        Schema::table('rankingmember', function ($table) {
+        Schema::table('ranking_members', function ($table) {
             $table->text('user_name')->after('user_id');
         });
     }
@@ -25,7 +32,7 @@ class AddUserNameToRankingMember extends Migration
      */
     public function down()
     {
-        Schema::table('rankingmember', function (Blueprint $table) {
+        Schema::table('ranking_members', function (Blueprint $table) {
             $table->dropColumn('user_name');
         });
     }

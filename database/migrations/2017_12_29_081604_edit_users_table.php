@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:31
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-27 15:27:44
+ */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -15,7 +22,7 @@ class EditUsersTable extends Migration
 	{
 		Schema::table('users', function($table)
 		{
-			$table->string('user_id')->after('id');
+			$table->string('user_id', 20)->after('id');
 			$table->string('token')->after('user_id');
 		});
 	}

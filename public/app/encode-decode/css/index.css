@@ -1,5 +1,5 @@
 .action button{
-	width: 125px;
+	min-width: 155px;
 }
 textarea{
 	resize: none;

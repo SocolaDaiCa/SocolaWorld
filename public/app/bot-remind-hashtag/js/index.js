@@ -1,5 +1,11 @@
+/*
+ * @Author: Socola
+ * @Date:   2018-02-01 20:03:32
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-23 17:52:20
+ */
 'use strict';
-var fb = new FB('./');
+var fb = new FacebookGraph('./');
 var app = new Vue({
 	el: "#app",
 	data: {

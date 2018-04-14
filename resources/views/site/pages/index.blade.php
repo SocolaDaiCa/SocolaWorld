@@ -72,13 +72,13 @@
 							<h2 class="section-heading">{{$category->name}}</h2>
 							{{$category->description ?? ''}}
 							<hr class="primary">
-							<div class="container">
+							<div class="container clearfix">
 								@foreach($category->apps as $app)
-								<div class="col-lg-3 col-md-6 text-center" style="margin-bottom: 70px;">
+								<div class="col-lg-3 col-md-3 text-center" style="height: 250px;">
 									<div class="service-box">
-										<a href="/apps/{{$app->path}}" title=""><i class="{{$app->icon}} text-primary sr-icons fa-4x"></i></a>
-										<h3><a href="/apps/{{$app->path}}">{{$app->name}}</a></h3>
-										<p class="text-muted text-justify">{{$app->descriptions}}</p>
+										<a href="{{ route('apps.show', $app->slug) }}" title=""><i class="{{$app->icon}} text-primary sr-icons fa-4x"></i></a>
+										<h3><a href="{{ route('apps.show', $app->slug) }}">{{$app->name}}</a></h3>
+										<p class="text-muted text-justify">{{$app->description}}</p>
 									</div>
 								</div>
 								@endforeach

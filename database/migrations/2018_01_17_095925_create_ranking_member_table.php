@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:31
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-03-27 14:44:36
+ */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,9 +20,9 @@ class CreateRankingMemberTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('rankingMember', function (Blueprint $table) {
-			$table->string('group_id');
-			$table->string('user_id');
+		Schema::create('ranking_members', function (Blueprint $table) {
+			$table->string('group_id', 20);
+			$table->string('user_id', 20);
 			$table->integer('posts');
 			$table->integer('comments');
 			$table->integer('reactions');
@@ -32,6 +39,6 @@ class CreateRankingMemberTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('rankingMember');
+		Schema::dropIfExists('ranking_members');
 	}
 }
