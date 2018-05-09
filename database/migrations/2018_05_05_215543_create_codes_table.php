@@ -3,15 +3,15 @@
 /**
  * @Author: Socola
  * @Email: TokenTien@gmail.com
- * @Date:   2018-02-01 20:03:31
+ * @Date:   2018-05-05 21:55:43
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-05-06 20:49:05
+ * @Last Modified time: 2018-05-05 22:16:32
  */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppsTable extends Migration
+class CreateCodesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,13 +20,9 @@ class CreateAppsTable extends Migration
      */
     public function up()
     {
-        Schema::create('apps', function (Blueprint $table) {
+        Schema::create('codes', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name');
-            $table->string('icon');
-            $table->string('path');
-            $table->string('category');
-            $table->text('descriptions');
+            $table->text('code');
             $table->timestamps();
         });
     }
@@ -38,6 +34,6 @@ class CreateAppsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apps');
+        Schema::dropIfExists('codes');
     }
 }
