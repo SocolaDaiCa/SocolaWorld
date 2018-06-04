@@ -5,12 +5,13 @@
  * @Email: TokenTien@gmail.com
  * @Date:   2018-03-24 20:17:44
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-03-25 12:45:59
+ * @Last Modified time: 2018-05-14 16:17:39
  */
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -22,8 +23,9 @@ class UsersController extends Controller
 	 */
 	public function index()
 	{
-		$data['users'] = $users = User::with(['permission'])->paginate(10);
-		return view('admin.pages.users-index', $data);
+		return view('admin.pages.users-index', [
+			'users' => User::paginate(10), 
+		]);
 	}
 
 	/**
@@ -33,7 +35,12 @@ class UsersController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('admin.pages.users-create', [
+			'action' => route('admin.users.store'),
+			'method' => 'POST',
+			'legend' => 'Create',
+			'permissions' => Permission::all(),
+		]);
 	}
 
 	/**
@@ -44,7 +51,9 @@ class UsersController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		$data = $request->except(['_token', '_method']);
+		User::create($data);
+		return redirect()->route('admin.users.index');
 	}
 
 	/**
@@ -53,9 +62,11 @@ class UsersController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function show(User $user)
 	{
-		//
+		return view('admin.pages.users-show', [
+			'user' => $user,
+		]);
 	}
 
 	/**
@@ -64,9 +75,14 @@ class UsersController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id)
+	public function edit(User $user)
 	{
-		//
+		return view('admin.pages.users-create', [
+			'action' => route('admin.users.update', $user->id),
+			'method' => 'PUT',
+			'user' => $user,
+			'permissions' => Permission::all(),
+		]);
 	}
 
 	/**
@@ -76,9 +92,11 @@ class UsersController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, $id)
+	public function update(Request $request, User $user)
 	{
-		//
+		$data = $request->except(['_token', "_method"]);
+		$user->update($data);
+		return redirect()->route('admin.users.index');
 	}
 
 	/**

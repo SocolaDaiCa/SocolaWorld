@@ -38,3 +38,4 @@
 <!-- Custom Theme Scripts -->
 <script src="{{asset('admin/build/js/custom.min.js')}}"></script>
 <script type="{{asset('vendor/vue/vue.min.js')}}"></script>
+<script src="{{ asset('admin/js/apps.js') }}"></script>

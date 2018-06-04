@@ -5,7 +5,7 @@
  * @Email: TokenTien@gmail.com
  * @Date:   2018-02-01 20:03:30
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-04-09 06:14:47
+ * @Last Modified time: 2018-05-14 16:44:42
  */
 namespace App\Http\Controllers;
 use App\Models\App;
@@ -65,7 +65,8 @@ class SiteController extends Controller
 	{
 		$clientID = '425249171186475';
 		$redirectURI = route('site.facebook.callback');
-		$url = FacebookGraph::login($clientID, $redirectURI);
+		$url = (new FacebookGraph())->login([], $clientID, $redirectURI);
+		echo $url;
 		return redirect($url);
 	}
 

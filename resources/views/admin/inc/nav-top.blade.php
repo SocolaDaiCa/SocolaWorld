@@ -8,7 +8,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="">
 					<a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						<img src="{{$user->avatar}}" alt="">{{$user->name}}
+						<img src="{{$me->avatar}}" alt="">{{$me->name}}
 						<span class=" fa fa-angle-down"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -32,7 +32,7 @@
 						@for($i = 1; $i <= 5; $i++)
 						<li>
 							<a>
-								<span class="image"><img src="{{$user->avatar}}" alt="Profile Image" /></span>
+								<span class="image"><img src="{{$me->avatar}}" alt="Profile Image" /></span>
 								<span>
 									<span>John Smith</span>
 									<span class="time">3 mins ago</span>

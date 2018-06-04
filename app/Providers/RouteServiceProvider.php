@@ -5,7 +5,7 @@
  * @Email: TokenTien@gmail.com
  * @Date:   2018-02-01 20:03:30
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-03-25 14:01:04
+ * @Last Modified time: 2018-05-14 16:32:21
  */
 namespace App\Providers;
 
@@ -82,7 +82,7 @@ class RouteServiceProvider extends ServiceProvider
 
 	protected function mapAdminRoutes()
 	{
-		Route::middleware(['web', 'AppsMiddleware'])
+		Route::middleware(['web', 'admin'])
 			->namespace($this->namespace)
 			->prefix('admin')
 			->name('admin.')
@@ -100,7 +100,7 @@ class RouteServiceProvider extends ServiceProvider
 
 	protected function mapAppsRoutes()
 	{
-		Route::middleware(['web', 'AppsMiddleware'])
+		Route::middleware(['web', 'user'])
 			->namespace($this->namespace)
 			->prefix('apps')
 			->name('apps.')

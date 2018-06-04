@@ -5,13 +5,14 @@
  * @Email: TokenTien@gmail.com
  * @Date:   2018-03-24 14:53:03
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-03-25 12:57:09
+ * @Last Modified time: 2018-05-14 14:43:47
  */
-
-Route::resource('dashboard', 'Admin\DashboardController');
-Route::resource('users', 'Admin\UsersController');
-Route::resource('categorys', 'Admin\CategorysController');
-Route::resource('apps', 'Admin\AppsController');
+Route::resources([
+	'apps'       => 'Admin\AppsController',
+	'categories' => 'Admin\CategoriesController',
+	'dashboard'  => 'Admin\DashboardController',
+	'users'      => 'Admin\UsersController',
+]);
 // Route::group(['prefix' => 'admin', 'middleware' => ['AppsMiddleware']], function(){
 	// Route::get('/', 'AdminController@index');
 	// Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');

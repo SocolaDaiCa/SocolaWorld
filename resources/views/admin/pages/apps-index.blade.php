@@ -1,16 +1,13 @@
-@extends('admin.layouts.base') @section('header') @endsection @section('css')
-<link rel="stylesheet" type="text/css" href="{{asset('admin/css/apps.css')}}"> @endsection @section('js')
-<script src="{{ asset('admin/js/apps.js') }}"></script>
-@endsection @section('content')
+@extends('admin.layouts.base')
+@section('content')
 <table class="table table-bordered table-hover table-apps">
 	<thead>
 		<tr>
 			<th></th>
 			<th>App</th>
 			<th style="width: 10px;">Icon</th>
-			<th>Path</th>
-			<th>Categry</th>
-			
+			<th>Slug</th>
+			<th>Category</th>
 			<th>Descriptions</th>
 			<th>Action</th>
 		</tr>
@@ -19,17 +16,22 @@
 		@foreach($apps as $index => $app)
 		<tr>
 			<td class="text-center">{{$index + 1}}</td>
-			<td>{{$app->name}}</td>
-			<td class="text-center"><i class="{{$app->icon}}"></i></td>
+			<td><a href="{{ route('apps.show', $app->slug) }}"><b>{{$app->name}}</b></a></td>
+			<td class="text-center">
+				<i class="{{$app->icon}}"></i>
+			</td>
 			<td>{{$app->slug}}</td>
-			<td>{{$app->category}}</td>
-			
+			<td>{{$app->category->name}}</td>
 			<td>{{$app->descriptions}}</td>
 			<td>
 				<a href="{{ route('admin.apps.edit', $app->id) }}">
 					<i class="fa fa-cog"></i>
 				</a>
-				<a href="{{ route('admin.apps.destroy', $app->id) }}?_method=delete" onclick="actionDelete()"><i class="fa fa-trash"></i></a>
+				<form action="{{ route('admin.apps.destroy', $app->id) }}" method="POST" class="m0 p0 inline">
+					@csrf
+					@method('DELETE')
+					<button type="submit" onclick="return confirm('Xóa nhé')" class="btn-link m0 p0"><i class="fa fa-trash"></i></button>
+				</form>
 			</td>
 		</tr>
 		@endforeach

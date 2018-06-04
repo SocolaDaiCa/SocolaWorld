@@ -5,7 +5,7 @@
  * @Email: TokenTien@gmail.com
  * @Date:   2018-03-25 12:51:26
  * @Last Modified by:   Socola
- * @Last Modified time: 2018-04-10 18:10:00
+ * @Last Modified time: 2018-05-14 14:15:42
  */
 namespace App\Http\Controllers\Admin;
 
@@ -98,9 +98,11 @@ class AppsController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, App $app)
     {
-        //
+        $data = $request->except(['_token', "_method"]);
+        $app->update($data);
+        return redirect()->route('admin.apps.index');
     }
 
     /**
@@ -109,8 +111,9 @@ class AppsController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(App $app)
     {
-        echo('destroy');
+        $app->delete();
+        return redirect()->back();
     }
 }

@@ -10,11 +10,11 @@
 		<!-- menu profile quick info -->
 		<div class="profile clearfix">
 			<div class="profile_pic">
-				<img src="{{$user->avatar}}" alt="..." class="img-circle profile_img">
+				<img src="{{$me->avatar}}" alt="..." class="img-circle profile_img">
 			</div>
 			<div class="profile_info">
 				<span>Welcome,</span>
-				<h2>{{$user->name}}</h2>
+				<h2>{{$me->name}}</h2>
 			</div>
 		</div>
 		<!-- /menu profile quick info -->
@@ -33,15 +33,15 @@
 							<i class="fa fa-users"></i> User</a>
 					</li>
 					<li>
-						<a href="{{route('admin.categorys.index')}}">
+						<a href="{{route('admin.categories.index')}}">
 							<i class="fa fa-book"></i> Categorys</a>
 						<ul class="nav child_menu">
 							<li class="hidden">
-								<a href="{{route('admin.categorys.index')}}">
+								<a href="{{route('admin.categories.index')}}">
 									<i class="fa fa-book"></i> Categorys</a>
 							</li>
 							<li>
-								<a href="{{ route('admin.categorys.create') }}" title=""> Create Category</a>
+								<a href="{{ route('admin.categories.create') }}" title=""> Create Category</a>
 							</li>
 						</ul>
 					</li>

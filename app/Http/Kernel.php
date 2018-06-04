@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * @Author: Socola
+ * @Email: TokenTien@gmail.com
+ * @Date:   2018-02-01 20:03:29
+ * @Last Modified by:   Socola
+ * @Last Modified time: 2018-05-14 16:35:55
+ */
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -43,6 +50,13 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+        'user' => [
+            \App\Http\Middleware\User::class
+        ],
+        'admin' => [
+            \App\Http\Middleware\User::class,
+            \App\Http\Middleware\Admin::class
+        ]
     ];
 
     /**
