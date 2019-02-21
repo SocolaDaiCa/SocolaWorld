@@ -10,17 +10,19 @@
 
 Route::get('token', 'AppsController@getToken');
 
-Route::resources([
-	''                     => 'AppsController',
-	'auto-beep'            => 'Apps\AutoBeepController',
-	'bot-remind-hashtag'   => 'Apps\BotRemindHashTagController',
-	'check-live-token'     => 'Apps\CheckLiveTokenController',
-	'encode-decode'        => 'Apps\EncodeDecodeController',
-	'filter-comments'      => 'Apps\FilterCommentsController',
-	'giveway-checker'      => 'Apps\GivewayChecker',
-	'member-checker'       => 'Apps\MembersCheckerController',
-	'post-multiple-groups' => 'Apps\PostMultipleGroupsController',
-	'ranking-member'       => 'Apps\RankingMemberController',
-	'ranks'                => 'Apps\RankingMemberController',
-	'short-link'           => 'Apps\ShortLinkController',
-]);
+Route::middleware('auth')->group(function () {
+	Route::resources([
+		''                     => 'AppsController',
+		'auto-beep'            => 'Apps\AutoBeepController',
+		'bot-remind-hashtag'   => 'Apps\BotRemindHashTagController',
+		'check-live-token'     => 'Apps\CheckLiveTokenController',
+		'encode-decode'        => 'Apps\EncodeDecodeController',
+		'filter-comments'      => 'Apps\FilterCommentsController',
+		'giveway-checker'      => 'Apps\GivewayChecker',
+		'member-checker'       => 'Apps\MembersCheckerController',
+		'post-multiple-groups' => 'Apps\PostMultipleGroupsController',
+		'ranking-member'       => 'Apps\RankingMemberController',
+		'ranks'                => 'Apps\RankingMemberController',
+		'short-link'           => 'Apps\ShortLinkController',
+	]);
+});	
