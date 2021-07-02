@@ -110,21 +110,31 @@ class TestController extends Controller
 
     public function randomImage()
     {
-        $directory = 'F:/'.'girl/';
+        $directory = 'D:/Socola Disk/images/'.'girls/';
         $images = scandir($directory);
+
+        // $images = array_chunk($images, 50)[0];
+        // return $images;
+        // return 'ngu';
+        // die;
         $image = $directory . $images[2];
         $type = pathinfo($image, PATHINFO_EXTENSION);
         $imageBase64 = 'data:image/' . $type . ';base64,' . base64_encode(file_get_contents($image));
 
         $arr = explode('.', $image);
         $extension = array_pop($arr);
-        $name = 1;
-        while(file_exists('F:/'."save/{$name}.{$extension}")){
+        $name = explode('/', array_pop($arr));
+        $name = array_pop($name);
+        // echo $name . $extension;
+        // die;
+        // $name = 1;
+        while(file_exists('D:/Socola Disk/images/'."save/{$name}.{$extension}")){
             $name++;
         }
-        $newPath = "F:/save/{$name}.{$extension}";
+        $newPath = "D:/Socola Disk/images/save/{$name}.{$extension}";
         rename($image, $newPath);
-        return $imageBase64;
+        return $newPath;
+        // return $imageBase64;
     }
 
     public function moveImage($path)
